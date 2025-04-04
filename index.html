@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="blog-title"><a href="#">My Blog</a></h1>
+            <div class="search">
+                <button class="search-expand flat-icon-button ripple" aria-label="Search">
+                    <span class="search-expand-text">Search</span>
+                    <i class="fas fa-search"></i>
+                </button>
+                <form class="search-form" action="#" method="get">
+                    <input type="text" name="q" placeholder="Search This Blog" aria-label="Search This Blog">
+                    <button type="submit" class="search-submit flat-icon-button ripple">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <button class="hamburger-menu flat-icon-button ripple" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Main Content -->
+    <div class="container">
+        <main class="main">
+            <article class="post">
+                <h2 class="post-title"><a href="#">Featured Post Title</a></h2>
+                <div class="post-meta">
+                    <span class="byline">By Author</span> • <span class="timestamp">April 04, 2025</span>
+                </div>
+                <div class="post-body">
+                    <p>This is a snippet of the featured post. It showcases the content in an engaging way...</p>
+                </div>
+                <div class="post-footer">
+                    <button class="sharing-button flat-button ripple">Share</button>
+                    <ul class="share-buttons hidden">
+                        <li><a href="#" class="sharing-element-twitter">Twitter</a></li>
+                        <li><a href="#" class="sharing-element-facebook">Facebook</a></li>
+                        <li><a href="#" class="sharing-element-link">Copy Link</a></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="post">
+                <h2 class="post-title"><a href="#">Regular Post Title</a></h2>
+                <div class="post-meta">
+                    <span class="byline">By Author</span> • <span class="timestamp">April 03, 2025</span>
+                </div>
+                <div class="post-body">
+                    <p>A brief snippet of a regular post goes here...</p>
+                </div>
+                <div class="post-footer">
+                    <a href="#" class="jump-link flat-button ripple">Read More</a>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar sidebar-invisible">
+            <div class="navigation">
+                <button class="sidebar-back flat-icon-button ripple"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="widget">
+                <img src="https://via.placeholder.com/200" alt="Sidebar Image">
+            </div>
+            <div class="widget social-links">
+                <div id="social-media-links">
+                    <a href="https://urki.bandcamp.com/" target="_blank"><i class="fab fa-bandcamp social-icon"></i></a> |
+                    <a href="https://x.com/Urkiut" target="_blank"><i class="fab fa-x social-icon"></i></a> |
+                    <a href="https://www.youtube.com/@Urki." target="_blank"><i class="fab fa-youtube social-icon"></i></a>
+                </div>
+            </div>
+            <div class="widget">
+                <details class="collapsible">
+                    <summary>Archive</summary>
+                    <ul>
+                        <li><a href="#">April 2025 (2)</a></li>
+                        <li><a href="#">March 2025 (1)</a></li>
+                    </ul>
+                </details>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 My Blog</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
