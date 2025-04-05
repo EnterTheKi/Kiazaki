@@ -8,7 +8,7 @@
     --accent-color: #444; /* Dark gray for buttons */
     --highlight-color: #fff; /* White for highlights */
     --border-color: #666; /* Mid-gray for borders */
-    --spark-color: rgba(255, 255, 255, 0.5);
+    --leaf-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Base Styles */
@@ -21,7 +21,7 @@ body, .site-container {
     overflow-x: hidden;
 }
 
-/* Vintage Overlay */
+/* Vintage Overlay (Ink Texture) */
 .site-container::after {
     content: "";
     position: fixed;
@@ -29,7 +29,7 @@ body, .site-container {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('assets/textures/noise.png');
+    background-image: url('assets/textures/ink-noise.png'); /* Replace with ink texture if available */
     opacity: 0.1;
     pointer-events: none;
     z-index: 9999;
@@ -123,7 +123,7 @@ body, .site-container {
 .popup-content {
     position: absolute;
     top: 50px;
-    right: 0; /* Align to right */
+    right: 0;
     background: var(--accent-color);
     padding: 15px;
     border: 1px solid var(--border-color);
@@ -152,6 +152,7 @@ body, .site-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
 }
 .main-image {
     width: 100%;
@@ -159,7 +160,7 @@ body, .site-container {
     border-radius: 15px;
     border: 2px solid var(--border-color);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    animation: flicker 5s infinite alternate;
+    animation: sway 6s infinite ease-in-out;
 }
 
 /* Header */
@@ -178,27 +179,28 @@ header h1 {
     letter-spacing: 3px;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
-.tesla-coil {
+.vagabond {
     position: absolute;
     top: 20px;
     width: 50px;
     height: 100px;
-    background: url('assets/images/tesla-coil.png') no-repeat center;
+    background: url('assets/images/katana-silhouette.png') no-repeat center; /* Replace with katana image */
     background-size: contain;
     opacity: 0.7;
 }
-.tesla-coil.left { left: 20px; }
-.tesla-coil.right { right: 20px; transform: scaleX(-1); }
-.tesla-coil::after {
+.vagabond.left { left: 20px; }
+.vagabond.right { right: 20px; transform: scaleX(-1); }
+.vagabond::after {
     content: '';
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background: var(--spark-color);
+    width: 10px;
+    height: 10px;
+    background: var(--leaf-color);
     border-radius: 50%;
-    top: random(10, 90)%;
-    left: random(10, 90)%;
-    animation: spark 2s infinite;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: leaf-fall 3s infinite ease-out;
 }
 .art-deco-line {
     position: absolute;
@@ -391,14 +393,13 @@ footer p {
 }
 
 /* Animations */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.95; }
+@keyframes sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
 }
-@keyframes spark {
-    0% { transform: translate(0, 0); opacity: 0; }
-    50% { transform: translate(random(-10, 10)px, random(-10, 10)px); opacity: 1; }
-    100% { transform: translate(0, 0); opacity: 0; }
+@keyframes leaf-fall {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(50px); opacity: 0; }
 }
 @keyframes typing {
     from { width: 0; }
