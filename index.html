@@ -7,42 +7,47 @@
     <link rel="icon" type="image/png" href="assets/images/tesla-coil-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="site-container">
-        <!-- Search Widget -->
-        <div class="search-widget-container" id="search-widget">
-            <div class="search-input-wrapper">
-                <input type="search" id="pageSearchInput" class="search-input-field" placeholder kiazaki..." autocomplete="off"/>
-                <div class="search-results" id="searchResults"></div>
+        <!-- Right-Side Widgets -->
+        <div class="right-widgets">
+            <!-- Search Widget -->
+            <div class="search-widget-container" id="search-widget">
+                <div class="search-input-wrapper">
+                    <input type="search" id="pageSearchInput" class="search-input-field" placeholder="Search Kiazaki..." autocomplete="off"/>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+                <button class="search-toggle-btn" id="searchToggle" aria-label="Toggle Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
-            <button class="search-toggle-btn" id="searchToggle" aria-label="Toggle Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
 
-        <!-- Popup Menu -->
-        <div class="popup-menu" id="popup-menu">
-            <button class="popup-toggle" id="popup-toggle"><i class="fa-solid fa-bars"></i></button>
-            <div class="popup-content hidden">
-                <a href="https://urki.bandcamp.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bandcamp"></i></a>
-                <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.youtube.com/@Urki" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+            <!-- Popup Menu -->
+            <div class="popup-menu" id="popup-menu">
+                <button class="popup-toggle" id="popup-toggle"><i class="fa-solid fa-bars"></i></button>
+                <div class="popup-content hidden">
+                    <a href="https://urki.bandcamp.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bandcamp"></i></a>
+                    <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.youtube.com/@Urki" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
         </div>
 
         <!-- Main Image -->
         <div class="main-image-container">
-            <img src="https://placehold.co/1200x400/1a1a1a/e0e0e0/png?text=Kiazaki+Main+Image" alt="Kiazaki Main Image" class="main-image">
+            <img src="https://placehold.co/1200x400/1a1a1a/fff/png?text=Kiazaki+1930s+Elegance" alt="Kiazaki Main Image" class="main-image">
         </div>
 
         <header>
             <h1>Kiazaki</h1>
             <div class="tesla-coil left"></div>
             <div class="tesla-coil right"></div>
+            <div class="art-deco-line top"></div>
+            <div class="art-deco-line bottom"></div>
         </header>
 
         <nav class="filter-nav">
@@ -58,36 +63,69 @@
             <div id="home-content" class="page-content">
                 <section class="intro-section">
                     <h2>About Kiazaki</h2>
-                    <p>Welcome to Kiazaki, a digital sanctuary where the enigmatic spirit of Nikola Tesla meets a mysterious, timeless aesthetic. This space is a fusion of creativity and curiosity, echoing the hum of electricity and the whispers of the past.</p>
+                    <p class="typewriter">Step into Kiazaki, an elegant echo of the 1930s where Nikola Tesla’s brilliance illuminates the shadows. This is a sanctuary of mystery and refinement, where the past hums with electric grace.</p>
                 </section>
                 <div class="blog-posts">
                     <article class="blog-post">
-                        <h3>Resonance Unleashed</h3>
-                        <p>April 05, 2025 - Exploring the unseen vibrations that connect us all...</p>
+                        <a href="#" class="blog-link" data-post-id="post-1">
+                            <h3>Keep it Enter The 気 —【 未知 】</h3>
+                            <p>April 05, 2025 - A new era begins...</p>
+                        </a>
                     </article>
                     <article class="blog-post">
-                        <h3>Tesla's Echo</h3>
-                        <p>March 20, 2025 - A reflection on the genius that lit the world...</p>
+                        <a href="#" class="blog-link" data-post-id="post-2">
+                            <h3>Keep it Lō-Ki ·【 ローキー 】</h3>
+                            <p>March 20, 2025 - Stay humble in the shadows...</p>
+                        </a>
+                    </article>
+                    <article class="blog-post">
+                        <a href="#" class="blog-link" data-post-id="post-3">
+                            <h3>Guide —【 導き手 】</h3>
+                            <p>February 15, 2025 - A silent beacon through the fog...</p>
+                        </a>
                     </article>
                 </div>
+            </div>
+
+            <!-- Single Post View -->
+            <div id="post-content" class="page-content hidden"></div>
+
+            <!-- Hidden Post Content -->
+            <div id="post-1-content" class="hidden">
+                <button class="back-btn">← Back to Home</button>
+                <h1>Keep it Enter The 気 —【 未知 】</h1>
+                <p>Welcome to a New Era. Welcome to your Inner Child.</p>
+                <img src="https://placehold.co/600x400/1a1a1a/fff/png?text=Enter+The+気" alt="Enter The 気 Photo" class="post-image">
+            </div>
+            <div id="post-2-content" class="hidden">
+                <button class="back-btn">← Back to Home</button>
+                <h1>Keep it Lō-Ki ·【 ローキー 】</h1>
+                <p>Be modest. Be humble. Stay Lō-Ki ローキー.</p>
+                <img src="https://placehold.co/600x400/1a1a1a/fff/png?text=Lō-Ki" alt="Lō-Ki Photo" class="post-image">
+            </div>
+            <div id="post-3-content" class="hidden">
+                <button class="back-btn">← Back to Home</button>
+                <h1>Guide —【 導き手 】</h1>
+                <p>Follow the unseen hand that threads through the mist, guiding you to truths shrouded in silence.</p>
+                <img src="https://placehold.co/600x400/1a1a1a/fff/png?text=Guide" alt="Guide Photo" class="post-image">
             </div>
 
             <!-- Imaginary Nostalgia Gallery -->
             <div id="nostalgia-content" class="gallery-grid hidden">
                 <article class="gallery-card" data-tags="1930s mystery tesla">
                     <div class="card-image-placeholder">
-                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=1930s+Tesla+Lab" alt="1930s Tesla Lab">
+                        <img src="https://placehold.co/300x200/1a1a1a/fff/png?text=Tesla+Lab+1930s" alt="Tesla Lab 1930s">
                     </div>
                     <div class="card-details">
-                        <h3>Tesla's Laboratory</h3>
+                        <h3>Tesla’s Atelier</h3>
                     </div>
                 </article>
                 <article class="gallery-card" data-tags="1930s mystery nostalgia">
                     <div class="card-image-placeholder">
-                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Old+Radio" alt="Old Radio">
+                        <img src="https://placehold.co/300x200/1a1a1a/fff/png?text=Radio+Elegance" alt="Radio Elegance">
                     </div>
                     <div class="card-details">
-                        <h3>Vintage Waves</h3>
+                        <h3>Radio Nocturne</h3>
                     </div>
                 </article>
             </div>
@@ -96,18 +134,18 @@
             <div id="kiut-content" class="gallery-grid hidden">
                 <article class="gallery-card" data-tags="art tesla kiazaki">
                     <div class="card-image-placeholder">
-                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Electric+Dreams" alt="Electric Dreams">
+                        <img src="https://placehold.co/300x200/1a1a1a/fff/png?text=Electric+Grace" alt="Electric Grace">
                     </div>
                     <div class="card-details">
-                        <h3>Electric Dreams</h3>
+                        <h3>Electric Grace</h3>
                     </div>
                 </article>
                 <article class="gallery-card" data-tags="art kiazaki">
                     <div class="card-image-placeholder">
-                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Silent+Spark" alt="Silent Spark">
+                        <img src="https://placehold.co/300x200/1a1a1a/fff/png?text=Silent+Harmony" alt="Silent Harmony">
                     </div>
                     <div class="card-details">
-                        <h3>Silent Spark</h3>
+                        <h3>Silent Harmony</h3>
                     </div>
                 </article>
             </div>
@@ -115,6 +153,8 @@
 
         <footer>
             <p>Kiazaki 気</p>
+            <div class="art-deco-line top"></div>
+            <div class="art-deco-line bottom"></div>
         </footer>
     </div>
 
