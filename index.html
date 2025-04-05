@@ -16,7 +16,7 @@
         <!-- Search Widget -->
         <div class="search-widget-container" id="search-widget">
             <div class="search-input-wrapper">
-                <input type="search" id="pageSearchInput" class="search-input-field" placeholder="Search Kiazaki..." autocomplete="off"/>
+                <input type="search" id="pageSearchInput" class="search-input-field" placeholder kiazaki..." autocomplete="off"/>
                 <div class="search-results" id="searchResults"></div>
             </div>
             <button class="search-toggle-btn" id="searchToggle" aria-label="Toggle Search">
@@ -28,11 +28,15 @@
         <div class="popup-menu" id="popup-menu">
             <button class="popup-toggle" id="popup-toggle"><i class="fa-solid fa-bars"></i></button>
             <div class="popup-content hidden">
-                <img src="assets/images/kiazaki-logo.png" alt="Kiazaki Logo" class="popup-logo">
-                <a href="https://urki.bandcamp.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bandcamp"></i> Bandcamp</a>
-                <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X</a>
-                <a href="https://www.youtube.com/@Urki" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                <a href="https://urki.bandcamp.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bandcamp"></i></a>
+                <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@Urki" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
             </div>
+        </div>
+
+        <!-- Main Image -->
+        <div class="main-image-container">
+            <img src="https://placehold.co/1200x400/1a1a1a/e0e0e0/png?text=Kiazaki+Main+Image" alt="Kiazaki Main Image" class="main-image">
         </div>
 
         <header>
@@ -52,14 +56,19 @@
         <main class="main-content-area">
             <!-- Home Page -->
             <div id="home-content" class="page-content">
-                <h2>Welcome to Kiazaki</h2>
-                <p>A mysterious realm inspired by the enigmatic genius of Nikola Tesla. Explore a world where electricity hums through the air, and creativity sparks like a coil in the dark.</p>
+                <section class="intro-section">
+                    <h2>About Kiazaki</h2>
+                    <p>Welcome to Kiazaki, a digital sanctuary where the enigmatic spirit of Nikola Tesla meets a mysterious, timeless aesthetic. This space is a fusion of creativity and curiosity, echoing the hum of electricity and the whispers of the past.</p>
+                </section>
                 <div class="blog-posts">
                     <article class="blog-post">
-                        <h3>Latest Experiment</h3>
-                        <p>April 05, 2025 - A new resonance in the ether...</p>
+                        <h3>Resonance Unleashed</h3>
+                        <p>April 05, 2025 - Exploring the unseen vibrations that connect us all...</p>
                     </article>
-                    <!-- Add more blog posts as needed -->
+                    <article class="blog-post">
+                        <h3>Tesla's Echo</h3>
+                        <p>March 20, 2025 - A reflection on the genius that lit the world...</p>
+                    </article>
                 </div>
             </div>
 
@@ -67,33 +76,45 @@
             <div id="nostalgia-content" class="gallery-grid hidden">
                 <article class="gallery-card" data-tags="1930s mystery tesla">
                     <div class="card-image-placeholder">
-                        <img src="assets/images/tesla-lab.jpg" alt="Tesla Lab 1930s">
+                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=1930s+Tesla+Lab" alt="1930s Tesla Lab">
                     </div>
                     <div class="card-details">
                         <h3>Tesla's Laboratory</h3>
-                        <p>A glimpse into the 1930s, shrouded in electric mist.</p>
                     </div>
                 </article>
-                <!-- Add more gallery items -->
+                <article class="gallery-card" data-tags="1930s mystery nostalgia">
+                    <div class="card-image-placeholder">
+                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Old+Radio" alt="Old Radio">
+                    </div>
+                    <div class="card-details">
+                        <h3>Vintage Waves</h3>
+                    </div>
+                </article>
             </div>
 
             <!-- Kiūt Art Page -->
             <div id="kiut-content" class="gallery-grid hidden">
                 <article class="gallery-card" data-tags="art tesla kiazaki">
                     <div class="card-image-placeholder">
-                        <img src="assets/images/art-piece1.jpg" alt="Kiazaki Art">
+                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Electric+Dreams" alt="Electric Dreams">
                     </div>
                     <div class="card-details">
                         <h3>Electric Dreams</h3>
-                        <p>My latest creation, infused with Tesla's spirit.</p>
                     </div>
                 </article>
-                <!-- Add more art pieces -->
+                <article class="gallery-card" data-tags="art kiazaki">
+                    <div class="card-image-placeholder">
+                        <img src="https://placehold.co/300x200/1a1a1a/e0e0e0/png?text=Silent+Spark" alt="Silent Spark">
+                    </div>
+                    <div class="card-details">
+                        <h3>Silent Spark</h3>
+                    </div>
+                </article>
             </div>
         </main>
 
         <footer>
-            <p>© <span id="copyright-year"></span> Kiazaki - Powered by Tesla's Vision</p>
+            <p>Kiazaki 気</p>
         </footer>
     </div>
 
