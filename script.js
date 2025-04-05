@@ -12,7 +12,6 @@
     const searchResultsContainer = container.querySelector('#searchResults');
     const popupToggle = container.querySelector('#popup-toggle');
     const popupContent = container.querySelector('.popup-content');
-    const yearSpan = container.querySelector('#copyright-year');
 
     function updateDisplay(targetFilter) {
         filterButtons.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-filter') === targetFilter));
@@ -41,7 +40,6 @@
         const term = pageSearchInput.value.toLowerCase();
         searchResultsContainer.innerHTML = '';
         if (term.length < 2) return;
-        // Basic search logic (expand as needed)
         Object.entries(contentSections).forEach(([key, section]) => {
             section.querySelectorAll('h3, p').forEach(el => {
                 if (el.textContent.toLowerCase().includes(term)) {
@@ -60,6 +58,5 @@
         popupContent.classList.toggle('hidden');
     });
 
-    yearSpan.textContent = new Date().getFullYear();
     updateDisplay('home');
 })();
