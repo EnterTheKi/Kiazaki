@@ -113,7 +113,6 @@ body, .site-container {
 }
 
 /* Popup Menu */
-/* Popup Menu */
 .popup-menu {
     display: flex;
     align-items: center;
@@ -142,7 +141,7 @@ body, .site-container {
     border: 2px solid var(--border-color);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    width: 200px; /* Increased width to fit larger logo */
+    width: 180px; /* Reduced from 200px to fit 2x logo */
     text-align: center;
     transform-origin: top center;
 }
@@ -159,7 +158,7 @@ body, .site-container {
     margin-bottom: 15px; /* Space below the box */
 }
 .popup-content .popup-logo {
-    width: 150px; /* 3x the original 50px */
+    width: 100px; /* 2x the original 50px */
     height: auto;
     display: block;
     margin-left: auto;
