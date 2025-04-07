@@ -140,7 +140,7 @@ body, .site-container {
     border: 2px solid var(--border-color);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    width: 180px;
+    width: 220px;
     text-align: center;
     transform-origin: top center;
 }
@@ -157,7 +157,7 @@ body, .site-container {
     margin-bottom: 15px;
 }
 .popup-content .popup-logo {
-    width: 100px;
+    width: 150px;
     height: auto;
     display: block;
     margin-left: auto;
@@ -166,8 +166,8 @@ body, .site-container {
 .popup-content a {
     display: block;
     color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 10px 0;
+    font-size: 3rem; /* 2x the original 1.5rem */
+    margin: 15px 0;
     text-decoration: none;
     transition: all 0.3s ease;
 }
