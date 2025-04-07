@@ -142,7 +142,7 @@ body, .site-container {
     border: 2px solid var(--border-color);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    width: 150px;
+    width: 200px; /* Increased width to fit larger logo */
     text-align: center;
     transform-origin: top center;
 }
@@ -152,10 +152,15 @@ body, .site-container {
 .popup-content:not(.hidden) {
     animation: thirties-bounce 0.6s ease-out forwards;
 }
+.popup-content .logo-box {
+    background: #2a2a2a; /* Darker than --accent-color (#444) */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space below the box */
+}
 .popup-content .popup-logo {
-    width: 50px;
+    width: 150px; /* 3x the original 50px */
     height: auto;
-    margin-bottom: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -172,73 +177,6 @@ body, .site-container {
     color: var(--highlight-color);
     text-shadow: 0 0 5px var(--highlight-color);
 }
-
-/* Main Image */
-.main-image-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-}
-.main-image {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: 2px solid var(--border-color);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    animation: sway 6s infinite ease-in-out;
-}
-
-/* Header */
-header {
-    position: relative;
-    text-align: center;
-    padding: 30px 0;
-    border-bottom: 2px solid var(--border-color);
-    background: linear-gradient(180deg, #222, #1a1a1a);
-    border-radius: 0 0 15px 15px;
-}
-header h1 {
-    font-family: 'Henshin', serif;
-    font-size: 4rem;
-    letter-spacing: 3px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    transform: rotate(-2deg);
-    text-transform: none;
-}
-.vagabond {
-    position: absolute;
-    top: 20px;
-    width: 50px;
-    height: 100px;
-    background: url('assets/images/katana-silhouette.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.7;
-}
-.vagabond.left { left: 20px; }
-.vagabond.right { right: 20px; transform: scaleX(-1); }
-.vagabond::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--leaf-color);
-    border-radius: 50%;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: leaf-fall 3s infinite ease-out;
-}
-.art-deco-line {
-    position: absolute;
-    left: 10%;
-    width: 80%;
-    height: 1px;
-    background: var(--border-color);
-}
-.art-deco-line.top { top: 10px; }
-.art-deco-line.bottom { bottom: 10px; }
 
 /* Navigation */
 .filter-nav {
