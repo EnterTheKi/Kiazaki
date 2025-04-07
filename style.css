@@ -11,6 +11,14 @@
     --leaf-color: rgba(255, 255, 255, 0.3);
 }
 
+
+@font-face {
+    font-family: 'Henshin';
+    src: url('assets/fonts/henshin-sans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Base Styles */
 body, .site-container {
     font-family: 'EB Garamond', serif;
@@ -177,11 +185,12 @@ header {
     border-radius: 0 0 15px 15px;
 }
 header h1 {
-    font-family: 'Uncial Antiqua', serif;
+    font-family: 'Henshin', serif;
     font-size: 4rem;
     letter-spacing: 3px;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     transform: rotate(-2deg);
+    text-transform: none;
 }
 .vagabond {
     position: absolute;
