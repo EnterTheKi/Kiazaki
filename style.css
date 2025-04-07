@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Henshin';
-    src: url('assets/fonts/henshin-sans.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/fonts/henshin-sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -113,6 +113,7 @@ body, .site-container {
 }
 
 /* Popup Menu */
+/* Popup Menu */
 .popup-menu {
     display: flex;
     align-items: center;
@@ -143,39 +144,21 @@ body, .site-container {
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
     width: 150px;
     text-align: center;
-    transform-origin: top center; /* Bounce from the top */
+    transform-origin: top center;
 }
 .popup-content.hidden {
     display: none;
 }
 .popup-content:not(.hidden) {
-    animation: thirties-bounce 0.6s ease-out forwards; /* Apply bounce when not hidden */
-}
-.popup-content.hidden {
-    display: none;
+    animation: thirties-bounce 0.6s ease-out forwards;
 }
 .popup-content .popup-logo {
-    width: 50px; /* Adjust size as needed */
+    width: 50px;
     height: auto;
-    margin-bottom: 15px; /* Space below logo */
+    margin-bottom: 15px;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Center the logo */
-}
-.popup-content a {
-    display: block;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 10px 0;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.popup-content a:hover {
-    color: var(--highlight-color);
-    text-shadow: 0 0 5px var(--highlight-color);
-}
-.popup-content.hidden {
-    display: none;
+    margin-right: auto;
 }
 .popup-content a {
     display: block;
