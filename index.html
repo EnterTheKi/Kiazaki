@@ -27,64 +27,18 @@
             </div>
 
             <!-- Popup Menu -->
-            .popup-menu {
-    display: flex;
-    align-items: center;
-}
-.popup-toggle {
-    background: var(--accent-color);
-    border: none;
-    color: var(--text-color);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.popup-toggle:hover {
-    background: var(--highlight-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 10px var(--highlight-color);
-}
-.popup-content {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: var(--accent-color);
-    padding: 20px;
-    border: 2px solid var(--border-color);
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    width: 150px;
-    text-align: center;
-    transform-origin: top center;
-}
-.popup-content.hidden {
-    display: none;
-}
-.popup-content:not(.hidden) {
-    animation: thirties-bounce 0.6s ease-out forwards;
-}
-.popup-content .popup-logo {
-    width: 50px;
-    height: auto;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.popup-content a {
-    display: block;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 10px 0;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.popup-content a:hover {
-    color: var(--highlight-color);
-    text-shadow: 0 0 5px var(--highlight-color);
-}
+            <div class="popup-menu" id="popup-menu">
+                <button class="popup-toggle" id="popup-toggle"><i class="fa-solid fa-bars"></i></button>
+                <div class="popup-content hidden">
+                    <div class="logo-box">
+                        <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/kiazaki-logo.png" alt="Kiazaki Logo" class="popup-logo">
+                    </div>
+                    <a href="https://urki.bandcamp.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bandcamp"></i></a>
+                    <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.youtube.com/@Urki." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
 
         <!-- Main Image -->
         <div class="main-image-container">
@@ -210,5 +164,4 @@
 
     <script src="script.js" defer></script>
 </body>
-</html>
 </html>
