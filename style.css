@@ -11,7 +11,12 @@
     --leaf-color: rgba(255, 255, 255, 0.3);
 }
 
-
+@font-face {
+    font-family: 'Henshin';
+    src: url('assets/fonts/henshin-sans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 /* Base Styles */
@@ -180,12 +185,12 @@ header {
     border-radius: 0 0 15px 15px;
 }
 header h1 {
-    font-family: 'Shojumaru', serif;
+    font-family: 'Henshin', serif;
     font-size: 4rem;
     letter-spacing: 3px;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     transform: rotate(-2deg);
-    text-transform: none; /* Ensures "Kiazaki" displays as written */
+    text-transform: none;
 }
 .vagabond {
     position: absolute;
