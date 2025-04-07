@@ -140,7 +140,7 @@ body, .site-container {
     border: 2px solid var(--border-color);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    width: 220px;
+    width: 200px;
     text-align: center;
     transform-origin: top center;
 }
@@ -167,7 +167,7 @@ body, .site-container {
     display: block;
     color: var(--text-color);
     font-size: 3rem; /* 2x the original 1.5rem */
-    margin: 15px 0;
+    margin: 10px 0;
     text-decoration: none;
     transition: all 0.3s ease;
 }
