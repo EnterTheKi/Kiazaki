@@ -179,13 +179,6 @@ header {
 header h1 {
     font-family: 'Uncial Antiqua', serif;
     font-size: 4rem;
-    /* Remove text-transform: uppercase; */
-    letter-spacing: 3px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-}
-header h1 {
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 4rem;
     letter-spacing: 3px;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     transform: rotate(-2deg);
