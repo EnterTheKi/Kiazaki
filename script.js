@@ -20,30 +20,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Neon sign animation
     if (letters.length === 7) {
-        function updateLetters() {
-            const sequence = [0, 1, 2, 3, 4, 5, 6].sort(() => Math.random() - 0.5);
-            sequence.forEach((idx, index) => {
-                setTimeout(() => {
-                    letters.forEach(l => {
-                        l.style.opacity = "0.2";
-                        l.style.textShadow = "none";
-                        l.style.animation = "none";
-                    });
-                    letters[idx].style.opacity = "1";
-                    letters[idx].style.animation = "neon-flicker 0.5s forwards";
-                }, index * 1000);
-            });
+    function updateLetters() {
+        // Randomly pick pairs respecting rules
+        const firstK = Math.random() < 0.5 ? 0 : 5;  // K(0) or k(5)
+        const firstI = Math.random() < 0.5 ? 1 : 6;  // i(1) or i(6)
+        const firstA = Math.random() < 0.5 ? 2 : 4;  // a(2) or a(4)
+        const z = 3;                                 // z(3)
+        const secondA = firstA === 2 ? 4 : 2;       // Other a
+        const secondK = firstK === 0 ? 5 : 0;       // Other k
+        const secondI = firstI === 1 ? 6 : 1;       // Other i
+
+        const sequence = [firstK, firstI, firstA, z, secondA, secondK, secondI];
+        
+        sequence.forEach((idx, index) => {
             setTimeout(() => {
-                letters.forEach(letter => {
-                    letter.style.opacity = "1";
-                    letter.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ffdddd";
-                    letter.style.animation = "neon-buzz 1.5s infinite alternate";
+                letters.forEach(l => {
+                    l.style.opacity = "0.2";
+                    l.style.textShadow = "none";
+                    l.style.animation = "none";
                 });
-            }, sequence.length * 1000);
-        }
-        updateLetters();
-        setInterval(updateLetters, 9000);
+                letters[idx].style.opacity = "1";
+                letters[idx].style.animation = "neon-flicker 0.5s forwards";
+            }, index * 1000);
+        });
+        setTimeout(() => {
+            letters.forEach(letter => {
+                letter.style.opacity = "1";
+                letter.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ffdddd";
+                letter.style.animation = "neon-buzz 1.5s infinite alternate";
+            });
+        }, sequence.length * 1000);
     }
+    updateLetters();
+    setInterval(updateLetters, 9000);
+}
 
     // Navigation and content display
     function updateDisplay(targetFilter, postId = null) {
