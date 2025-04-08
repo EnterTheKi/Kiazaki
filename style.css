@@ -360,7 +360,27 @@ header {
     animation: reveal 2s steps(30, end) 1 forwards;
 }
 
-.typewriter-second { animation-delay: 2s; }
+.typewriter-second { animation-delay: 2.1s; } /* Slightly increased from 2s for clearer separation */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .neon-text { 
+        font-size: 2rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    .filter-buttons { flex-direction: column; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .main-image { height: 200px; object-fit: cover; }
+    .right-widgets { flex-direction: column; gap: 5px; }
+    .typewriter-first {
+        animation: reveal 1.5s steps(20, end) 1 forwards; /* Faster on mobile */
+    }
+    .typewriter-second {
+        animation: reveal 1.5s steps(20, end) 1 forwards; /* Faster on mobile */
+        animation-delay: 1.6s; /* Starts right after first ends */
+    }
+}
 
 .blog-posts article {
     background: var(--bg-color);
