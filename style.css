@@ -349,10 +349,9 @@ header {
 .typewriter-second { animation-delay: 2.1s; } /* Slightly increased from 2s for clearer separation */
 
 /* Mobile-specific adjustments */
-/* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .neon-text { 
-        font-size: 3rem; /* Fixed from 8rem to match earlier intent */
+        font-size: 15rem;
         letter-spacing: 2px;
         line-height: 1.2;
     }
@@ -659,7 +658,7 @@ footer p {
 /* Extra small screens (e.g., < 480px) */
 @media (max-width: 480px) {
     .neon-text {
-        font-size: 2.5rem; /* Further reduction for very small screens */
+        font-size: 3.5rem; /* Further reduction for very small screens */
         letter-spacing: 1px;
     }
 }
