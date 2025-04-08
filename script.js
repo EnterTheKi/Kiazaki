@@ -83,19 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle initial URL
     function handleInitialUrl() {
-        const path = window.location.pathname.replace(/\/$/, '');
-        const postMatch = path.match(/^\/post\/(post-\d+|nostalgia-[a-z0-9-]+)$/);
-        if (postMatch) {
-            const postId = postMatch[1];
-            updateDisplay(postId.startsWith('nostalgia-') ? 'nostalgia' : 'home', postId);
-        } else if (path === '/nostalgia') {
-            updateDisplay('nostalgia');
-        } else if (path === '/kiut') {
-            updateDisplay('kiut');
-        } else {
-            updateDisplay('home');
-        }
+    // Check sessionStorage.redirect first (from 404), fallback to current pathname
+    const redirectPath = sessionStorage.redirect || window.location.pathname.replace(/\/$/, '');
+    sessionStorage.removeItem('redirect'); // Clear it after use
+    const postMatch = redirectPath.match(/^\/post\/(post-\d+|nostalgia-[a-z0-9-]+)$/);
+    if (postMatch) {
+        const postId = postMatch[1];
+        updateDisplay(postId.startsWith('nostalgia-') ? 'nostalgia' : 'home', postId);
+    } else if (redirectPath === '/nostalgia') {
+        updateDisplay('nostalgia');
+    } else if (redirectPath === '/kiut') {
+        updateDisplay('kiut');
+    } else {
+        updateDisplay('home');
     }
+}
 
     // Fullscreen image
     function openFullScreen(src) {
