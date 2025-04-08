@@ -581,7 +581,7 @@ footer p {
 /* Extra small screens (e.g., < 480px) */
 @media (max-width: 480px) {
     .neon-text {
-        font-size: 3.5rem; /* Further reduction for very small screens */
+        font-size: 5.5rem; /* Further reduction for very small screens */
         letter-spacing: 1px;
     }
 }
