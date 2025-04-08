@@ -230,7 +230,10 @@ header {
     border-bottom: 2px solid var(--border-color);
     background: linear-gradient(180deg, #222, #1a1a1a);
     border-radius: 0 0 15px 15px;
-    min-height: 300px;
+    min-height: auto; /* Changed from 300px to auto for flexibility */
+    display: flex; /* Added to center content vertically */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
 }
 
 .neon-text {
@@ -240,7 +243,7 @@ header {
     color: #fff;
     position: relative;
     z-index: 10;
-    margin: 0 auto;
+    margin: 0; /* Simplified from 0 auto */
     display: block;
 }
 
@@ -565,13 +568,12 @@ footer p {
 
 .fullscreen-close:hover { background: rgba(255, 255, 255, 0.4); }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .neon-text { font-size: 3rem; }
-    .filter-buttons { flex-direction: column; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .main-image { height: 200px; object-fit: cover; }
-    .right-widgets { flex-direction: column; gap: 5px; }
+/* Extra small screens (e.g., < 480px) */
+@media (max-width: 480px) {
+    .neon-text {
+        font-size: 1.5rem; /* Further reduction for very small screens */
+        letter-spacing: 1px;
+    }
 }
 
 /* Accessibility */
