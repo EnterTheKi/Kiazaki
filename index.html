@@ -11,32 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-            display: none;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-    </style>
 </head>
 <body>
     <div class="site-container">
@@ -267,7 +241,7 @@
         </footer>
     </div>
 
-    <div class="custom-cursor" id="customCursor"></div>
+    
     <div class="aria-live" aria-live="polite" aria-atomic="true"></div>
 
     <script src="script.js" defer></script>
