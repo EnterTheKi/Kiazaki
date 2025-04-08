@@ -16,19 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupToggle = container.querySelector('#popup-toggle');
     const popupContent = container.querySelector('.popup-content');
     const letters = document.querySelectorAll(".letter");
-    const customCursor = document.getElementById('customCursor');
-
-    // Custom cursor
-    document.addEventListener('mousemove', (e) => {
-        customCursor.style.display = 'block';
-        customCursor.style.left = `${e.clientX}px`;
-        customCursor.style.top = `${e.clientY}px`;
-    });
-    document.addEventListener('mouseleave', () => customCursor.style.display = 'none');
-    document.querySelectorAll('a, button, .clickable-image, .gallery-card').forEach(el => {
-        el.addEventListener('mouseenter', () => customCursor.style.transform = 'translate(-50%, -50%) scale(2)');
-        el.addEventListener('mouseleave', () => customCursor.style.transform = 'translate(-50%, -50%) scale(1)');
-    });
+    
 
     // Neon sign animation
     if (letters.length === 7) {
