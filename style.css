@@ -235,7 +235,7 @@ header {
 
 .neon-text {
     font-family: 'Something Wild', 'Uncial Antiqua', 'Henshin', 'Cinzel', Arial, sans-serif;
-    font-size: 8rem;
+    font-size: 25rem;
     letter-spacing: 4px;
     color: #fff;
     position: relative;
@@ -351,7 +351,7 @@ header {
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .neon-text { 
-        font-size: 15rem;
+        font-size: 25rem;
         letter-spacing: 2px;
         line-height: 1.2;
     }
