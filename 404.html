@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
-        sessionStorage.redirect = location.pathname;
-        location.replace('/');
+        // Store the requested path
+        sessionStorage.redirect = window.location.pathname;
+        // Load the index.html content without changing the URL
+        window.location.href = '/index.html' + window.location.search + window.location.hash;
     </script>
 </head>
 <body>
-    Redirecting to home page...
+    Redirecting...
 </body>
 </html>
