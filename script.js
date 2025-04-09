@@ -16,44 +16,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupToggle = container.querySelector('#popup-toggle');
     const popupContent = container.querySelector('.popup-content');
     const letters = document.querySelectorAll(".letter");
-    
 
     // Neon sign animation
     if (letters.length === 7) {
-    function updateLetters() {
-        // Randomly pick pairs respecting rules
-        const firstK = Math.random() < 0.5 ? 0 : 5;  // K(0) or k(5)
-        const firstI = Math.random() < 0.5 ? 1 : 6;  // i(1) or i(6)
-        const firstA = Math.random() < 0.5 ? 2 : 4;  // a(2) or a(4)
-        const z = 3;                                 // z(3)
-        const secondA = firstA === 2 ? 4 : 2;       // Other a
-        const secondK = firstK === 0 ? 5 : 0;       // Other k
-        const secondI = firstI === 1 ? 6 : 1;       // Other i
+        function updateLetters() {
+            const firstK = Math.random() < 0.5 ? 0 : 5;
+            const firstI = Math.random() < 0.5 ? 1 : 6;
+            const firstA = Math.random() < 0.5 ? 2 : 4;
+            const z = 3;
+            const secondA = firstA === 2 ? 4 : 2;
+            const secondK = firstK === 0 ? 5 : 0;
+            const secondI = firstI === 1 ? 6 : 1;
 
-        const sequence = [firstK, firstI, firstA, z, secondA, secondK, secondI];
-        
-        sequence.forEach((idx, index) => {
+            const sequence = [firstK, firstI, firstA, z, secondA, secondK, secondI];
+            
+            sequence.forEach((idx, index) => {
+                setTimeout(() => {
+                    letters.forEach(l => {
+                        l.style.opacity = "0.2";
+                        l.style.textShadow = "none";
+                        l.style.animation = "none";
+                    });
+                    letters[idx].style.opacity = "1";
+                    letters[idx].style.animation = "neon-flicker 0.5s forwards";
+                }, index * 1000);
+            });
             setTimeout(() => {
-                letters.forEach(l => {
-                    l.style.opacity = "0.2";
-                    l.style.textShadow = "none";
-                    l.style.animation = "none";
+                letters.forEach(letter => {
+                    letter.style.opacity = "1";
+                    letter.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ffdddd";
+                    letter.style.animation = "neon-buzz 1.5s infinite alternate";
                 });
-                letters[idx].style.opacity = "1";
-                letters[idx].style.animation = "neon-flicker 0.5s forwards";
-            }, index * 1000);
-        });
-        setTimeout(() => {
+            }, sequence.length * 1000);
+        }
+
+        if (window.innerWidth <= 768) {
             letters.forEach(letter => {
                 letter.style.opacity = "1";
-                letter.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ffdddd";
-                letter.style.animation = "neon-buzz 1.5s infinite alternate";
+                letter.style.textShadow = "0 0 10px #fff, 0 0 20px #ffdddd";
             });
-        }, sequence.length * 1000);
+        } else {
+            updateLetters();
+            setInterval(updateLetters, 9000);
+        }
     }
-    updateLetters();
-    setInterval(updateLetters, 9000);
-}
 
     // Navigation and content display
     function updateDisplay(targetFilter, postId = null) {
@@ -81,21 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle initial URL
     function handleInitialUrl() {
-    // Check sessionStorage.redirect first (from 404), fallback to current pathname
-    const redirectPath = sessionStorage.redirect || window.location.pathname.replace(/\/$/, '');
-    sessionStorage.removeItem('redirect'); // Clear it after use
-    const postMatch = redirectPath.match(/^\/post\/(post-\d+|nostalgia-[a-z0-9-]+)$/);
-    if (postMatch) {
-        const postId = postMatch[1];
-        updateDisplay(postId.startsWith('nostalgia-') ? 'nostalgia' : 'home', postId);
-    } else if (redirectPath === '/nostalgia') {
-        updateDisplay('nostalgia');
-    } else if (redirectPath === '/kiut') {
-        updateDisplay('kiut');
-    } else {
-        updateDisplay('home');
+        const redirectPath = sessionStorage.redirect || window.location.pathname.replace(/\/$/, '');
+        sessionStorage.removeItem('redirect');
+        const postMatch = redirectPath.match(/^\/post\/(post-\d+|nostalgia-[a-z0-9-]+)$/);
+        if (postMatch) {
+            const postId = postMatch[1];
+            updateDisplay(postId.startsWith('nostalgia-') ? 'nostalgia' : 'home', postId);
+        } else if (redirectPath === '/nostalgia') {
+            updateDisplay('nostalgia');
+        } else if (redirectPath === '/kiut') {
+            updateDisplay('kiut');
+        } else {
+            updateDisplay('home');
+        }
     }
-}
 
     // Fullscreen image
     function openFullScreen(src) {
