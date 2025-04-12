@@ -54,8 +54,8 @@ body, .site-container {
 /* Right Widgets */
 .right-widgets {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     display: flex;
     gap: 10px;
     z-index: 1000;
@@ -223,16 +223,51 @@ body, .site-container {
 header {
     position: relative;
     text-align: center;
-    padding: 30px 0;
+    padding: 10px 0;
     border-bottom: 2px solid var(--border-color);
     background: linear-gradient(180deg, #222, #1a1a1a);
     border-radius: 0 0 15px 15px;
     min-height: auto;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
+.deco-line {
+    width: 180px;
+    height: 4px;
+    background: #ffdddd;
+    box-shadow: 
+        0 0 5px #ffdddd,
+        0 0 10px rgba(255, 221, 221, 0.7),
+        0 0 20px rgba(255, 255, 255, 0.3);
+    margin: 8px 0;
+    z-index: 10;
+    animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+    0% { 
+        box-shadow: 
+            0 0 5px #ffdddd,
+            0 0 10px rgba(255, 221, 221, 0.7),
+            0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 0 8px #ffdddd,
+            0 0 15px rgba(255, 221, 221, 0.9),
+            0 0 30px rgba(255, 255, 255, 0.5);
+    }
+    100% { 
+        box-shadow: 
+            0 0 5px #ffdddd,
+            0 0 10px rgba(255, 221, 221, 0.7),
+            0 0 20px rgba(255, 255, 255, 0.3);
+    }
+}
 .neon-text {
     font-family: 'Something Wild', 'Uncial Antiqua', 'Henshin', 'Cinzel', Arial, sans-serif;
     font-size: 8rem;
@@ -243,6 +278,7 @@ header {
     margin: 0;
     display: block;
 }
+
 
 .vagabond {
     position: absolute;
@@ -345,24 +381,43 @@ header {
     animation: reveal 2s steps(30, end) 1 forwards;
 }
 
-.typewriter-second { animation-delay: 2.1s; }
+.typewriter-second { animation-delay: 2.1s; } /* Slightly increased from 2s for clearer separation */
 
-/* Blog Posts */
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .neon-text { 
+        font-size: 45rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    .filter-buttons { flex-direction: column; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .main-image { height: 200px; object-fit: cover; }
+    .right-widgets { flex-direction: column; gap: 5px; }
+    .typewriter-first {
+        animation: reveal 1.5s steps(20, end) 1 forwards;
+    }
+    .typewriter-second {
+        animation: reveal 1.5s steps(20, end) 1 forwards;
+        animation-delay: 1.6s;
+    }
+}
+
 .blog-posts {
     max-width: 800px;
     margin: 0 auto;
 }
 
 .blog-posts article {
-    display: flex;
-    align-items: center;
+    display: flex; /* Align thumbnail and content side by side */
+    align-items: center; /* Vertically center */
     background: var(--bg-color);
     color: var(--text-color);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
     border: 1px solid var(--border-color);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Added for hover effect */
 }
 
 .blog-posts .post-thumbnail {
@@ -383,6 +438,14 @@ header {
     animation: thirties-flicker 0.5s infinite;
 }
 
+.blog-posts .post-thumbnail:hover {
+    transform: scale(1.2); /* Exaggerated expansion */
+    box-shadow: 0 0 10px #ffdddd, 0 0 20px rgba(255, 221, 221, 0.5); /* Neon glow */
+    filter: contrast(120%) sepia(20%); /* Slight 1930s tint */
+    animation: thirties-flicker 0.5s infinite; /* Flickering effect */
+}
+
+/* New animation for 1930s flicker */
 @keyframes thirties-flicker {
     0% { box-shadow: 0 0 10px #ffdddd, 0 0 20px rgba(255, 221, 221, 0.5); }
     10% { box-shadow: 0 0 5px #ffdddd, 0 0 10px rgba(255, 221, 221, 0.3); }
@@ -391,8 +454,23 @@ header {
     100% { box-shadow: 0 0 10px #ffdddd, 0 0 20px rgba(255, 221, 221, 0.5); }
 }
 
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .blog-posts article {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .blog-posts .post-thumbnail {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .blog-posts .post-thumbnail:hover {
+        transform: scale(1.1); /* Slightly less expansion on mobile */
+    }
+}
+
 .blog-posts .post-content {
-    flex: 1;
+    flex: 1; /* Take remaining space */
 }
 
 .blog-posts h3 {
@@ -400,24 +478,37 @@ header {
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Ensure transition applies */
 }
 
 .blog-link {
     text-decoration: none;
     color: var(--text-color);
-    display: flex;
+    display: flex; /* Changed to flex to match article */
     align-items: center;
-    width: 100%;
+    width: 100%; /* Ensure it fills the article */
 }
 
 .blog-link:hover {
-    box-shadow: 0 0 10px rgba(255, 221, 221, 0.5);
+    /* Apply hover to entire article for better feedback */
+    box-shadow: 0 0 10px rgba(255, 221, 221, 0.5); /* Neon glow */
 }
 
 .blog-link:hover .post-content h3 {
-    color: #ffdddd;
-    text-shadow: 0 0 5px #fff, 0 0 10px #ffdddd;
+    color: #ffdddd; /* Brighter neon color instead of #444 */
+    text-shadow: 0 0 5px #fff, 0 0 10px #ffdddd; /* Enhanced glow */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .blog-posts article {
+        flex-direction: column; /* Stack thumbnail above text */
+        align-items: flex-start;
+    }
+    .blog-posts .post-thumbnail {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 .post-image {
@@ -428,16 +519,14 @@ header {
     display: block;
     border-radius: 10px;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Added transitions */
 }
-
 .post-image:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #ffdddd, 0 0 30px rgba(255, 221, 221, 0.7);
+    transform: scale(1.1); /* Slightly less than thumbnail for balance */
+    box-shadow: 0 0 15px #ffdddd, 0 0 30px rgba(255, 221, 221, 0.7); /* Stronger glow for larger size */
     filter: contrast(120%) sepia(20%);
     animation: thirties-flicker 0.5s infinite;
 }
-
 .back-btn {
     background: var(--accent-color);
     color: var(--text-color);
@@ -601,86 +690,10 @@ footer p {
 
 .fullscreen-close:hover { background: rgba(255, 255, 255, 0.4); }
 
-/* Mobile-Specific Adjustments */
-@media (max-width: 768px) {
-    .neon-text {
-        font-size: 4.5rem; /* Adjusted from 45rem */
-        letter-spacing: 2px;
-        line-height: 1.2;
-    }
-    .filter-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .filter-btn {
-        padding: 12px 20px;
-        font-size: 1rem;
-        min-height: 44px;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .main-image {
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    .right-widgets {
-        top: 10px;
-        right: 10px;
-        flex-direction: column;
-        gap: 5px;
-    }
-    .search-widget-container.expanded #pageSearchInput {
-        width: 150px;
-        font-size: 0.9rem;
-    }
-    .search-results {
-        width: 150px;
-        max-height: 200px;
-        right: 0;
-    }
-    .typewriter-first {
-        animation: reveal 1.5s steps(20, end) 1 forwards;
-    }
-    .typewriter-second {
-        animation: reveal 1.5s steps(20, end) 1 forwards;
-        animation-delay: 1.6s;
-    }
-    .blog-posts article {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-    }
-    .blog-posts .post-thumbnail {
-        width: 40px;
-        height: 40px;
-        margin-right: 0;
-        margin-bottom: 8px;
-    }
-    .blog-posts h3 {
-        font-size: 1.2rem;
-    }
-    .blog-posts .post-thumbnail:hover {
-        transform: scale(1.1);
-    }
-    .post-image:hover, .blog-posts .post-thumbnail:hover {
-        animation: none;
-        transform: scale(1.05);
-        box-shadow: 0 0 10px rgba(255, 221, 221, 0.5);
-    }
-    .gallery-card {
-        border-radius: 10px;
-    }
-    .card-image-placeholder img {
-        height: 150px;
-    }
-}
-
+/* Extra small screens (e.g., < 480px) */
 @media (max-width: 480px) {
     .neon-text {
-        font-size: 2.5rem;
+        font-size: 3.5rem; /* Further reduction for very small screens */
         letter-spacing: 1px;
     }
 }
@@ -699,11 +712,27 @@ button:focus, a:focus, [tabindex="0"]:focus {
     overflow: hidden;
 }
 
-/* Glove Cursor System */
+/* Add this at the bottom of the file */
 body, html {
     cursor: url('assets/cursors/glove-normal.cur'), auto;
 }
 
+a, button, .clickable-image, .gallery-card, .blog-link, 
+.search-toggle-btn, .popup-toggle, .popup-content a,
+.filter-btn, .back-btn, .fullscreen-close {
+    cursor: url('assets/cursors/glove-pointer.cur'), pointer !important;
+}
+
+/* ==================== */
+/* GLOVE CURSOR SYSTEM */
+/* ==================== */
+
+/* Default cursor */
+body, html {
+    cursor: url('assets/cursors/glove-normal.cur'), auto;
+}
+
+/* Pointer (links/clickables) */
 a, button, .clickable-image, .gallery-card, .blog-link, 
 .search-toggle-btn, .popup-toggle, .popup-content a,
 .filter-btn, .back-btn, .fullscreen-close,
@@ -711,26 +740,32 @@ a, button, .clickable-image, .gallery-card, .blog-link,
     cursor: url('assets/cursors/glove-link.cur'), pointer !important;
 }
 
+/* Text input */
 input, textarea, select, [contenteditable] {
     cursor: url('assets/cursors/glove-text.cur'), text !important;
 }
 
+/* Busy state */
 .busy, [aria-busy="true"], .loading {
     cursor: url('assets/cursors/glove-busy.cur'), wait !important;
 }
 
+/* Help items */
 [title], [data-help] {
     cursor: url('assets/cursors/glove-help.cur'), help !important;
 }
 
+/* Movement */
 .draggable, [draggable="true"] {
     cursor: url('assets/cursors/glove-precision-move.cur'), move !important;
 }
 
+/* Disabled state */
 .disabled, [disabled], [aria-disabled="true"] {
     cursor: url('assets/cursors/glove-unavailable.cur'), not-allowed !important;
 }
 
+/* Resize handles */
 .resize-horizontal, [resize="horizontal"] {
     cursor: url('assets/cursors/glove-horizontal.cur'), ew-resize !important;
 }
@@ -747,15 +782,49 @@ input, textarea, select, [contenteditable] {
     cursor: url('assets/cursors/glove-diagonal2.cur'), nesw-resize !important;
 }
 
+/* Special cases */
 .handwriting, [data-handwriting] {
     cursor: url('assets/cursors/glove-handwriting.cur'), copy !important;
 }
 
-/* Disable custom cursors on touch devices */
-@media (pointer: coarse) {
-    body, html, a, button, .clickable-image, .gallery-card, 
-    .blog-link, .search-toggle-btn, .popup-toggle, .popup-content a,
-    .filter-btn, .back-btn, .fullscreen-close {
-        cursor: default !important;
-    }
+/* Radio Widget */
+.radio-widget {
+  position: relative;
+  z-index: 1000;
+}
+
+.radio-toggle-btn {
+  background: var(--accent-color);
+  border: none;
+  color: var(--text-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  cursor: url('assets/cursors/glove-pointer.cur'), pointer;
+  box-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.radio-toggle-btn:hover {
+  background: var(--highlight-color);
+  color: var(--bg-color);
+  box-shadow: 
+    0 0 10px var(--highlight-color),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.radio-toggle-btn[aria-pressed="true"] {
+  background: var(--highlight-color);
+  color: var(--bg-color);
+  animation: radio-static 0.5s infinite alternate;
+}
+
+@keyframes radio-static {
+  0% { box-shadow: 0 0 5px #fff, inset 0 0 5px rgba(255, 255, 255, 0.5); }
+  20% { box-shadow: 0 0 2px #fff, inset 0 0 2px rgba(255, 255, 255, 0.3); }
+  40% { box-shadow: 0 0 8px #fff, inset 0 0 8px rgba(255, 255, 255, 0.7); }
+  100% { box-shadow: 0 0 5px #fff, inset 0 0 5px rgba(255, 255, 255, 0.5); }
 }
