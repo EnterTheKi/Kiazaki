@@ -147,6 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const postId = card.dataset.postId;
         if (postId) updateDisplay('nostalgia', postId);
     }));
+    
+
     searchToggleBtn.addEventListener('click', () => {
         searchWidget.classList.toggle('expanded');
         searchWidget.classList.contains('expanded') ? pageSearchInput.focus() : (pageSearchInput.value = '', searchResultsContainer.classList.remove('visible'));
@@ -200,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', (e) => {
         if (!popupContent.contains(e.target) && !popupToggle.contains(e.target)) popupContent.classList.add('hidden');
     });
-    document.querySelectorAll('.card-image-placeholder img, .clickable-image').forEach(img => img.addEventListener('click', () => openFullScreen(img.src)));
+    document.querySelectorAll('.card-image-placeholder img, .clickable-image, .design-card img').forEach(img => img.addEventListener('click', () => openFullScreen(img.src)));
     window.addEventListener('popstate', (e) => updateDisplay(e.state?.filter || 'home', e.state?.postId));
 
     handleInitialUrl();
