@@ -33,6 +33,33 @@ body, .site-container {
     line-height: 1.6;
     filter: grayscale(100%);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Touch-friendly optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .filter-btn,
+    .back-btn,
+    .bandcamp-btn,
+    .behance-btn,
+    .contact-link,
+    .project-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .search-toggle-btn,
+    .radio-toggle-btn,
+    .popup-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .blog-link {
+        min-height: 44px;
+    }
 }
 
 .post-image, .fullscreen-image { filter: none !important; }
@@ -116,6 +143,34 @@ body, .site-container {
     overflow-y: auto;
     display: none;
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+}
+
+/* Mobile search optimizations */
+@media (max-width: 768px) {
+    .search-results {
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        right: 20px;
+        max-height: 60vh;
+        border-radius: 12px;
+    }
+    
+    .search-input-wrapper {
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        right: 20px;
+        z-index: 1002;
+    }
+    
+    .search-widget-container.expanded #pageSearchInput {
+        width: 100%;
+        border-radius: 12px;
+        height: 50px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
 }
 
 .search-results.visible { display: block; }
@@ -405,20 +460,172 @@ header {
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
     .neon-text { 
-        font-size: 45rem;
-        letter-spacing: 2px;
-        line-height: 1.2;
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+        line-height: 1.1;
+        text-align: center;
+        margin: 20px 0;
     }
-    .filter-buttons { flex-direction: column; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .main-image { height: 200px; object-fit: cover; }
-    .right-widgets { flex-direction: column; gap: 5px; }
+    
+    /* Popup menu mobile optimizations */
+    .popup-content {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        left: 20px;
+        border-radius: 12px;
+        padding: 20px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .popup-content a {
+        padding: 15px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .logo-box {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .popup-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Performance optimizations for mobile */
+    .post-image:hover,
+    .blog-posts .post-thumbnail:hover {
+        transform: none;
+        animation: none;
+    }
+    
+    /* Smooth scrolling for mobile */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Better tap targets */
+    .blog-post {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .blog-post:active {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .filter-buttons { 
+        flex-direction: column; 
+        gap: 10px;
+        padding: 0 20px;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+    
+    .gallery-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        padding: 0 20px;
+    }
+    
+    .main-image { 
+        height: 180px; 
+        object-fit: cover; 
+        border-radius: 0;
+    }
+    
+    .right-widgets { 
+        flex-direction: column; 
+        gap: 8px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .search-toggle-btn,
+    .radio-toggle-btn,
+    .popup-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
     .typewriter-first {
         animation: reveal 1.5s steps(20, end) 1 forwards;
+        font-size: 1.2rem;
+        line-height: 1.4;
     }
+    
     .typewriter-second {
         animation: reveal 1.5s steps(20, end) 1 forwards;
         animation-delay: 1.6s;
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+    
+    .intro-section {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .blog-posts {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+    
+    .post-body {
+        padding: 0 20px;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .post-body p {
+        margin-bottom: 1.2rem;
+    }
+    
+    .back-btn {
+        margin: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .post-image {
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+    
+    /* Header optimizations */
+    header {
+        padding: 20px 0;
+    }
+    
+    /* Navigation optimizations */
+    .filter-nav {
+        padding: 20px 0;
+    }
+    
+    /* Main content area */
+    .main-content-area {
+        padding: 0;
+    }
+    
+    /* Page content */
+    .page-content {
+        padding: 20px;
     }
 }
 
@@ -477,14 +684,33 @@ header {
 @media (max-width: 768px) {
     .blog-posts article {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 12px;
     }
+    
     .blog-posts .post-thumbnail {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
     }
+    
     .blog-posts .post-thumbnail:hover {
-        transform: scale(1.1); /* Slightly less expansion on mobile */
+        transform: scale(1.05);
+    }
+    
+    .blog-posts .post-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .blog-posts .post-content p {
+        font-size: 0.9rem;
+        opacity: 0.8;
     }
 }
 
@@ -1211,50 +1437,115 @@ input, textarea, select, [contenteditable] {
 @media (max-width: 768px) {
     .bandcamp-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
+        padding: 0 20px;
     }
     
     .bandcamp-profile {
-        padding: 15px;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
     }
     
     .album-placeholder {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 15px auto;
     }
     
     .album-list {
-        gap: 6px;
+        gap: 8px;
+        justify-content: center;
     }
     
     .album-title {
-        font-size: 0.8rem;
-        padding: 3px 6px;
+        font-size: 0.85rem;
+        padding: 4px 8px;
     }
     
     .bandcamp-embed iframe {
         width: 100% !important;
-        max-width: 350px;
-        height: 400px;
+        max-width: 320px;
+        height: 380px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .bandcamp-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .bandcamp-info p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .bandcamp-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 8px;
     }
     
     .design-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .design-card {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    .design-details {
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .design-details h3 {
+        font-size: 1.2rem;
     }
     
     .contact-links {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
     }
     
     .contact-link {
-        min-width: 200px;
+        min-width: 180px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        border-radius: 8px;
     }
     
     .bandcamp-section h2,
     .design-portfolio h2,
     .contact-section h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .portfolio-intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-bottom: 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .portfolio-link {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .behance-btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        border-radius: 8px;
     }
 }
 
@@ -1265,10 +1556,100 @@ input, textarea, select, [contenteditable] {
     
     .bandcamp-section,
     .contact-section {
-        padding: 20px;
+        padding: 15px;
     }
     
     .design-details {
+        padding: 15px;
+    }
+    
+    .neon-text {
+        font-size: 2rem;
+        margin: 15px 0;
+    }
+    
+    .filter-buttons {
+        padding: 0 15px;
+    }
+    
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .intro-section {
+        padding: 15px;
+    }
+    
+    .intro-text {
+        font-size: 1rem;
+    }
+    
+    .blog-posts {
+        padding: 0 15px;
+        margin: 15px auto;
+    }
+    
+    .post-body {
+        padding: 0 15px;
+        font-size: 0.95rem;
+    }
+    
+    .back-btn {
+        margin: 15px;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .right-widgets {
+        top: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+    
+    .search-toggle-btn,
+    .radio-toggle-btn,
+    .popup-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .main-image {
+        height: 150px;
+    }
+    
+    .bandcamp-grid {
+        padding: 0 15px;
+        gap: 20px;
+    }
+    
+    .bandcamp-profile {
+        padding: 15px;
+    }
+    
+    .album-placeholder {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .bandcamp-embed iframe {
+        max-width: 280px;
+        height: 350px;
+    }
+    
+    .design-grid {
+        padding: 0 15px;
+        gap: 15px;
+    }
+    
+    .contact-link {
+        min-width: 160px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .page-content {
         padding: 15px;
     }
 }
