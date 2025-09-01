@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 contentSections.post.appendChild(clonedContent);
                 contentSections.post.classList.remove('hidden');
                 const backBtn = contentSections.post.querySelector('.back-btn');
-                if (backBtn) backBtn.onclick = () => updateDisplay(backBtn.textContent.includes('Nostalgia') ? 'nostalgia' : 'home');
+                if (backBtn) backBtn.onclick = () => updateDisplay(backBtn.textContent.includes('Visual Work') ? 'nostalgia' : 'home');
                 window.history.pushState({ filter: targetFilter, postId }, '', `/post/${postId}`);
             }
         } else {
@@ -148,6 +148,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (postId) updateDisplay('nostalgia', postId);
     }));
     
+    // Design card click handlers
+    document.addEventListener('click', (e) => {
+        const designCard = e.target.closest('.design-card');
+        if (designCard && designCard.dataset.postId) {
+            e.preventDefault();
+            updateDisplay('nostalgia', designCard.dataset.postId);
+        }
+    });
+    
 
     searchToggleBtn.addEventListener('click', () => {
         searchWidget.classList.toggle('expanded');
@@ -202,7 +211,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', (e) => {
         if (!popupContent.contains(e.target) && !popupToggle.contains(e.target)) popupContent.classList.add('hidden');
     });
-    document.querySelectorAll('.card-image-placeholder img, .clickable-image, .design-card img').forEach(img => img.addEventListener('click', () => openFullScreen(img.src)));
+    document.querySelectorAll('.card-image-placeholder img, .clickable-image').forEach(img => {
+        img.addEventListener('click', (e) => {
+            // Don't open fullscreen if clicking on design card images (they navigate to gallery instead)
+            if (!e.target.closest('.design-card')) {
+                openFullScreen(img.src);
+            }
+        });
+    });
     window.addEventListener('popstate', (e) => updateDisplay(e.state?.filter || 'home', e.state?.postId));
 
     handleInitialUrl();
