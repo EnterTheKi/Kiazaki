@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Colonna+MT&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -85,7 +86,7 @@
                     Home <span class="sr-only">(current page)</span>
                 </button>
                 <button class="filter-btn" data-filter="nostalgia" data-url="/nostalgia">Imaginary Nostalgia</button>
-                <button class="filter-btn" data-filter="kiut" data-url="/kiut">Kiūt</button>
+                <button class="filter-btn" data-filter="kiut" data-url="/kiut">Kiut</button>
             </div>
         </nav>
 
@@ -147,55 +148,77 @@
                 <p>Follow the unseen hand that threads through the mist, guiding you to truths shrouded in silence.</p>
                 <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-clown.gif" alt="Guide Photo" class="post-image clickable-image" loading="lazy">
             </div>
-            <div id="nostalgia-content" class="gallery-grid hidden">
-                <article class="gallery-card" data-post-id="nostalgia-in-mini1">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/in-mini1.jpeg" alt="In Mini 1" loading="lazy">
+            <div id="nostalgia-content" class="page-content hidden">
+                <!-- Visual Work Portfolio -->
+                <section class="design-portfolio">
+                    <h2>Visual Work</h2>
+                    <p class="portfolio-intro">A collection of visual narratives that capture the essence of the Ki realm through minimalist aesthetics and thoughtful composition.</p>
+                    
+                    <div class="design-grid">
+                        <article class="design-card" data-category="painting">
+                            <div class="design-image">
+                                <img src="assets/images/kipainting.png" alt="Painting" loading="lazy" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="design-details">
+                                <h3>Painting</h3>
+                            </div>
+                        </article>
+
+                        <article class="design-card" data-category="world">
+                            <div class="design-image">
+                                <img src="assets/images/dwwall.jpg" alt="Distracted WORLD" loading="lazy" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="design-details">
+                                <h3>Distracted WORLD</h3>
+                            </div>
+                        </article>
+
+                        <article class="design-card" data-category="characters">
+                            <div class="design-image">
+                                <img src="assets/images/urkiut.jpg" alt="Characters" loading="lazy" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="design-details">
+                                <h3>Characters</h3>
+                            </div>
+                        </article>
+
+                        <article class="design-card" data-category="animation">
+                            <div class="design-image">
+                                <img src="assets/images/unimation.png" alt="Unimation" loading="lazy" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="design-details">
+                                <h3>Unimation</h3>
+                            </div>
+                        </article>
                     </div>
-                    <div class="card-details">
-                        <h3>Miniature Echoes</h3>
+                    
+                    <div class="portfolio-link">
+                        <a href="https://www.behance.net/kiazaki" target="_blank" rel="noopener noreferrer" class="behance-btn">
+                            <i class="fa-brands fa-behance"></i>
+                            View Full Portfolio on Behance
+                        </a>
                     </div>
-                </article>
-                <article class="gallery-card" data-post-id="nostalgia-in-mini2">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/in-mini2.jpeg" alt="In Mini 2" loading="lazy">
+                </section>
+
+                <!-- Contact Section -->
+                <section class="contact-section">
+                    <h2>Connect</h2>
+                    <p>Follow the journey through the Ki realm across different platforms.</p>
+                    <div class="contact-links">
+                        <a href="https://www.behance.net/kiazaki" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fa-brands fa-behance"></i>
+                            <span>Portfolio</span>
+                        </a>
+                        <a href="https://x.com/urkiut" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            <span>Connect</span>
+                        </a>
+                        <a href="https://www.youtube.com/@Urki." target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span>Visual</span>
+                        </a>
                     </div>
-                    <div class="card-details">
-                        <h3>Whispers of the Small</h3>
-                    </div>
-                </article>
-                <article class="gallery-card" data-post-id="nostalgia-ki-horse">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/ki-horse.jpeg" alt="Ki Horse" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <h3>Spirit of the Steed</h3>
-                    </div>
-                </article>
-                <article class="gallery-card" data-post-id="nostalgia-ki-emotions">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/ki-emotions.jpeg" alt="Ki Emotions" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <h3>Emotional Currents</h3>
-                    </div>
-                </article>
-                <article class="gallery-card" data-post-id="nostalgia-in1">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/IN1.JPG" alt="IN1" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <h3>Faded Reflections</h3>
-                    </div>
-                </article>
-                <article class="gallery-card" data-post-id="nostalgia-ki-tractor">
-                    <div class="card-image-placeholder">
-                        <img src="assets/images/ki-tractor.jpeg" alt="Ki Tractor" loading="lazy">
-                    </div>
-                    <div class="card-details">
-                        <h3>Rustic Machinery</h3>
-                    </div>
-                </article>
+                </section>
             </div>
 
             <div id="nostalgia-in-mini1-content" class="hidden">
@@ -236,69 +259,6 @@
             </div>
             <div id="kiut-content" class="page-content hidden">
                 <section class="artist-profile">
-                    <!-- Graphic Design Portfolio -->
-                    <section class="design-portfolio">
-                        <h2>Visual Work</h2>
-                        <p class="portfolio-intro">A collection of visual narratives that capture the essence of the Ki realm through minimalist aesthetics and thoughtful composition.</p>
-                        
-                        <div class="design-grid">
-                            <article class="design-card" data-category="animation">
-                                <div class="design-image">
-                                    <div class="design-placeholder">
-                                        <i class="fa-solid fa-film"></i>
-                                        <span>Animation</span>
-                                    </div>
-                                </div>
-                                <div class="design-details">
-                                    <h3>Finals 2020 - Unimation Studios</h3>
-                                </div>
-                            </article>
-
-                            <article class="design-card" data-category="illustration">
-                                <div class="design-image">
-                                    <div class="design-placeholder">
-                                        <i class="fa-solid fa-paintbrush"></i>
-                                        <span>Illustration</span>
-                                    </div>
-                                </div>
-                                <div class="design-details">
-                                    <h3>Finals 2019 - Boomer-Art</h3>
-                                </div>
-                            </article>
-
-                            <article class="design-card" data-category="logo">
-                                <div class="design-image">
-                                    <div class="design-placeholder">
-                                        <i class="fa-solid fa-signature"></i>
-                                        <span>Logo Design</span>
-                                    </div>
-                                </div>
-                                <div class="design-details">
-                                    <h3>Florence 2020 Logo + Booklet</h3>
-                                </div>
-                            </article>
-
-                            <article class="design-card" data-category="zine">
-                                <div class="design-image">
-                                    <div class="design-placeholder">
-                                        <i class="fa-solid fa-book"></i>
-                                        <span>Zine Design</span>
-                                    </div>
-                                </div>
-                                <div class="design-details">
-                                    <h3>History of the Mac [Zine] - 2018</h3>
-                                </div>
-                            </article>
-                        </div>
-                        
-                        <div class="portfolio-link">
-                            <a href="https://www.behance.net/kiazaki" target="_blank" rel="noopener noreferrer" class="behance-btn">
-                                <i class="fa-brands fa-behance"></i>
-                                View Full Portfolio on Behance
-                            </a>
-                        </div>
-                    </section>
-
                     <!-- Bandcamp Section -->
                     <section class="bandcamp-section">
                         <h2>Music</h2>
