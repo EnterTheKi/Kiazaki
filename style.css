@@ -1153,6 +1153,41 @@ input, textarea, select, [contenteditable] {
     font-weight: 500;
 }
 
+/* Project Links */
+.project-links {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    background: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.project-link:hover {
+    background: var(--highlight-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    border-color: var(--highlight-color);
+}
+
+.project-link i {
+    font-size: 1.3rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .bandcamp-grid {
