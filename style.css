@@ -11,12 +11,6 @@
     --leaf-color: rgba(255, 255, 255, 0.3);
 }
 
-@font-face {
-    font-family: 'Henshin';
-    src: url('https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/fonts/henshin-sans.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'Something Wild';
@@ -324,7 +318,7 @@ header {
     }
 }
 .neon-text {
-    font-family: 'Something Wild', 'Uncial Antiqua', 'Henshin', 'Colonna MT', Arial, sans-serif;
+    font-family: 'Something Wild', 'Colonna MT', Arial, sans-serif;
     font-size: 8rem;
     letter-spacing: 4px;
     color: #fff;
@@ -447,6 +441,46 @@ header {
 }
 
 .intro-text { display: block; }
+
+/* Video Section */
+.video-section {
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.video-container:hover,
+.video-container.playing {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
 .typewriter-first, .typewriter-second {
     display: block;
@@ -614,15 +648,15 @@ header {
     }
     
     .typewriter-first {
-        animation: reveal 1.5s steps(20, end) 1 forwards;
-        font-size: 1.2rem;
+        animation: reveal 2s steps(30, end) 1 forwards;
+        font-size: 1rem;
         line-height: 1.4;
     }
     
     .typewriter-second {
-        animation: reveal 1.5s steps(20, end) 1 forwards;
-        animation-delay: 1.6s;
-        font-size: 1.2rem;
+        animation: reveal 2s steps(30, end) 1 forwards;
+        animation-delay: 2.1s;
+        font-size: 1rem;
         line-height: 1.4;
     }
     
@@ -686,6 +720,18 @@ header {
     /* Page content */
     .page-content {
         padding: 20px;
+    }
+    
+    /* Video section mobile optimizations */
+    .video-section {
+        margin: 30px auto;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .video-container {
+        border-radius: 8px;
+        border-width: 1px;
     }
 }
 
@@ -1112,7 +1158,7 @@ input, textarea, select, [contenteditable] {
 }
 
 .bandcamp-section h2 {
-    font-family: 'Something Wild', cursive;
+    font-family: 'Colonna MT', serif;
     font-size: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -1275,7 +1321,7 @@ input, textarea, select, [contenteditable] {
 }
 
 .design-portfolio h2 {
-    font-family: 'Something Wild', cursive;
+    font-family: 'Colonna MT', serif;
     font-size: 2rem;
     margin-bottom: 15px;
     text-align: center;
@@ -1404,7 +1450,7 @@ input, textarea, select, [contenteditable] {
 }
 
 .contact-section h2 {
-    font-family: 'Something Wild', cursive;
+    font-family: 'Colonna MT', serif;
     font-size: 2rem;
     margin-bottom: 15px;
     color: var(--highlight-color);
@@ -1743,6 +1789,16 @@ input, textarea, select, [contenteditable] {
     
     .page-content {
         padding: 15px;
+    }
+    
+    /* Video section small mobile optimizations */
+    .video-section {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    
+    .video-container {
+        border-radius: 6px;
     }
 }
 
