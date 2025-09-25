@@ -222,6 +222,65 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('popstate', (e) => updateDisplay(e.state?.filter || 'home', e.state?.postId));
 
     handleInitialUrl();
+    
+    // Vimeo video glow effect
+    const videoContainer = document.querySelector('.video-container');
+    const videoIframe = document.querySelector('.video-container iframe');
+    
+    if (videoContainer && videoIframe) {
+        // Listen for Vimeo player events
+        window.addEventListener('message', (event) => {
+            if (event.origin !== 'https://player.vimeo.com') return;
+            
+            try {
+                const data = JSON.parse(event.data);
+                
+                // Handle different Vimeo event types
+                if (data.event === 'ready') {
+                    console.log('Vimeo player ready');
+                }
+                
+                if (data.event === 'play') {
+                    videoContainer.classList.add('playing');
+                    console.log('Video playing - glow ON');
+                }
+                
+                if (data.event === 'pause' || data.event === 'ended') {
+                    videoContainer.classList.remove('playing');
+                    console.log('Video paused/ended - glow OFF');
+                }
+                
+                // Also handle the old event format
+                if (data.method === 'ready') {
+                    console.log('Vimeo player ready (legacy)');
+                }
+                
+                if (data.method === 'play') {
+                    videoContainer.classList.add('playing');
+                    console.log('Video playing - glow ON (legacy)');
+                }
+                
+                if (data.method === 'pause') {
+                    videoContainer.classList.remove('playing');
+                    console.log('Video paused - glow OFF (legacy)');
+                }
+                
+            } catch (e) {
+                // Ignore non-JSON messages
+            }
+        });
+        
+        // Fallback: Add click listener to detect user interaction
+        videoContainer.addEventListener('click', () => {
+            // Add a small delay to let the video start playing
+            setTimeout(() => {
+                if (!videoContainer.classList.contains('playing')) {
+                    videoContainer.classList.add('playing');
+                    console.log('Video clicked - glow ON (fallback)');
+                }
+            }, 500);
+        });
+    }
 });
 
 // Radio Player Logic
