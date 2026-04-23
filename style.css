@@ -2860,6 +2860,248 @@ footer p {
     border-bottom: 1px solid rgba(255, 200, 100, 0.15);
 }
 
+.featured-carousel-header {
+    margin-bottom: 25px;
+}
+
+.featured-quote-carousel {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto 35px auto;
+    padding: 30px 35px;
+    background: linear-gradient(180deg, rgba(42, 32, 21, 0.5) 0%, rgba(26, 21, 15, 0.7) 100%);
+    border: 2px solid rgba(200, 180, 140, 0.2);
+    border-radius: 6px;
+    box-shadow: 
+        0 0 30px rgba(255, 184, 50, 0.15),
+        inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+.quote-display {
+    position: relative;
+    min-height: 70px;
+}
+
+.quote-teaser {
+    display: none;
+    text-align: center;
+    animation: quoteFadeIn 0.6s ease-out;
+}
+
+.quote-teaser.active {
+    display: block;
+}
+
+@keyframes quoteFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote-short {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #c9b896;
+    font-style: italic;
+}
+
+.quote-highlight {
+    color: #ffb832;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 184, 50, 0.4);
+    text-underline-offset: 4px;
+}
+
+.quote-highlight:hover {
+    color: #ffd700;
+    text-decoration-color: #ffb832;
+    text-shadow: 0 0 15px rgba(255, 184, 50, 0.6);
+}
+
+.quote-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.quote-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(200, 180, 140, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.quote-dot:hover {
+    border-color: rgba(255, 184, 50, 0.8);
+    transform: scale(1.2);
+}
+
+.quote-dot.active {
+    background: linear-gradient(135deg, #ffb832 0%, #d4952a 100%);
+    border-color: #ffb832;
+    box-shadow: 0 0 12px rgba(255, 184, 50, 0.5);
+}
+
+.quote-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 9, 6, 0.97);
+    z-index: 10000;
+    display: none;
+    overflow-y: auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.quote-expanded.open {
+    display: block;
+    animation: expandFadeIn 0.4s ease-out;
+}
+
+@keyframes expandFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.close-expanded {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(200, 180, 140, 0.5);
+    background: rgba(42, 32, 21, 0.8);
+    color: #c9b896;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.close-expanded:hover {
+    background: rgba(255, 184, 50, 0.3);
+    border-color: #ffb832;
+    color: #ffb832;
+    transform: scale(1.1);
+}
+
+.expanded-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(180deg, rgba(42, 32, 21, 0.6) 0%, rgba(26, 21, 15, 0.8) 100%);
+    border: 2px solid rgba(200, 180, 140, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(255, 184, 50, 0.1);
+}
+
+.expanded-title {
+    font-family: 'Potra', serif;
+    font-size: 1.8rem;
+    color: #ffb832;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 184, 50, 0.4);
+    line-height: 1.3;
+}
+
+.expanded-source {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: rgba(200, 180, 140, 0.7);
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.expanded-quote {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #c9b896;
+    text-indent: 1.5em;
+    margin-bottom: 20px;
+}
+
+.expanded-quote:first-of-type {
+    text-indent: 0;
+}
+
+.expanded-quote:first-of-type::first-letter {
+    font-family: 'Potra', serif;
+    font-size: 4rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 12px;
+    margin-top: 6px;
+    color: #ffb832;
+    text-shadow: 0 0 15px rgba(255, 184, 50, 0.6);
+}
+
+@media (max-width: 768px) {
+    .featured-quote-carousel {
+        padding: 20px 18px;
+        margin: 0 15px 30px 15px;
+    }
+    .quote-short {
+        font-size: 1.05rem;
+    }
+    .quote-highlight {
+        display: block;
+    }
+    .quote-dot {
+        width: 10px;
+        height: 10px;
+    }
+    .expanded-content {
+        padding: 25px 20px;
+    }
+    .expanded-title {
+        font-size: 1.4rem;
+    }
+    .expanded-quote {
+        font-size: 1.05rem;
+    }
+    .expanded-quote:first-of-type::first-letter {
+        font-size: 3rem;
+    }
+    .close-expanded {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+}
+
 .medieval-title {
     font-family: 'Potra', serif;
     font-size: 3.2rem;
