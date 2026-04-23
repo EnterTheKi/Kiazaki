@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentSections = {
         home: container.querySelector('#home-content'),
         post: container.querySelector('#post-content'),
+        blog: container.querySelector('#blog-content'),
+        journal: container.querySelector('#post-content'),
         nostalgia: container.querySelector('#nostalgia-content'),
         kiut: container.querySelector('#kiut-content')
     };
@@ -92,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateDisplay('nostalgia');
     } else if (redirectPath === '/kiut') {
         updateDisplay('kiut');
+    } else if (redirectPath === '/blog') {
+        updateDisplay('blog');
     } else {
         updateDisplay('home');
     }
@@ -143,6 +147,36 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         updateDisplay('home', link.dataset.postId);
     }));
+    
+    // Journal entry click handlers
+    const journalEntries = container.querySelectorAll('.journal-entry');
+    journalEntries.forEach(entry => {
+        entry.addEventListener('click', () => {
+            const entryId = entry.dataset.entryId;
+            if (entryId) {
+                const journalContent = document.getElementById(`${entryId}-content`);
+                if (journalContent) {
+                    contentSections.post.innerHTML = '';
+                    const clonedContent = journalContent.cloneNode(true);
+                    clonedContent.classList.remove('hidden');
+                    contentSections.post.appendChild(clonedContent);
+                    contentSections.post.classList.remove('hidden');
+                    
+                    const backBtn = contentSections.post.querySelector('.back-btn');
+                    if (backBtn) {
+                        backBtn.onclick = () => {
+                            contentSections.post.classList.add('hidden');
+                            contentSections.post.innerHTML = '';
+                            contentSections.blog.classList.remove('hidden');
+                        };
+                    }
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        });
+    });
+    
     galleryCards.forEach(card => card.addEventListener('click', () => {
         const postId = card.dataset.postId;
         if (postId) updateDisplay('nostalgia', postId);
@@ -303,3 +337,353 @@ radioToggle.addEventListener('click', () => {
     radioToggle.classList.remove('radio-active');
   }
 });
+
+// Companion JavaScript - follows you with delay
+(function() {
+    const companion = document.getElementById('companion');
+    if (!companion) return;
+    
+const wisdom = [
+        // R.H. Jarrett - It Works
+        "The secret of success is constancy to purpose. — R.H. Jarrett",
+        "You must be absolutely honest with yourself. — R.H. Jarrett",
+        "Success comes to those who want it most and are willing to pay the price. — R.H. Jarrett",
+        "Every cause produces its own effect. — R.H. Jarrett",
+        "There is no difficulty but what you can overcome. — R.H. Jarrett",
+        "Your desires must be made dominant. — R.H. Jarrett",
+        "The great secret of power is to know that nothing is impossible. — R.H. Jarrett",
+        
+        // James Allen - As a Man Thinketh
+        "As a man thinketh in his heart, so is he. — James Allen",
+        "Men are not paid for what they know—they are paid for what they do. — James Allen",
+        "In all human affairs there are forces, both visible and invisible. — James Allen",
+        "A man is not paid for having a head—he is paid for using it. — James Allen",
+        "Weakness is a thing to be ashamed of—strength is a thing to be proud of. — James Allen",
+        "The dreamers are the slaves of the men who do. — James Allen",
+        "You will become as much greater as you will think greater thoughts. — James Allen",
+        
+        // Napoleon Hill - Think and Grow Rich
+        "Whatever the mind can conceive and believe, it can achieve. — Napoleon Hill",
+        "The starting point of all achievement is desire. — Napoleon Hill",
+        "Every failure brings with it the seed of an equal success. — Napoleon Hill",
+        "The subconscious mind is a breeding ground for cause. — Napoleon Hill",
+        "No alibi will save you from failure—only definite purpose will save you. — Napoleon Hill",
+        "The fear of failure is the greatest obstacle to success. — Napoleon Hill",
+        "Riches begin with the state of mind—being rich begins with being grateful. — Napoleon Hill",
+        "When wealth comes to a man, it comes through channels allied to his burning desire. — Napoleon Hill",
+        "Defeat is a state of mind—it is not outward events. — Napoleon Hill",
+        "Success requires initiative—initiative requires action. — Napoleon Hill",
+        
+        // Earl Nightingale - The Strangest Secret
+        "We become what we think about most of the time. — Earl Nightingale",
+        "The strangest secret of success is to see what everyone else sees and think what no one else has thought. — Earl Nightingale",
+        "You are where you are because that's exactly where you want to be. — Earl Nightingale",
+        "Our lives change when our habits change. — Earl Nightingale",
+        "The greatest discovery anyone can make is that this world is exactly what we believe it to be. — Earl Nightingale",
+        "Never underestimate the power of gratitude. — Earl Nightingale",
+        "A magnet does not attract because it is a magnet—it attracts because it is a magnet. — Earl Nightingale",
+        
+        // Dale Carnegie - How to Win Friends
+        "Become genuinely interested in other people. — Dale Carnegie",
+        "A person's name is to that person the sweetest sound. — Dale Carnegie",
+        "The only way to get the best of an argument is to avoid it. — Dale Carnegie",
+        "Show respect for other person's opinions—never tell anyone they're wrong. — Dale Carnegie",
+        "If you are wrong, admit it quickly and emphatically. — Dale Carnegie",
+        "Begin with praise and honest appreciation. — Dale Carnegie",
+        "Talk in terms of the other person's interests. — Dale Carnegie",
+        "Make the other person feel important—and do it sincerely. — Dale Carnegie",
+        
+        // Charles F. Haanel - The Master Key System
+        "The mind that is analytical is the discriminating quality. — Charles F. Haanel",
+        "Thought is creative energy—the connecting link between the Finite and the Infinite. — Charles F. Haanel",
+        "All power is from within—but surely it will not come to us until we are passive. — Charles F. Haanel",
+        "We must learn to be still—to do nothing, to think nothing, and want nothing. — Charles F. Haanel",
+        "The ability to reduce great things to small will be worth far more than wealth. — Charles F. Haanel",
+        "The spirit of truth knows only the present—past is only memory, future is only imagination. — Charles F. Haanel",
+        "More cause than effect—the effect is the child of the cause. — Charles F. Haanel",
+        
+        // Florence Scovel Shinn - The Game of Life
+        "The game of life is the game of再生. — Florence Scovel Shinn",
+        "Your perfect partner is visualized, felt, and known. — Florence Scovel Shinn",
+        "The divinely attracted person or thing is always magnetically linked to you. — Florence Scovel Shinn",
+        "I give what I wish to receive—the law of compensation. — Florence Scovel Shinn",
+        "Your word is your wand—it has magical power. — Florence Scovel Shinn",
+        "Divine right action releases perfect supply. — Florence Scovel Shinn",
+        "Perfect love casts out all fear. — Florence Scovel Shinn",
+        
+        // Wallace D. Wattles - The Science of Getting Rich
+        "There is a thinking stuff from which all things are made. — Wallace D. Wattles",
+        "The growth of life is a process of creative synthesis. — Wallace D. Wattles",
+        "You must become a creator, not a competitor. — Wallace D. Wattles",
+        "Riches come through the use of creative ability. — Wallace D. Wattles",
+        "Do not try to get rich by saving—save by getting. — Wallace D. Wattles",
+        "The desire for riches is a spiritual force. — Wallace D. Wattles",
+        "Creative thought is the highest form of prayer. — Wallace D. Wattles",
+        
+        // Claude M. Bristol - The Magic of Believing
+        "Thinking creates a pattern in the subconscious mind. — Claude M. Bristol",
+        "The subconscious mind is the connecting link between Finite and Infinite. — Claude M. Bristol",
+        "Believe what you want to happen and it will respond. — Claude M. Bristol",
+        "The mind must believe what it must accept. — Claude M. Bristol",
+        "Hold the mental image continuously—act as if it already exists. — Claude M. Bristol",
+        "Believing is the secret to achievement. — Claude M. Bristol",
+        "The magic is in the believing—not in the thing believed in. — Claude M. Bristol",
+        
+        // Norman Vincent Peale - Power of Positive Thinking
+        "Change your thoughts and you change your world. — Norman Vincent Peale",
+        "Stand up to the difficulties that are attacking your mind. — Norman Vincent Peale",
+        "To what the mind can conceive, the body can achieve. — Norman Vincent Peale",
+        "Expect the best and you will get the best. — Norman Vincent Peale",
+        "When there is no way to think positively, think rightly. — Norman Vincent Peale",
+        "Towel your mental attitude in the direction of optimism and faith. — Norman Vincent Peale",
+        "Believe in yourself—believe that you have the ability to achieve. — Norman Vincent Peale",
+        
+        // Russell Conwell - Acres of Diamonds
+        "You are under no obligation to remain what you are. — Russell Conwell",
+        "Opportunity is everywhere—the mistake is not seeing it. — Russell Conwell",
+        "The only way to find yourself is to lose yourself in service. — Russell Conwell",
+        "The world is full of diamonds that lie in the acres we already own. — Russell Conwell",
+        "Every person has a hidden talent—dig for it. — Russell Conwell",
+        "If you want to be happy, be. — Russell Conwell",
+        
+        // P.T. Barnum - The Art of Money Getting
+        "The way to become rich is to save while you earn. — P.T. Barnum",
+        "Any person who declares they will never be in debt is determined not to be rich. — P.T. Barnum",
+        "Tricks and swindles are poor reliance—they are but small temporary gains. — P.T. Barnum",
+        "The honest man who saves has a sure compass to wealth. — P.T. Barnum",
+        "The customer is always right. — P.T. Barnum",
+        "Do not let your ambition be cramped by your lack of capital. — P.T. Barnum",
+        
+        // Sun Tzu - The Art of War
+        "Know yourself and know your enemy, and you will not be defeated. — Sun Tzu",
+        "In war, speed is the essence. — Sun Tzu",
+        "The supreme art of war is to subdue the enemy without fighting. — Sun Tzu",
+        "Every battle is won or lost before it is fought. — Sun Tzu",
+        "Appear at points which the enemy must hasten to defend. — Sun Tzu",
+        "He who knows when he can fight and when he cannot will be victorious. — Sun Tzu",
+        "Move Swiftly as the wind—silent as the forest. — Sun Tzu",
+        
+        // Neville Goddard - Feeling is the Secret
+        "The feeling of the wish fulfilled is the secret of success. — Neville Goddard",
+        "Never affirm the want as a present reality—affirm the wish as already fulfilled. — Neville Goddard",
+        "Consciousness is the only reality. — Neville Goddard",
+        "Assume the feeling of the wish fulfilled and continue in that state. — Neville Goddard",
+        "The present moment is the key to every door. — Neville Goddard",
+        "You are already that which you want to be. — Neville Goddard",
+        "I AM is the name of being—it is the name of God. — Neville Goddard",
+        
+        // Neville Goddard - The Law and the Promise
+        "What is promised is always possible—it is the gift of God. — Neville Goddard",
+        "Faith in the promise moves all things into action. — Neville Goddard",
+        "To him who believes, all things are possible. — Neville Goddard",
+        "The law works always for those who truly believe. — Neville Goddard",
+        "When you assume the feeling of the wish fulfilled, you must live in that assumption. — Neville Goddard",
+        "The things which are impossible are only things we have decided are impossible. — Neville Goddard",
+        
+        // Joseph Murphy - The Power of Your Subconscious Mind
+        "The subconscious mind is reactive—it accepts what you impress. — Joseph Murphy",
+        "The creative power of your subconscious mind is infinite—it responds to your thoughts. — Joseph Murphy",
+        "A suggestion accepted by your subconscious mind becomes a self-fulfilling prophecy. — Joseph Murphy",
+        "Your thought of wealth and riches opens the creative law of your subconscious mind. — Joseph Murphy",
+        "Mentally impress on your subconscious mind the result you desire. — Joseph Murphy",
+        "Whatever you think, dream, or imagine is recorded in your subconscious mind. — Joseph Murphy",
+        "When you pray, believe and feel that your prayer is answered. — Joseph Murphy",
+        "Your subconscious mind never sleeps—it works 24 hours a day. — Joseph Murphy",
+        
+        // Miyamoto Musashi - The Book of Five Rings (Vagabond inspiration)
+        "The way of the warrior is the mind of the samurai. — Miyamoto Musashi",
+        "Do nothing which is of no use. — Miyamoto Musashi",
+        "Think of what is right and true. — Miyamoto Musashi",
+        "Practice and hone your craft—perfection comes from daily discipline. — Miyamoto Musashi",
+        "The enemy is in front of you—focus on your own path. — Miyamoto Musashi",
+        "In strategy, there is no instant victory. Only continuous improvement. — Miyamoto Musashi",
+        "The sword that cuts without cutting is the true blade. — Miyamoto Musashi",
+        "Know the enemy and know yourself—victory then comes without doubt. — Miyamoto Musashi",
+        "Accept everything just as it is—do not expect praise or blame. — Miyamoto Musashi",
+        "Morning is the time to begin—do not wait for noon. — Miyamoto Musashi",
+        "Perceive that which cannot be seen with the eye. — Miyamoto Musashi",
+        
+        // Nikola Tesla (3327 energy/Tesla room inspiration)
+        "The present is theirs; the future, for which I really worked, is mine. — Nikola Tesla",
+        "If you want to find the secrets of the universe, think in terms of energy, frequency, and vibration. — Nikola Tesla",
+        "The scientists of today think deeply instead of clearly. One must be sane to think clearly. — Nikola Tesla",
+        "The mind is the builder—the result is the created thing. — Nikola Tesla",
+        "Alone we can do so little; together we can do so much. — Nikola Tesla",
+        "There is no energy in matter—there is only energy in motion. — Nikola Tesla",
+        "The gift of mental power comes from God, the divine source—if we want to do for all humanity what we are able to do for ourselves. — Nikola Tesla",
+        "We have but to utilize the infinite waves of cosmic energy that surround us—never stop learning, never stop questioning. — Nikola Tesla",
+        "What one man can imagine, another man can create. — Nikola Tesla",
+        "The day science begins to study non-physical phenomena, it will make more progress in one decade than in all the previous centuries. — Nikola Tesla",
+        
+        // 3327 - Tesla's room number / mystical significance
+        "3-3-2-7: The sequence that echoes through the void. — 3327",
+        "In room 3327, Tesla found silence and spoke with the universe. — 3327",
+        "The numbers align for those who listen: 33 is mastery, 27 is beginning. — 3327",
+        "3327—the room where one man listened to the cosmic code. — 3327",
+        
+        // R.H. Jarrett - additional wisdom
+        "The time is now—what you do today creates your future. — R.H. Jarrett",
+        "No one can think for you—you must do your own thinking. — R.H. Jarrett",
+        "The secret of all success is contained in the word 'work'. — R.H. Jarrett",
+        
+        // Core mystical wisdom
+        "The silence knows what noise forgets.",
+        "Ki is not found—it becomes.",
+        "Want with certainty. Receive with grace.",
+        "The owl sees what light ignores.",
+        "Stillness is not empty—it awaits.",
+        "Focus is the rarest wealth.",
+        "Results follow direction—not chase.",
+        "As within, so without.",
+        "As above, so below."
+    ];
+    
+    // Mouse tracking - with scroll support
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let scrollY = 0;
+    let lastX = window.innerWidth / 2 + 70;
+    let lastY = window.innerHeight / 2 + 70;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+    });
+    
+    companion.style.left = lastX + 'px';
+    companion.style.top = lastY + 'px';
+    
+    // Click shows wisdom - single click
+    let clickCount = 0;
+    let clickTimer;
+    let followMode = true;
+    
+    companion.style.pointerEvents = 'auto';
+    companion.style.cursor = 'pointer';
+    
+    // Only trigger wisdom when clicking on the owl image itself
+    const companionImg = companion.querySelector('img');
+    
+    companionImg.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        clickCount++;
+        
+        if (clickCount === 1) {
+            clickTimer = setTimeout(() => {
+                showWisdom(wisdom[Math.floor(Math.random() * wisdom.length)]);
+                clickCount = 0;
+            }, 250);
+        } else if (clickCount === 2) {
+            clearTimeout(clickTimer);
+            clickCount = 0;
+            followMode = !followMode;
+            showWisdom(followMode ? "Following..." : "Staying put...");
+        }
+    });
+    
+    // Show tooltip with wisdom - bigger, more readable text
+    function showWisdom(text) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'owl-wisdom-tooltip';
+        tooltip.textContent = '"' + text + '"';
+        
+        // Position to the left/above of the owl
+        const tooltipX = Math.max(10, lastX - 220);
+        const tooltipY = Math.max(10, lastY - 30);
+        
+        tooltip.style.cssText = `
+            position: fixed;
+            left: ${tooltipX}px;
+            top: ${tooltipY}px;
+            max-width: 220px;
+            padding: 14px 18px;
+            background: rgba(20, 15, 10, 0.96);
+            border: 1px solid rgba(255, 200, 100, 0.5);
+            border-radius: 8px;
+            font-family: 'EB Garamond', Georgia, serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: rgba(230, 215, 190, 0.95);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+            z-index: 10001;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        `;
+        
+        document.body.appendChild(tooltip);
+        
+        requestAnimationFrame(() => tooltip.style.opacity = '1');
+        
+        setTimeout(() => {
+            tooltip.style.opacity = '0';
+            setTimeout(() => tooltip.remove(), 300);
+        }, 4000);
+    }
+    
+// Smooth follow - simpler, follows everywhere
+    let offsetPhase = Math.random() * Math.PI * 2;
+    let targetOffsetX = 60;
+    let targetOffsetY = 60;
+    let currentOffsetX = 60;
+    let currentOffsetY = 60;
+    
+    function updateTargetOffset() {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 35 + Math.random() * 50;
+        targetOffsetX = Math.cos(angle) * distance;
+        targetOffsetY = Math.sin(angle) * distance;
+    }
+    updateTargetOffset();
+    
+    setInterval(() => {
+        if (followMode) updateTargetOffset();
+    }, 5000); // Update position every 5 seconds
+    
+    function smoothFollow() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile || !followMode) {
+            // Stay put
+        } else {
+            offsetPhase += 0.008;
+            
+            currentOffsetX += (targetOffsetX - currentOffsetX) * 0.004;
+            currentOffsetY += (targetOffsetY - currentOffsetY) * 0.004;
+            
+            const wobbleX = Math.sin(offsetPhase) * 4;
+            const wobbleY = Math.cos(offsetPhase * 0.8) * 3;
+            
+            const targetX = mouseX + currentOffsetX + wobbleX;
+            const targetY = mouseY + currentOffsetY + wobbleY + scrollY;
+            
+            // Very slow, smooth follow
+            lastX += (targetX - lastX) * 0.02;
+            lastY += (targetY - lastY) * 0.02;
+        }
+        
+        // Set position - no bounds, follows everywhere
+        companion.style.left = lastX + 'px';
+        companion.style.top = lastY + 'px';
+        
+        requestAnimationFrame(smoothFollow);
+    }
+    smoothFollow();
+    
+    // Handle page navigation - teleport effect
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            companion.classList.add('teleporting');
+            setTimeout(() => {
+                companion.classList.remove('teleporting');
+            }, 600);
+        });
+    });
+})();
