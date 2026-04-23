@@ -174,9 +174,134 @@
                         <div class="candle-glow"></div>
                     </div>
                     
-                    <div class="blog-header">
+                    <div class="blog-header featured-carousel-header">
                         <h1 class="medieval-title">The Owl's Journal</h1>
                         <p class="medieval-subtitle">~ Whispers from the Twilight Realm ~</p>
+                    </div>
+
+                    <div class="featured-quote-carousel" id="featuredCarousel">
+                        <div class="quote-display">
+                            <div class="quote-teaser active" data-quote="0">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(0)">Within these worn pages lies a truth older than memory</span>
+                                    —the secret of acres of diamonds hidden in your own field...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="1">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(1)">As a man thinketh in his heart, so is he</span>
+                                    —your thoughts are the architects of your destiny...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="2">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(2)">What the mind can conceive and believe</span>
+                                    —it can achieve. Desire + Faith + Persistence = Success...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="3">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(3)">We become what we think about most of the day</span>
+                                    —your thoughts are seeds, choose them carefully...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="4">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(4)">Become genuinely interested in other people</span>
+                                    —a smile is a universal welcome...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="5">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(5)">The universe is mental</span>
+                                    —all is mind, you are a center of thought...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="6">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(6)">The game of life is played in the mind first</span>
+                                    —what you hold in your heart as true, the universe delivers...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="7">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(7)">There is a science of getting rich</span>
+                                    —think abundance, not scarcity...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="8">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(8)">Believing is the magic</span>
+                                    —what you believe with feeling becomes your reality...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="9">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(9)">Every problem has within it the seeds of its own solution</span>
+                                    —expect the best, plan for success...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="10">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(10)">You have great powers within</span>
+                                    —your diamonds are in your own abilities...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="11">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(11)">Money is not the root of all evil</span>
+                                    —fear of poverty is the true enemy...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="12">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(12)">Know yourself and know your enemy</span>
+                                    —conquer your thoughts, conquer the world...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="13">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(13)">Feeling is the secret</span>
+                                    —the subconscious does not know real from imagined...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="14">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(14)">The law and the promise work together</span>
+                                    —claim what you want as already yours...
+                                </p>
+                            </div>
+                            <div class="quote-teaser" data-quote="15">
+                                <p class="quote-short">
+                                    <span class="quote-highlight" onclick="expandQuote(15)">Your subconscious mind is a garden</span>
+                                    —plant good seeds, reap what you plant...
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="quote-expanded" id="quoteExpanded">
+                            <button class="close-expanded" onclick="collapseQuote()">×</button>
+                            <div class="expanded-content" id="expandedContent"></div>
+                        </div>
+
+                        <div class="quote-dots">
+                            <button class="quote-dot active" data-quote="0" onclick="goToQuote(0)"></button>
+                            <button class="quote-dot" data-quote="1" onclick="goToQuote(1)"></button>
+                            <button class="quote-dot" data-quote="2" onclick="goToQuote(2)"></button>
+                            <button class="quote-dot" data-quote="3" onclick="goToQuote(3)"></button>
+                            <button class="quote-dot" data-quote="4" onclick="goToQuote(4)"></button>
+                            <button class="quote-dot" data-quote="5" onclick="goToQuote(5)"></button>
+                            <button class="quote-dot" data-quote="6" onclick="goToQuote(6)"></button>
+                            <button class="quote-dot" data-quote="7" onclick="goToQuote(7)"></button>
+                            <button class="quote-dot" data-quote="8" onclick="goToQuote(8)"></button>
+                            <button class="quote-dot" data-quote="9" onclick="goToQuote(9)"></button>
+                            <button class="quote-dot" data-quote="10" onclick="goToQuote(10)"></button>
+                            <button class="quote-dot" data-quote="11" onclick="goToQuote(11)"></button>
+                            <button class="quote-dot" data-quote="12" onclick="goToQuote(12)"></button>
+                            <button class="quote-dot" data-quote="13" onclick="goToQuote(13)"></button>
+                            <button class="quote-dot" data-quote="14" onclick="goToQuote(14)"></button>
+                            <button class="quote-dot" data-quote="15" onclick="goToQuote(15)"></button>
+                        </div>
                     </div>
 
                     <div class="blog-content">
@@ -633,6 +758,232 @@
 
     
     <div class="aria-live" aria-live="polite" aria-atomic="true"></div>
+
+    <script>
+    const quoteData = [
+        {
+            highlight: "Within these worn pages lies a truth older than memory",
+            source: "— Inspired by Russell Conwell, Acres of Diamonds",
+            full: `<p class="expanded-quote">Within these worn pages lies a truth older than memory—the secret of acres of diamonds hidden in your own field. You seek far and wide for fortune, traveling to distant lands, when all along, the mine you seek is in your own backyard.</p>
+                <p class="expanded-quote">Russell Conwell told the story of a man who sold his land to search for diamonds, only to have his own land later discovered to be the richest diamond mine in the world. The moral: your greatest opportunities are often in the abilities you already possess.</p>
+                <p class="expanded-quote">The owl has watched this truth work for a hundred years. Every master was once a beginner. Every fortune began as a spark of recognition—a seed of potential already planted within. You do not need to seek outside yourself for what you already carry.</p>
+                <p class="expanded-quote">Your field is your mind. Your diamonds are your thoughts. Dig there, and you will find the wealth you seek.</p>`
+        },
+        {
+            highlight: "As a man thinketh in his heart, so is he",
+            source: "— Inspired by James Allen, As a Man Thinketh",
+            full: `<p class="expanded-quote">As a man thinketh in his heart, so is he. This is not poetry—it is science. Your thoughts are the architects of your destiny, building the house you will live in, whether you consciously designed it or not.</p>
+                <p class="expanded-quote">James Allen wrote that a man is literally what he thinks. His character is the complete sum of all his thoughts. Like the potter shaping clay, your mind shapes your reality with every thought you allow to take root.</p>
+                <p class="expanded-quote">The owl knows: a man who thinks of poverty will manifest poverty. A man who thinks of wealth—even unwealthy—will remain as he thinks. The thoughts you hold most frequently become the foundation of your life.</p>
+                <p class="expanded-quote">Choose your thoughts as carefully as you would choose your companions. For thoughts become character, and character becomes destiny.</p>`
+        },
+        {
+            highlight: "What the mind can conceive and believe",
+            source: "— Inspired by Napoleon Hill, Think and Grow Rich",
+            full: `<p class="expanded-quote">What the mind can conceive and believe, it can achieve. This is the cornerstone of all achievement—the burning desire backed by absolute faith that what you seek is already yours.</p>
+                <p class="expanded-quote">Napoleon Hill spent twenty years studying the wealthy, and he found one formula that repeated: Desire + Faith + Persistence = Success. The secret is not working harder—it is holding the image of your goal firmly in your mind until it manifests.</p>
+                <p class="expanded-quote">The owl has watched men build empires from single thoughts. The desire must be burning. The faith must be absolute. The persistence must be unwavering. When these three elements combine, the universe itself must step aside.</p>
+                <p class="expanded-quote">Whatever the mind can conceive and truly believe, it can achieve. Close your eyes and see your success before it arrives. That is the first step.</p>`
+        },
+        {
+            highlight: "We become what we think about most of the day",
+            source: "— Inspired by Earl Nightingale, The Strangest Secret",
+            full: `<p class="expanded-quote">We become what we think about most of the day. Earl Nightingale called this the strangest secret—and it is strange, for the world forgets this fundamental truth and chases effects instead of causes.</p>
+                <p class="expanded-quote">Your thoughts are seeds. Choose them carefully, for every thought seeds your future. The man who thinks of success all day becomes successful. The woman who thinks of abundance attracts abundance.</p>
+                <p class="expanded-quote">The owl knows this: the mind is a garden, and you are the gardener. You can grow weeds or flowers—they both grow from the same soil. The difference is what you choose to plant.</p>
+                <p class="expanded-quote">Guard your thoughts as you would guard treasure. For what you think about most, you become.</p>`
+        },
+        {
+            highlight: "Become genuinely interested in other people",
+            source: "— Inspired by Dale Carnegie, How to Win Friends",
+            full: `<p class="expanded-quote">Become genuinely interested in other people. Dale Carnegie wrote that this simple practice—showing real interest in others—opens more doors than any skill or education.</p>
+                <p class="expanded-quote">A smile is a universal welcome. A genuine question about another's wellbeing is a gift. The art of influence is not manipulation—it is sincere appreciation of the human being before you.</p>
+                <p class="expanded-quote">The owl watches from the trees and knows: even the fiercest predator does not attack those who show no fear. Confidence, combined with genuine warmth, creates the aura of a leader.</p>
+                <p class="expanded-quote">Make others feel important—and do so sincerely. That is the secret of influence that lasts.</p>`
+        },
+        {
+            highlight: "The universe is mental",
+            source: "— Inspired by Charles F. Haanel, The Master Key System",
+            full: `<p class="expanded-quote">The universe is mental. All is mind. Charles F. Haanel wrote these words nearly a century ago, and modern physics is only now catching up to what the wise always knew.</p>
+                <p class="expanded-quote">You are a center of thought—a focal point for universal intelligence. Your mind is not in your body; your body is in your mind. The seen world is born from the unseen realm of thought.</p>
+                <p class="expanded-quote">The owl knows: change your thoughts, change your world. The universe rearranges itself to match the pattern of your thinking. What you hold in mind, reality must deliver.</p>
+                <p class="expanded-quote">Learn to think aright—to think in terms of abundance, success, health—and the mental universe will respond accordingly.</p>`
+        },
+        {
+            highlight: "The game of life is played in the mind first",
+            source: "— Inspired by Florence Scovel Shinn, The Game of Life",
+            full: `<p class="expanded-quote">The game of life is played in the mind first. Florence Scovel Shinn taught that what you hold in your heart and feel as true, the universe must deliver.</p>
+                <p class="expanded-quote">Feeling is the key. Not thinking alone—feeling. The subconscious mind does not know the difference between a vividly imagined experience and a real one. It responds to feeling, not to facts.</p>
+                <p class="expanded-quote">The owl plays this game daily: it sees the mouse before the mouse appears. It feels the success of the hunt before the hunt begins. This is how the game is won—in the mind, before it manifests in the world.</p>
+                <p class="expanded-quote">Feel your desire fulfilled now. Act as if you already have what you seek. The game is won in the visualization.</p>`
+        },
+        {
+            highlight: "There is a science of getting rich",
+            source: "— Inspired by Wallace D. Wattles, The Science of Getting Rich",
+            full: `<p class="expanded-quote">There is a science of getting rich. Wallace D. Wattles wrote that becoming wealthy is not about luck or chance—it is about thinking in terms of success, abundance, and wealth.</p>
+                <p class="expanded-quote">Think abundance, not scarcity. The universe is infinite—it naturally flows toward those who can receive it. Scarcity thinking creates scarcity experience. Abundance thinking creates abundance.</p>
+                <p class="expanded-quote">The owl sees the rich not as different species, but as different thinkers. They simply learned to think in a certain way that attracts wealth. Anyone can learn this science.</p>
+                <p class="expanded-quote">There is enough for everyone. Your thinking should reflect this truth. That is the science.</p>`
+        },
+        {
+            highlight: "Believing is the magic",
+            source: "— Inspired by Claude M. Bristol, The Magic of Believing",
+            full: `<p class="expanded-quote">Believing is the magic. Claude M. Bristol wrote that what you believe with feeling becomes your reality. Faith moves mountains of opportunity.</p>
+                <p class="expanded-quote">To believe is to receive. The emotional component is essential—mere intellectual agreement is not belief. Real belief burns in the heart and creates conviction that moves the unseen forces of the universe.</p>
+                <p class="expanded-quote">The owl knows: faith is not hope. Hope is waiting for something to happen. Faith is knowing it is already happening. The difference between hope and faith is the difference between wishing and receiving.</p>
+                <p class="expanded-quote">Believe with all your heart, and the magic responds. That is the secret of the ages.</p>`
+        },
+        {
+            highlight: "Every problem has within it the seeds of its own solution",
+            source: "— Inspired by Norman Vincent Peale, The Power of Positive Thinking",
+            full: `<p class="expanded-quote">Every problem has within it the seeds of its own solution. Norman Vincent Peale taught that Expecting the Best is not naivety—it is strategy.</p>
+                <p class="expanded-quote">Problems are questions waiting to be answered. The oak tree is in the acorn. The solution is always present, waiting for the mind prepared to receive it. Approach every difficulty with confidence, not dread.</p>
+                <p class="expanded-quote">The owl does not fear the storm—it knows the storm will pass. Positive thinking is not ignoring problems; it is approaching them with the certainty that solutions exist.</p>
+                <p class="expanded-quote">Think positive, live positive. This is not merely philosophy—it is the most practical approach to life.</p>`
+        },
+        {
+            highlight: "You have great powers within",
+            source: "— Inspired by Russell Conwell, Acres of Diamonds",
+            full: `<p class="expanded-quote">You have great powers within. Russell Conwell's message was simple: your acres of diamonds are not in some distant field—they lie in your own abilities, waiting to be mined.</p>
+                <p class="expanded-quote">Every person is born with unique gifts. The man who discovers and develops his gifts becomes wealthy. The man who ignores them remains poor. The difference is not talent—it is recognition.</p>
+                <p class="expanded-quote">The owl sees: you are not poor in potential. You are unborn rich. The wealth within you is waiting to be recognized and developed. Begin the excavation of your own diamond mine.</p>
+                <p class="expanded-quote">Your powers are closer than you think. Look within. Your diamonds are there.</p>`
+        },
+        {
+            highlight: "Money is not the root of all evil",
+            source: "— Inspired by P.T. Barnum, The Art of Money Getting",
+            full: `<p class="expanded-quote">Money is not the root of all evil—fear of poverty is. P.T. Barnum, the master showman, knew that money is a tool, and like all tools, its value depends on the hand that wields it.</p>
+                <p class="expanded-quote">Learn to use money wisely. Every master was once a beginner who never gave up. Money is not the goal—it is the measure of service rendered. Provide value, and money follows.</p>
+                <p class="expanded-quote">The owl knows: wealth is not the enemy. Poverty is not virtue. The wise seek to create value, and the reward naturally follows. Learn the art of money getting by first learning the art of value providing.</p>
+                <p class="expanded-quote">Money is a good servant but a bad master. Learn to use it, and it will serve you well.</p>`
+        },
+        {
+            highlight: "Know yourself and know your enemy",
+            source: "— Inspired by Sun Tzu, The Art of War",
+            full: `<p class="expanded-quote">Know yourself and know your enemy. Sun Tzu wrote that knowledge is the foundation of all victory. The greatest victory is over yourself.</p>
+                <p class="expanded-quote">He who conquers his thoughts conquers the world. The greatest enemy is not without—it is within. Your fears, your doubts, your limiting beliefs—these are the enemies to defeat.</p>
+                <p class="expanded-quote">The owl knows: strategy matters more than force. Know your strengths. Exploit your strengths. Know your weaknesses and surround them with strategy. This is how wars are won.</p>
+                <p class="expanded-quote">Know yourself to know your enemy. Know your enemy to know victory.</p>`
+        },
+        {
+            highlight: "Feeling is the secret",
+            source: "— Inspired by Neville Goddard, Feeling is the Secret",
+            full: `<p class="expanded-quote">Feeling is the secret. Neville Goddard taught that the subconscious mind does not know real from imagined—it only responds to what is vividly felt as true.</p>
+                <p class="expanded-quote">Feel your desire fulfilled now. Not tomorrow—not when it arrives—but now. The feeling is the secret. The law responds to what you feel, not what you think or want.</p>
+                <p class="expanded-quote">The owl feels the mouse before the mouse appears. The hunter feels success before the hunt. This is how the game of life is played—in feeling first, in reality second.</p>
+                <p class="expanded-quote">Feel wealthy, and wealth must come. Feel healthy, and health must come. Feel loved, and love must come. Feeling is the secret.</p>`
+        },
+        {
+            highlight: "The law and the promise work together",
+            source: "— Inspired by Neville Goddard, The Law and the Promise",
+            full: `<p class="expanded-quote">The law and the promise work together. Neville Goddard taught that the law responds to your assumption—the promise is your declaration of the end result.</p>
+                <p class="expanded-quote">Claim what you want as already yours. Then live as if you have it. The law (the universal intelligence) responds to your assumption (your feeling of already having). The promise is your commitment to believe until it manifests.</p>
+                <p class="expanded-quote">The owl promises itself a successful hunt. It assumes success. It acts from that assumption. Then it receives. This is the law and the promise working together.</p>
+                <p class="expanded-quote">Assume the feeling of the wish fulfilled and live in that assumption. The law will deliver the promise.</p>`
+        },
+        {
+            highlight: "Your subconscious mind is a garden",
+            source: "— Inspired by Joseph Murphy, The Power of Your Subconscious Mind",
+            full: `<p class="expanded-quote">Your subconscious mind is a garden. Joseph Murphy taught that you are the gardener—you choose what seeds to plant, and you reap what you plant.</p>
+                <p class="expanded-quote">Plant good seeds. Your subconscious works constantly, carrying out your deepest beliefs about yourself. If you planted weeds (fear, lack, doubt), you will harvest weeds. Plant wealth thoughts—reap wealth results.</p>
+                <p class="expanded-quote">The owl does not plant carrots and expect mice. It plants the right seeds for the desired harvest. Your subconscious mind is no different—plant what you wish to reap.</p>
+                <p class="expanded-quote">Your subconscious is always listening, always working, always manifesting what you planted. Choose your thoughts with care.</p>`
+        }
+    ];
+
+    let currentQuote = 0;
+    let autoAdvanceInterval = null;
+    const intervalTime = 75000;
+
+    function goToQuote(index) {
+        const teasers = document.querySelectorAll('.quote-teaser');
+        const dots = document.querySelectorAll('.quote-dot');
+        
+        teasers.forEach(t => t.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        teasers[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentQuote = index;
+        
+        startAutoAdvance();
+    }
+
+    function expandQuote(index) {
+        const data = quoteData[index];
+        const container = document.getElementById('quoteExpanded');
+        const content = document.getElementById('expandedContent');
+        
+        content.innerHTML = `<h2 class="expanded-title">${data.highlight}</h2>
+            <p class="expanded-source">${data.source}</p>
+            ${data.full}`;
+        
+        container.classList.add('open');
+        
+        stopAutoAdvance();
+    }
+
+    function collapseQuote() {
+        const container = document.getElementById('quoteExpanded');
+        container.classList.remove('open');
+        
+        startAutoAdvance();
+    }
+
+    function nextQuote() {
+        const next = (currentQuote + 1) % quoteData.length;
+        goToQuote(next);
+    }
+
+    function startAutoAdvance() {
+        stopAutoAdvance();
+        autoAdvanceInterval = setInterval(nextQuote, intervalTime);
+    }
+
+    function stopAutoAdvance() {
+        if (autoAdvanceInterval) {
+            clearInterval(autoAdvanceInterval);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.getElementById('featuredCarousel');
+        
+        if (carousel) {
+            const teasers = Array.from(carousel.querySelectorAll('.quote-teaser'));
+            
+            for (let i = teasers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [teasers[i], teasers[j]] = [teasers[j], teasers[i]];
+            }
+            
+            const display = carousel.querySelector('.quote-display');
+            display.innerHTML = '';
+            
+            teasers.forEach((teaser, index) => {
+                teaser.setAttribute('data-quote', index);
+                display.appendChild(teaser);
+            });
+            
+            const dots = carousel.querySelectorAll('.quote-dot');
+            const dotArray = Array.from(dots);
+            for (let i = dotArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [dotArray[i], dotArray[j]] = [dotArray[j], dotArray[i]];
+            }
+            
+            const dotsContainer = carousel.querySelector('.quote-dots');
+            dotsContainer.innerHTML = '';
+            dotArray.forEach((dot, index) => {
+                dot.setAttribute('data-quote', index);
+                dot.setAttribute('onclick', 'goToQuote(' + index + ')');
+                dotsContainer.appendChild(dot);
+            });
+            
+            goToQuote(0);
+        }
+    });
+    </script>
 
     <script src="script.js" defer></script>
 </body>
