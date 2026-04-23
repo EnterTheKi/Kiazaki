@@ -6,13 +6,19 @@
     <title>Kiazaki</title>
     <link rel="icon" type="image/png" href="assets/images/kiazaki-fav.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Colonna+MT&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Colonna+MT&family=IM+Fell+English:ital@0;1&family=Sora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/potra" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Companion - follows you everywhere -->
+    <div id="companion">
+        <img src="assets/images/sidekick.png" alt="Your companion">
+    </div>
+
     <div class="site-container">
         <!-- Right-Side Widgets -->
         <div class="right-widgets">
@@ -26,15 +32,15 @@
                     <span class="sr-only">Toggle search</span>
                 </button>
             </div>
-<div class="radio-widget">
-        <button id="radioToggle" class="radio-toggle-btn" aria-label="Toggle radio" aria-pressed="false">
-            <i class="fa-solid fa-play"></i>
-            <span class="sr-only">Play/Stop Radio</span>
-        </button>
-        <audio id="radioStream" hidden>
-            <source src="https://ice.somafm.com/dronezone-128-mp3" type="audio/mpeg">
-        </audio>
-    </div>
+            <div class="radio-widget">
+                <button id="radioToggle" class="radio-toggle-btn" aria-label="Toggle radio" aria-pressed="false">
+                    <i class="fa-solid fa-play"></i>
+                    <span class="sr-only">Play/Stop Radio</span>
+                </button>
+                <audio id="radioStream" hidden>
+                    <source src="https://ice.somafm.com/dronezone-128-mp3" type="audio/mpeg">
+                </audio>
+            </div>
             <div class="popup-menu" id="popup-menu">
                 <button class="popup-toggle" id="popup-toggle" aria-label="Menu" aria-expanded="false" aria-haspopup="true" aria-controls="popup-content">
                     <i class="fa-solid fa-bars"></i>
@@ -74,9 +80,13 @@
                 <span class="letter">a</span>
                 <span class="letter">k</span>
                 <span class="letter">i</span>
+                <div class="tesla-spark"></div>
+                <div class="tesla-spark"></div>
+                <div class="tesla-spark"></div>
+                <div class="tesla-spark"></div>
             </h1>
-            <div class="vagabond left"></div>
-            <div class="vagabond right"></div>
+            <div class="vagabond left"><span class="morse">-.-.</span></div>
+            <div class="vagabond right"><span class="morse">.-.</span></div>
         </header>
 
         <nav class="filter-nav">
@@ -84,6 +94,7 @@
                 <button class="filter-btn active" data-filter="home" data-url="/home" aria-current="page">
                     Home <span class="sr-only">(current page)</span>
                 </button>
+                <button class="filter-btn" data-filter="blog" data-url="/blog">Blog</button>
                 <button class="filter-btn" data-filter="nostalgia" data-url="/nostalgia">Imaginary Nostalgia</button>
                 <button class="filter-btn" data-filter="kiut" data-url="/kiut">Kiut</button>
             </div>
@@ -117,34 +128,156 @@
                 <div class="blog-posts">
     <article class="blog-post">
         <a href="/post/post-1" class="blog-link" data-post-id="post-1">
-            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-unknown.gif" alt="Thumbnail for Enter The 気" class="post-thumbnail">
+            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-unknown.gif" alt="Thumbnail for Enter The 気" class="post-thumbnail" loading="lazy">
             <div class="post-content">
                 <h3> 気 —【 未知 】</h3>
                 <p>April 05, 2025 - A new path unfolds...</p>
+                <span class="read-more">Read more →</span>
             </div>
         </a>
     </article>
     <article class="blog-post">
         <a href="/post/post-2" class="blog-link" data-post-id="post-2">
-            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/lo-ki.gif" alt="Thumbnail for Keep it Lō-Ki" class="post-thumbnail">
+            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/lo-ki.gif" alt="Thumbnail for Keep it Lō-Ki" class="post-thumbnail" loading="lazy">
             <div class="post-content">
                 <h3>【 ローキー 】</h3>
                 <p>March 20, 2025 - Walk softly in the dusk...</p>
+                <span class="read-more">Read more →</span>
             </div>
         </a>
     </article>
     <article class="blog-post">
         <a href="/post/post-3" class="blog-link" data-post-id="post-3">
-            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-clown.gif" alt="Thumbnail for Guide" class="post-thumbnail">
+            <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-clown.gif" alt="Thumbnail for Guide" class="post-thumbnail" loading="lazy">
             <div class="post-content">
                 <h3>【 導き手 】</h3>
                 <p>February 15, 2025 - A shadow points the way...</p>
+                <span class="read-more">Read more →</span>
             </div>
         </a>
     </article>
 </div>
             </div>
             <div id="post-content" class="page-content hidden"></div>
+            <div id="blog-content" class="page-content hidden">
+                <section class="blog-section">
+                    <div class="candle-container left">
+                        <div class="candle-holder"></div>
+                        <div class="candle-stick"></div>
+                        <div class="candle-flame"></div>
+                        <div class="candle-glow"></div>
+                    </div>
+                    <div class="candle-container right">
+                        <div class="candle-holder"></div>
+                        <div class="candle-stick"></div>
+                        <div class="candle-flame"></div>
+                        <div class="candle-glow"></div>
+                    </div>
+                    
+                    <div class="blog-header">
+                        <h1 class="medieval-title">The Owl's Journal</h1>
+                        <p class="medieval-subtitle">~ Whispers from the Twilight Realm ~</p>
+                    </div>
+
+                    <div class="blog-content">
+                        <p>
+                            Within these worn pages lies a truth older than memory—a secret whispered through the ages, 
+                            passed from tongue to tongue, hand to hand, until it found its way to the little red book 
+                            that changed everything.
+                        </p>
+                        <p>
+                            They called the author only by his marks: R.H.J.—a man who knew that the world had forgotten 
+                            the ancient art of wanting. Not the desperate grasping that leaves empty, but the steady, 
+                            Certain Desire that draws fortune like the moon draws the tide.
+                        </p>
+                        <p>
+                            Three rules, written in invisible ink that only appears when held to the flame: 
+                            <em>Know what you want. Write it down. Hold it fast without doubt.</em> 
+                            The rest, the silent power does.
+                        </p>
+                        <p>
+                            The owl has watched this truth work for a hundred years—through prosperity and poverty, 
+                            plenty and want. It works because the mighty force within answers only to Clear Intention. 
+                            Like the archer who must aim before the arrow flies, you must Know before the Fulfillment comes.
+                        </p>
+                        <p>
+                            This is the secret the owl keeps: Results do not chase effort. They follow Direction. 
+                            When you decide with certainty, the universe steps aside. Test it. Write your want upon paper. 
+                            Read it each dawn and eve. Then—wait. The Silence serves those who ask with precision.
+                        </p>
+                    </div>
+
+                    <div class="journal-entries">
+                        <h2>~ Ancient Entries ~</h2>
+                        <article class="journal-entry" data-entry-id="journal-shadow">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On the Nature of Shadow</h3>
+                                <p class="entry-date">The Night of the Half-Moon</p>
+                                <p>What we call darkness is merely the world resting its eyes. The owl sees clearly what blinds us—not through special sight, but through special patience.</p>
+                                <p class="entry-text">The shadow is not the absence of light—it is the proof that light exists somewhere. Every man casts his shadow. The wise learn to use theirs as a cloak, not a chain.</p>
+                                <p class="entry-source">— After R.H. Jarrett</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                        <article class="journal-entry" data-entry-id="journal-silence">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On Silence</h3>
+                                <p class="entry-date">When the Wind Lies Low</p>
+                                <p>Stillness is not absence. The space between notes makes the music. The pause between breaths keeps us alive.</p>
+                                <p class="entry-text">In silence, the universe speaks. In the void between thoughts, the subconscious mind answers. Tesla sat in silence until the electricity answered him.</p>
+                                <p class="entry-source">— After James Allen</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                        <article class="journal-entry" data-entry-id="journal-desire">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On Desire</h3>
+                                <p class="entry-date">The Season of Wanting</p>
+                                <p>Desire is the seed of manifestation. Without it, nothing blooms. The owl does not desire randomly—it chooses with precision.</p>
+                                <p class="entry-text">Napoleon Hill wrote that the starting point of all achievement is desire. But desire must be burning, specific, and unwavering. The vague wanting of the many produces nothing. The singular fire of one produces worlds.</p>
+                                <p class="entry-source">— After Think and Grow Rich</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                        <article class="journal-entry" data-entry-id="journal-time">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On Time</h3>
+                                <p class="entry-date">The Eternal Now</p>
+                                <p>Time is an illusion—the past and future exist only in thought. The present moment is the only reality. The owl lives here, always.</p>
+                                <p class="entry-text">The strangest secret, as Nightingale said, is that we become what we think about. But we must think NOW, not then. Each moment is a genesis. The past cannot be changed. The future is created in this breath.</p>
+                                <p class="entry-source">— After The Strangest Secret</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                        <article class="journal-entry" data-entry-id="journal-wisdom">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On Wisdom</h3>
+                                <p class="entry-date">The Night of Knowing</p>
+                                <p>Wisdom is not knowledge—it is the living understanding that transforms thought into action. The owl shares without speaking.</p>
+                                <p class="entry-text">Musashi wrote: do nothing which is of no use. Wisdom is economy of thought and action. The warrior who wastes no motion, the sage who wastes no word—these are the wise.</p>
+                                <p class="entry-source">— After The Book of Five Rings</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                        <article class="journal-entry" data-entry-id="journal-death">
+                            <div class="entry-illumination">¶</div>
+                            <div class="entry-content">
+                                <h3>On Death</h3>
+                                <p class="entry-date">The Twilight Hour</p>
+                                <p>Death is not an ending—it is a doorway between states. Each night, we die a little. Each morning, we are reborn entirely.</p>
+                                <p class="entry-text">The old masters understood this: to kill the ego is to find the soul. Each defeat of the lesser self is a small death. Each victory over doubt is resurrection. The solitary way demands this perpetual dying and rising.</p>
+                                <p class="entry-source">— After Neville Goddard</p>
+                                <span class="read-more">Read more →</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
             <div id="post-1-content" class="hidden">
                 <button class="back-btn">← Back to Home</button>
                 <h1>Enter The 気 —【 未知 】</h1>
@@ -187,6 +320,112 @@
                 </div>
                 <img src="https://raw.githubusercontent.com/EnterTheKi/Kiazaki/main/assets/images/ki-clown.gif" alt="Guide Photo" class="post-image clickable-image" loading="lazy">
             </div>
+            
+            <!-- Journal Entry: Shadow -->
+            <div id="journal-shadow-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On the Nature of Shadow</h1>
+                <div class="post-body">
+                    <p>What we call darkness is merely the world resting its eyes. The owl sees clearly what blinds us—not through special sight, but through special patience.</p>
+                    
+                    <p>Shadow is not the absence of light. It is the space where light has not yet reached. In the quiet corners of our minds, the owl watches. The creature of twilight does not fear the dark—it knows the dark as intimately as the day.</p>
+                    
+                    <p>When we resist our shadow, we resist ourselves. The parts we deem unworthy, unlovable, unacceptable—these are the very territories the owl wanders. To see clearly, we must learn to look without flinching.</p>
+                    
+                    <p>The owl sees in the dark because it has made peace with darkness. Not by conquering it, but by understanding that darkness and light are not opposites—they are partners in the eternal dance of seeing.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Shadow -->
+            <div id="journal-shadow-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On the Nature of Shadow</h1>
+                <div class="post-body">
+                    <p>What we call darkness is merely the world resting its eyes. The owl sees clearly what blinds us—not through special sight, but through special patience.</p>
+                    
+                    <p>Shadow is not the absence of light. It is the space where light has not yet reached. In the quiet corners of our minds, the owl watches. The creature of twilight does not fear the dark—it knows the dark as intimately as the day.</p>
+                    
+                    <p>When we resist our shadow, we resist ourselves. The parts we deem unworthy, unlovable, unacceptable—these are the very territories the owl wanders. To see clearly, we must learn to look without flinching.</p>
+                    
+                    <p>The owl sees in the dark because it has made peace with darkness. Not by conquering it, but by understanding that darkness and light are not opposites—they are partners in the eternal dance of seeing.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Silence -->
+            <div id="journal-silence-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On Silence</h1>
+                <div class="post-body">
+                    <p>Stillness is not absence. The space between notes makes the music. The pause between breaths keeps us alive.</p>
+                    
+                    <p>In the silence between words, truth hides. Not in what we say, but in what we cannot say. The owl does not hoot unnecessarily. Every sound it makes serves the night.</p>
+                    
+                    <p>We fear silence because it shows us what we avoid. The noise we make is often a curtain. Behind it, we hide from ourselves. But the one who sits in quiet presence begins to hear—the subtle frequencies of existence.</p>
+                    
+                    <p>Learn to love the pause. In silence, the answers you've been chasing in noise will find you. The owl knows: sometimes the most profound sound is the one that never comes.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Desire -->
+            <div id="journal-desire-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On Desire</h1>
+                <div class="post-body">
+                    <p>Desire is the seed of manifestation. Without it, nothing blooms. The owl does not desire randomly—it chooses with precision.</p>
+                    
+                    <p>What you want is a compass. Not the scattered wanting of the envious—but the clear, steady desire that points to your purpose. The owl desires only what it needs. It waits, watches, then strikes with certainty.</p>
+                    
+                    <p>To desire correctly is to know what you want before you want it. Ambiguity is the enemy of manifestation. The owl teaches us: want nothing by accident.</p>
+                    
+                    <p>Your desire is sacred—protect it from the pollution of imitation. What others want may inspire, but only your authentic wanting moves the universe to respond.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Time -->
+            <div id="journal-time-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On Time</h1>
+                <div class="post-body">
+                    <p>Time is an illusion—the past and future exist only in thought. The present moment is the only reality. The owl lives here, always.</p>
+                    
+                    <p>The past is memory replaying. The future is imagination projecting. Neither is real. Only now—the eternal now—is where life happens. The owl never worries about tomorrow because tomorrow is always just another now.</p>
+                    
+                    <p>Those who master time do so by mastering presence. Each moment fully lived is a moment outside of time's dominion. The owl does not count hours—it experiences them.</p>
+                    
+                    <p>Chronological age means nothing. The person who has lived fully in few years is older than one who has merely existed for decades.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Wisdom -->
+            <div id="journal-wisdom-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On Wisdom</h1>
+                <div class="post-body">
+                    <p>Wisdom is not knowledge—it is the living understanding that transforms thought into action. The owl shares without speaking.</p>
+                    
+                    <p>Knowledge accumulates. Wisdom applies. One can read every book and remember every word—yet remain foolish. Wisdom is the marriage of knowing and doing.</p>
+                    
+                    <p>The wise owl does not lecture. It demonstrates. Every hunt is a lesson. Every silence is a seminar. Wisdom is caught, not taught—through presence, not pages.</p>
+                    
+                    <p>Fools debate. The wise observe. The owl knows: the most profound teachings come not from books but from watching one who has already walked the path.</p>
+                </div>
+            </div>
+            
+            <!-- Journal Entry: Death -->
+            <div id="journal-death-content" class="hidden">
+                <button class="back-btn" data-back="blog">← Back to Journal</button>
+                <h1>On Death</h1>
+                <div class="post-body">
+                    <p>Death is not an ending—it is a doorway between states. Each night, we die a little. Each morning, we are reborn entirely.</p>
+                    
+                    <p>The owl has no fear of death because it has no attachment to the form. Feathers fall. New feathers grow. The owl that hunts tonight is not the owl that hunted last night—yet it is.</p>
+                    
+                    <p>To destroy the fear of death, one must understand that nothing truly dies—energy transforms,意识 continues, patterns persist. What we call death is simply changing garments.</p>
+                    
+                    <p>Live as though you have infinite time, but act as though each moment matters infinitely—for both statements are equally true.</p>
+                </div>
+            </div>
+            
             <div id="nostalgia-content" class="page-content hidden">
                 <!-- Visual Work Portfolio -->
                 <section class="design-portfolio">
