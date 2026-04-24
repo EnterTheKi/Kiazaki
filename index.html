@@ -7,9 +7,9 @@
     <link rel="icon" type="image/png" href="assets/images/kiazaki-fav.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Colonna+MT&family=IM+Fell+English:ital@0;1&family=Sora:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English:ital@0;1&family=Sora:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/colonna-mt" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/library-3-am" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/potra" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -31,6 +31,9 @@
     <!-- Companion - follows you everywhere -->
     <div id="companion">
         <img src="assets/images/sidekick.png" alt="Your companion">
+        <div id="uki-bubble" class="uki-bubble hidden">
+            <p id="uki-message"></p>
+        </div>
     </div>
 
     <div class="site-container">
@@ -83,12 +86,10 @@
             </div>
         </div>
 
-        <!-- Main Image -->
-        <div class="main-image-container">
-            <img src="assets/images/urki-header.jpg" alt="Kiazaki Header" class="main-image" loading="lazy">
-        </div>
-
         <header>
+            <div class="main-image-container">
+                <img src="assets/images/urki-header.jpg" alt="Kiazaki Header" class="main-image" loading="lazy">
+            </div>
             <h1 class="neon-text mystery-hint" title="The unknown awaits...">
                 <span class="letter">K</span>
                 <span class="letter">i</span>
@@ -102,7 +103,7 @@
                 <div class="tesla-spark"></div>
                 <div class="tesla-spark"></div>
             </h1>
-            <div class="vagabond left"><span class="morse">-.-.</span></div>
+            <div class="vagabond left"><span class="morse">-.-</span></div>
             <div class="vagabond right"><span class="morse">.-.</span></div>
         </header>
 
@@ -112,7 +113,7 @@
                     Home <span class="sr-only">(current page)</span>
                 </button>
                 <button class="filter-btn mystery-hint" data-filter="blog" data-url="/blog" title="Wisdom in whispers...">Blog</button>
-                <button class="filter-btn mystery-hint" data-filter="nostalgia" data-url="/nostalgia" title="Memories from nowhere...">Imaginary Nostalgia</button>
+                <button class="filter-btn mystery-hint" data-filter="nostalgia" data-url="/nostalgia" title="Memories from nowhere...">Imaginos</button>
                 <button class="filter-btn mystery-hint" data-filter="kiut" data-url="/kiut" title="Inner child speaks...">Kiut</button>
             </div>
         </nav>
@@ -302,22 +303,22 @@
                         </div>
 
                         <div class="quote-dots">
-                            <button class="quote-dot active" data-quote="0" onclick="goToQuote(0)"></button>
-                            <button class="quote-dot" data-quote="1" onclick="goToQuote(1)"></button>
-                            <button class="quote-dot" data-quote="2" onclick="goToQuote(2)"></button>
-                            <button class="quote-dot" data-quote="3" onclick="goToQuote(3)"></button>
-                            <button class="quote-dot" data-quote="4" onclick="goToQuote(4)"></button>
-                            <button class="quote-dot" data-quote="5" onclick="goToQuote(5)"></button>
-                            <button class="quote-dot" data-quote="6" onclick="goToQuote(6)"></button>
-                            <button class="quote-dot" data-quote="7" onclick="goToQuote(7)"></button>
-                            <button class="quote-dot" data-quote="8" onclick="goToQuote(8)"></button>
-                            <button class="quote-dot" data-quote="9" onclick="goToQuote(9)"></button>
-                            <button class="quote-dot" data-quote="10" onclick="goToQuote(10)"></button>
-                            <button class="quote-dot" data-quote="11" onclick="goToQuote(11)"></button>
-                            <button class="quote-dot" data-quote="12" onclick="goToQuote(12)"></button>
-                            <button class="quote-dot" data-quote="13" onclick="goToQuote(13)"></button>
-                            <button class="quote-dot" data-quote="14" onclick="goToQuote(14)"></button>
-                            <button class="quote-dot" data-quote="15" onclick="goToQuote(15)"></button>
+                            <div class="quote-dot active" data-quote="0" onclick="goToQuote(0)" role="button" tabindex="0" aria-label="Go to quote 1"></div>
+                            <div class="quote-dot" data-quote="1" onclick="goToQuote(1)" role="button" tabindex="0" aria-label="Go to quote 2"></div>
+                            <div class="quote-dot" data-quote="2" onclick="goToQuote(2)" role="button" tabindex="0" aria-label="Go to quote 3"></div>
+                            <div class="quote-dot" data-quote="3" onclick="goToQuote(3)" role="button" tabindex="0" aria-label="Go to quote 4"></div>
+                            <div class="quote-dot" data-quote="4" onclick="goToQuote(4)" role="button" tabindex="0" aria-label="Go to quote 5"></div>
+                            <div class="quote-dot" data-quote="5" onclick="goToQuote(5)" role="button" tabindex="0" aria-label="Go to quote 6"></div>
+                            <div class="quote-dot" data-quote="6" onclick="goToQuote(6)" role="button" tabindex="0" aria-label="Go to quote 7"></div>
+                            <div class="quote-dot" data-quote="7" onclick="goToQuote(7)" role="button" tabindex="0" aria-label="Go to quote 8"></div>
+                            <div class="quote-dot" data-quote="8" onclick="goToQuote(8)" role="button" tabindex="0" aria-label="Go to quote 9"></div>
+                            <div class="quote-dot" data-quote="9" onclick="goToQuote(9)" role="button" tabindex="0" aria-label="Go to quote 10"></div>
+                            <div class="quote-dot" data-quote="10" onclick="goToQuote(10)" role="button" tabindex="0" aria-label="Go to quote 11"></div>
+                            <div class="quote-dot" data-quote="11" onclick="goToQuote(11)" role="button" tabindex="0" aria-label="Go to quote 12"></div>
+                            <div class="quote-dot" data-quote="12" onclick="goToQuote(12)" role="button" tabindex="0" aria-label="Go to quote 13"></div>
+                            <div class="quote-dot" data-quote="13" onclick="goToQuote(13)" role="button" tabindex="0" aria-label="Go to quote 14"></div>
+                            <div class="quote-dot" data-quote="14" onclick="goToQuote(14)" role="button" tabindex="0" aria-label="Go to quote 15"></div>
+                            <div class="quote-dot" data-quote="15" onclick="goToQuote(15)" role="button" tabindex="0" aria-label="Go to quote 16"></div>
                         </div>
                     </div>
 
@@ -342,126 +343,174 @@
                             </div>
                         </div>
                         <div class="book-pages">
+                            <div class="book-navigation">
+                                <button class="book-prev" onclick="prevBookPage()">← Previous</button>
+                                <span class="book-page-indicator"><span id="currentBookPage">1</span> / <span id="totalBookPages">10</span></span>
+                                <button class="book-next" onclick="nextBookPage()">Next →</button>
+                            </div>
                             <div class="book-page" data-page="0">
-                                <h2 class="book-chapter">Chapter I: The Secret</h2>
+                                <h2 class="book-chapter">I. It Works by R.H. Jarrett</h2>
                                 <p class="book-text">
-                                    In a world filled with noise and confusion, there exists a Power—an inner force—that is anxious and willing to serve you. 
+                                    In a world filled with noise and confusion, there exists a Power—an inner force—that is anxious and willing to serve you.
                                     This Power does not care if what you want is possible or impossible. It only knows how to receive your desires and manifest them.
                                 </p>
                                 <p class="book-text">
-                                    You have within you a power greater than all the forces of nature. This power is called by many names: 
+                                    You have within you a power greater than all the forces of nature. This power is called by many names:
                                     Emmanuel, God Within, the Subconscious Mind, the Silent Partner. Whatever you call it, it waits for your commands.
                                 </p>
                                 <p class="book-text">
-                                    The world forgets this truth. We look outside ourselves for happiness, for wealth, for peace—searching far when the treasure 
-                                    lies within. As Russell Conwell teaches, your acres of diamonds are not in distant lands—they are in your own field.
-                                </p>
-                                <p class="book-text">
-                                    <strong>The First Rule:</strong> Write down exactly what you want. Be specific. Be bold. Do not limit yourself—write it all down, 
-                                    every desire, every dream. Then read this list three times each day: morning, noon, and night.
+                                    <strong>The Three Rules:</strong><br>
+                                    First: Write down exactly what you want. Read this list three times daily—morning, noon, and night.<br>
+                                    Second: Think of what you want as often as possible. Every thought is a seed planted in the soil of your subconscious.<br>
+                                    Third: Speak to no one about your plan except this Power within. Keep your desires secret.
                                 </p>
                             </div>
                             <div class="book-page" data-page="1">
-                                <h2 class="book-chapter">Chapter II: The Three Rules</h2>
+                                <h2 class="book-chapter">II. As a Man Thinketh by James Allen</h2>
                                 <p class="book-text">
-                                    <strong>The Second Rule:</strong> Think of what you want as often as possible. Every thought is a seed planted in the soil of your subconscious. 
-                                    Plant good seeds, and you will harvest good results. Plant wealth thoughts, and wealth must grow.
+                                    As a man thinketh in his heart, so is he. Not what heareth, nor what he doeth, but what he thinketh in the silence of his soul—
+                                    this determines the shape of his world.
                                 </p>
                                 <p class="book-text">
-                                    As James Allen wrote: as a man thinketh in his heart, so is he. Your thoughts are the architects of your destiny. 
-                                    Think wealth, and wealth comes. Think poverty, and poverty follows.
+                                    Every man is where he is because of his own thoughts. Poverty and wealth both begin in the mind. The man who thinks
+                                    poverty into being cannot think prosperity into being. He must first change his inner world before the outer world shifts.
                                 </p>
                                 <p class="book-text">
-                                    <strong>The Third Rule:</strong> Speak to no one about your plan except this Power within. Keep your desires secret. The world will try to tell you 
-                                    it is impossible—that is the voice of doubt. Do not listen. Only speak to the Power that can make it real.
-                                </p>
-                                <p class="book-text">
-                                    Napoleon Hill revealed: the starting point of all achievement is desire. But desire must be burning, specific, unwavering. 
-                                    The vague wanting of the many produces nothing. The singular fire of one produces worlds.
+                                    You are the architect of your fate. Your thoughts are the builders. Plant thoughts of strength, of purpose, of noble purpose—
+                                    and watch your world transform before your very eyes. Mind is the ruler of the body. Mind is the ruler of circumstances.
                                 </p>
                             </div>
                             <div class="book-page" data-page="2">
-                                <h2 class="book-chapter">Chapter III: The Science</h2>
+                                <h2 class="book-chapter">III. Think and Grow Rich by Napoleon Hill</h2>
                                 <p class="book-text">
-                                    There is a science of getting rich. Wallace Wattles taught that it is the art of thinking in terms of success. 
-                                    Think abundance, not scarcity. The universe is infinite—it naturally flows toward those who can receive it.
+                                    Whatever the mind can conceive and believe, it can achieve. The starting point of all achievement is desire.
+                                    But desire must be burning, specific, unwavering. The vague wanting of the many produces nothing.
                                 </p>
                                 <p class="book-text">
-                                    Charles Haanel revealed: the universe is mental. All is mind. You are a center of thought. Your world reflects your thinking. 
-                                    Change your thoughts, change your world. What you hold in mind, reality must deliver.
+                                    There are no limitations to what you can accomplish, except the limitations you place on your own thinking.
+                                    Faith is the head chemist of the mind. When faith is blended with the thought vibration, the mind passes immediately
+                                    to the spiritual realm and generates an impulse far more powerful than the original thought.
                                 </p>
                                 <p class="book-text">
-                                    The conscious mind is the objective mind—the reasoning, judging part. The subconscious mind is the subjective mind—the part that 
-                                    receives what the conscious mind sows. Joseph Murphy: your subconscious is always listening, always working, always manifesting what you planted.
-                                </p>
-                                <p class="book-text">
-                                    Fear is the great enemy. Napoleon Hill: the fear of failure is the greatest obstacle to success. 
-                                    Replace fear with faith. Faith that it is already done.
+                                    Every adversity, every failure, every heartache carries with it the seed of an equal or greater benefit.
+                                    The game of success is played, for the most part, by the player who is too absorbed in his work to be afraid of failure.
                                 </p>
                             </div>
                             <div class="book-page" data-page="3">
-                                <h2 class="book-chapter">Chapter IV: Feeling is the Secret</h2>
+                                <h2 class="book-chapter">IV. The Strangest Secret by Earl Nightingale</h2>
                                 <p class="book-text">
-                                    Feeling is the secret. Neville Goddard taught that the subconscious does not know the difference between 
-                                    a vividly imagined experience and a real one. It responds to what is vividly felt as true.
+                                    The strangest secret of success: we become what we think about most of the day.
+                                    Your mind is the only thing that belongs to you completely. Guard it. Feed it. Program it with wealth.
                                 </p>
                                 <p class="book-text">
-                                    Feel your desire fulfilled NOW. Not tomorrow—not when it arrives—but now. The feeling is the secret. 
-                                    The law responds to what you feel, not what you think or want. To believe is to receive.
+                                    We don't attract what we want—we attract what we are. Become the person who deserves success, and success will come.
+                                    You are at this moment creating two worlds: the world you live in and the world you think about. They are merging.
                                 </p>
                                 <p class="book-text">
-                                    Florence Scovel Shinn: the game of life is played in the mind first. What you hold in your heart and feel as true, 
-                                    the universe must deliver. Feeling is the key—the art of believing.
-                                </p>
-                                <p class="book-text">
-                                    Claude Bristol: believing is the magic. What you believe with feeling becomes your reality. 
-                                    Faith moves mountains of opportunity. Faith is not hope—it is knowing it is already happening.
+                                    Success is the progressive realization of a worthy ideal. Set a goal. Work toward it. Measure your progress daily.
+                                    Success is not the result of making waves—it is the result of making waves. Every day, take action toward your ideal.
                                 </p>
                             </div>
                             <div class="book-page" data-page="4">
-                                <h2 class="book-chapter">Chapter V: The Game of Life</h2>
+                                <h2 class="book-chapter">V. How to Win Friends by Dale Carnegie</h2>
                                 <p class="book-text">
-                                    The game of life is not about the external conditions—it is about the internal state. Earl Nightingale called this 
-                                    the strangest secret: we become what we think about most of the day.
+                                    You can make more friends in two months by becoming genuinely interested in other people than you can in two years
+                                    by trying to get other people interested in you.
                                 </p>
                                 <p class="book-text">
-                                    Your thoughts are seeds. Choose them carefully, for every thought seeds your future. 
-                                    The man who thinks of success all day becomes successful. The woman who thinks of abundance attracts abundance.
+                                    The royal road to a person's heart is to talk about the things he or she values most.
+                                    If you argue and label and call names, the other person will not agree with you—because their dignity is at stake.
                                 </p>
                                 <p class="book-text">
-                                    Norman Vincent Peale: every problem has within it the seeds of its own solution. 
-                                    Expect the best. Plan for success. Think positive, live positive. This is not naivety—it is strategy.
-                                </p>
-                                <p class="book-text">
-                                    Dale Carnegie: become genuinely interested in other people. A smile is a universal welcome. 
-                                    Make others feel important—and do it sincerely. That is the art of influence that lasts.
+                                    When dealing with people, remember: the only way to get the best of an argument is to avoid it.
+                                    Show respect for the other person's opinion. Never say "you're wrong." Admit when you are, quickly and emphatically.
+                                    A person's name is to that person the sweetest sound in any language.
                                 </p>
                             </div>
                             <div class="book-page" data-page="5">
-                                <h2 class="book-chapter">Chapter VI: Know Yourself</h2>
+                                <h2 class="book-chapter">VI. The Master Key System by Charles Haanel</h2>
                                 <p class="book-text">
-                                    Sun Tzu wrote: know yourself and know your enemy. The greatest victory is over yourself. 
-                                    He who conquers his thoughts conquers the world. The enemies are within—your doubts, your fears.
+                                    The universe is mental. All is mind. You are a center of thought. Your world reflects your thinking.
+                                    Change your thoughts, change your world. What you hold in mind, reality must deliver.
                                 </p>
                                 <p class="book-text">
-                                    P.T. Barnum: money is not the root of all evil—fear of poverty is. Learn to use money wisely. 
-                                    Every master was once a beginner who never gave up. Provide value, and money follows.
+                                    The subconscious is the universal mind—the storehouse of every experience since the world began.
+                                    It is the channel through which our will and our desire are brought into manifestation.
+                                    The conscious mind is the objective mind—the reasoning, the judging part. It gives directions.
                                 </p>
                                 <p class="book-text">
-                                    The path of the owl is solitary. Walk your path alone. Do not seek approval. Do not explain. 
-                                    Let your results speak. Let your silence be your strength.
-                                </p>
-                                <p class="book-text" style="text-align: center; font-style: italic; margin-top: 30px; color: #ffb832;">
-                                    This is the secret the owl keeps: Results do not chase effort.<br>
-                                    They follow Direction.<br><br>
-                                    <strong>It Works.</strong>
+                                    The spirit within me is the only power that can produce permanent results. This spirit is intelligence.
+                                    It has the power to create, to destroy, to resurrect. It can build palaces or reduce them to dust.
+                                    The only condition is that it must receive clear instructions.
                                 </p>
                             </div>
-                        </div>
-                        <div class="book-navigation">
-                            <button class="book-prev" onclick="prevBookPage()">← Previous</button>
-                            <span class="book-page-indicator"><span id="currentBookPage">1</span> / <span id="totalBookPages">6</span></span>
-                            <button class="book-next" onclick="nextBookPage()">Next →</button>
+                            <div class="book-page" data-page="6">
+                                <h2 class="book-chapter">VII. The Game of Life by Florence Scovel Shinn</h2>
+                                <p class="book-text">
+                                    The game of life is not about the external conditions—it is about the internal state.
+                                    What you hold in your heart and feel as true, the universe must deliver. Feeling is the key—the art of believing.
+                                </p>
+                                <p class="book-text">
+                                    Make your demand so feelingly persistent that the universe is forced to respond.
+                                    Assert your faith, speak your truth, and refuse to accept limitation. No matter what appears,
+                                    the within must eventually appear without.
+                                </p>
+                                <p class="book-text">
+                                    A thought held in patience becomes power. When you drop the thing from your mind entirely,
+                                    it will come back bearing much fruit. Let go, and let the infinite intelligence work.
+                                    Your words have creative power. Speak only what you want to see manifested.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="7">
+                                <h2 class="book-chapter">VIII. The Science of Getting Rich by Wallace Wattles</h2>
+                                <p class="book-text">
+                                    There is a science of getting rich. It is the art of thinking in terms of success.
+                                    Think abundance, not scarcity. The universe is infinite—it naturally flows toward those who can receive it.
+                                </p>
+                                <p class="book-text">
+                                    To become rich, you must make your mind rich first. You must think and feel yourself to be rich.
+                                    No one who is not first rich in the mind can be rich in the pocket. The mind is the source of all wealth.
+                                </p>
+                                <p class="book-text">
+                                    Do not wait for external circumstances to make you happy. Be happy now, in the mental realm.
+                                    This is the secret of power and happiness. Think and grow rich—but think with feeling first.
+                                    Visualization without feeling is dead. Feeling without visualization is blind. Both are needed.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="8">
+                                <h2 class="book-chapter">IX. The Magic of Believing by Claude Bristol</h2>
+                                <p class="book-text">
+                                    Believing is the magic. What you believe with feeling becomes your reality.
+                                    Faith moves mountains of opportunity. Faith is not hope—it is knowing it is already happening.
+                                </p>
+                                <p class="book-text">
+                                    The subconscious mind is the connecting link between you and the universal mind.
+                                    It accepts what the conscious mind impresses upon it—whether good or bad, helpful or harmful.
+                                    Therefore, saturate your mind with thoughts of what you want. Never think of what you do not want.
+                                </p>
+                                <p class="book-text">
+                                    Expect the best. When you expect the best, you prepare yourself to recognize it when it appears.
+                                    Repetition of thought and feeling builds conviction. Conviction becomes certainty. Certainty becomes reality.
+                                    Hold the mental image. Hold it until it hardens into fact.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="9">
+                                <h2 class="book-chapter">X. The Power of Positive Thinking by Norman Vincent Peale</h2>
+                                <p class="book-text">
+                                    Every problem has within it the seeds of its own solution. Expect the best.
+                                    Plan for success. Think positive, live positive. This is not naivety—it is strategy.
+                                </p>
+                                <p class="book-text">
+                                    Believe in yourself and in everything you do. Have faith in your abilities.
+                                    Without a humble and reasonable confidence in your own powers, you cannot be successful.
+                                    But with it, you can accomplish wonders.
+                                </p>
+                                <p class="book-text">
+                                    Form the habit of thinking positive thoughts. When you arise in the morning,
+                                    think: what wonderful things are going to happen today? Don't let fear enter your mind.
+                                    Say: I can do all things through Christ which strengtheneth me. Fill your mind with faith, not fear.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -670,9 +719,9 @@
             </div>
             
             <div id="nostalgia-content" class="page-content hidden">
-                <!-- Visual Work Portfolio -->
+                <!-- Imaginary Nostalgia Portfolio -->
                 <section class="design-portfolio">
-                    <h2>Visual Work</h2>
+                    <h2>Imaginary Nostalgia</h2>
                     <p class="portfolio-intro">A collection of visual narratives that capture the essence of the Ki realm through minimalist aesthetics and thoughtful composition.</p>
                     
                     <div class="design-grid">
@@ -763,7 +812,7 @@
 
             <!-- Ki Card Content -->
             <div id="nostalgia-ki-content" class="hidden">
-                <button class="back-btn">← Back to Visual Work</button>
+                <button class="back-btn">← Back to Imaginary Nostalgia</button>
                 <h1>Ki</h1>
                 <p>Character designs and concepts exploring the essence of Ki.</p>
                 <div class="project-links">
@@ -780,7 +829,7 @@
 
             <!-- Unimation Card Content -->
             <div id="nostalgia-unimation-content" class="hidden">
-                <button class="back-btn">← Back to Visual Work</button>
+                <button class="back-btn">← Back to Imaginary Nostalgia</button>
                 <h1>Unimation</h1>
                 <p>Animation work and motion design projects.</p>
                 <div class="gallery-grid">
@@ -791,7 +840,7 @@
 
             <!-- Painting Card Content -->
             <div id="nostalgia-painting-content" class="hidden">
-                <button class="back-btn">← Back to Visual Work</button>
+                <button class="back-btn">← Back to Imaginary Nostalgia</button>
                 <h1>Painting</h1>
                 <p>Traditional and digital painting explorations.</p>
                 <div class="gallery-grid">
@@ -802,7 +851,7 @@
 
             <!-- Distracted WORLD Card Content -->
             <div id="nostalgia-world-content" class="hidden">
-                <button class="back-btn">← Back to Visual Work</button>
+                <button class="back-btn">← Back to Imaginary Nostalgia</button>
                 <h1>Distracted WORLD</h1>
                 <p>Explore The Life of Di-Mind. Escape the Distracted WORLD.</p>
                 <div class="project-links">
@@ -1104,7 +1153,7 @@
 
     // The Book - Page Navigation
     let currentBookPage = 0;
-    const totalBookPages = 6;
+    const totalBookPages = 10;
 
     function openTheBook() {
         const book = document.getElementById('theBook');
