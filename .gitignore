@@ -1,4 +1,3 @@
-```
 # Compiled and build artifacts
 *.pyc
 __pycache__/
@@ -22,122 +21,39 @@ venv/
 .env.local
 .env.*
 
-# Build directories
-dist/
-build/
-target/
-*.jar
-*.war
-*.zip
-*.tar.gz
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
 
-# Editors and IDEs
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
 
-# Logs
-*.log
+# System files
+.DS_Store
+Thumbs.db
 
 # Coverage
-.coverage
 coverage/
 htmlcov/
-
-# OS generated files
-.DS_Store
-Thumbs.db
+.coverage
 
 # Python specific
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg-info/
-.eggs/
-
-# JavaScript/Node specific
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
-hs_err_pid*
-
-# C/C++ specific
-*.o
-*.obj
-*.a
-*.lib
-*.so
-*.dylib
-*.dll
-
-# Go specific
-*.o
-*.a
-*.swp
-*~
-.DS_Store
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Ruby specific
-*.gem
-*.rbc
-extdoc-*/
-.yardoc/
-_yardoc/
-doc/
-.rspec
-.bundle/
-.jruby-gem-cache/
-.packages/
-.rbenv-gemsets
-.rbenv-version
-vendor/bundle
-vendor/cache
-vendor/gems
-vendor/ruby
-
-# Rust specific
-target/
-Cargo.lock
-
-# Julia specific
-julia-*/
-
-# Zig specific
-zig-cache/
-zig-out/
-
-# Gradle specific
-.gradle/
-build/
-
-# MyPy specific
-.mypy_cache/
-
-# PyTest specific
-.pytest_cache/
-
-# Python specific
+*.pyc
+__pycache__/
 .mypy_cache/
 .pytest_cache/
 
 # Java/Gradle
 .gradle/
+target/
 
 # Compressed files
+*.zip
 *.gz
 *.tar
 *.tgz
@@ -155,4 +71,7 @@ build/
 *.Z
 *.lz
 *.lzo
-```
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
