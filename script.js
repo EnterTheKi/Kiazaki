@@ -566,7 +566,6 @@ const wisdom = [
     // Mouse tracking - with scroll support
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-    let scrollY = 0;
     let lastX = window.innerWidth - 100;
     let lastY = window.innerHeight - 120;
     let isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
@@ -593,9 +592,7 @@ const wisdom = [
         });
     }
     
-    window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-    });
+    
     
     companion.style.left = lastX + 'px';
     companion.style.top = lastY + 'px';
@@ -709,7 +706,7 @@ const wisdom = [
             const wobbleY = Math.cos(offsetPhase * 0.8) * 3;
             
             const targetX = mouseX + currentOffsetX + wobbleX;
-            const targetY = mouseY + currentOffsetY + wobbleY + scrollY;
+            const targetY = mouseY + currentOffsetY + wobbleY;
             
             // Very slow, smooth follow
             lastX += (targetX - lastX) * 0.02;
@@ -725,37 +722,16 @@ const wisdom = [
     smoothFollow();
     
     // Handle page navigation - teleport effect
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(btn => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Teleport animation
             companion.classList.add('teleporting');
-            
-            // Move owl to new section position after a brief delay
             setTimeout(() => {
-                const targetFilter = btn.dataset.filter;
-                let targetSection = null;
-                
-                // Find the target content section
-                if (targetFilter === 'blog') {
-                    targetSection = document.getElementById('featuredCarousel') || document.querySelector('.blog-header');
-                } else if (targetFilter === 'home') {
-                    targetSection = document.querySelector('.site-container');
-                } else if (targetFilter === 'post') {
-                    targetSection = document.querySelector('#post-content');
-                }
-                
-                if (targetSection) {
-                    const rect = targetSection.getBoundingClientRect();
-                    lastX = Math.min(window.innerWidth - 100, Math.max(20, rect.left + 50));
-                    lastY = Math.min(window.innerHeight - 120, Math.max(20, rect.top + 100));
-                    companion.style.left = lastX + 'px';
-                    companion.style.top = lastY + 'px';
-                }
-                
-                setTimeout(() => {
-                    companion.classList.remove('teleporting');
-                }, 400);
+                lastX = window.innerWidth - 100;
+                lastY = window.innerHeight / 2;
+                companion.style.left = lastX + 'px';
+                companion.style.top = lastY + 'px';
+                setTimeout(() => companion.classList.remove('teleporting'), 400);
             }, 200);
         });
     });
