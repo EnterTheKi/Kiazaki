@@ -442,9 +442,9 @@ body::after {
 
 .uki-bubble {
     position: absolute;
-    bottom: 130px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 100%;
+    right: 0;
+    transform: translateY(-10px);
     background: linear-gradient(135deg, #1a1410 0%, #2a2015 100%);
     border: 2px solid #d4a832;
     border-radius: 15px;
@@ -454,6 +454,7 @@ body::after {
     box-shadow: 0 0 20px rgba(212, 168, 50, 0.3), 0 5px 20px rgba(0,0,0,0.5);
     animation: ukiAppear 0.4s ease-out;
     z-index: 10001;
+    margin-bottom: 15px;
 }
 
 .uki-bubble.hidden {
@@ -473,7 +474,7 @@ body::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 50%;
+    right: 20px;
     transform: translateX(-50%);
     border-width: 10px 10px 0;
     border-style: solid;
@@ -481,8 +482,8 @@ body::after {
 }
 
 @keyframes ukiAppear {
-    from { opacity: 0; transform: translateX(-50%) scale(0.8); }
-    to { opacity: 1; transform: translateX(-50%) scale(1); }
+    from { opacity: 0; transform: translateY(10px) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Slow 1930s style float - bouncy */
@@ -507,9 +508,9 @@ body::after {
 #companion:hover::after {
     content: "Hi! I'm Uki, your assistant!";
     position: absolute;
-    bottom: 140px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 100%;
+    right: 0;
+    transform: translateY(-10px);
     background: var(--accent-color);
     color: var(--text-color);
     padding: 8px 12px;
@@ -520,6 +521,7 @@ body::after {
     border: 1px solid var(--border-color);
     pointer-events: none;
     animation: ukiAppear 0.4s ease-out;
+    margin-bottom: 15px;
 }
 
 /* Companion - sidekick.png with animations */
