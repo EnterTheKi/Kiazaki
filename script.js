@@ -1,4 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Force all quote dots to be perfect circles
+    document.querySelectorAll('.quote-dot').forEach(dot => {
+        dot.style.borderRadius = '9999px';
+        dot.style.width = '1.2em';
+        dot.style.height = '1.2em';
+        dot.style.boxSizing = 'border-box';
+        dot.style.appearance = 'none';
+        dot.style.webkitAppearance = 'none';
+        dot.style.padding = '0';
+        dot.style.margin = '0';
+        dot.style.border = '2px solid rgba(255, 184, 50, 0.6)';
+        dot.style.background = 'transparent';
+        dot.style.cursor = 'pointer';
+        dot.style.outline = 'none';
+        dot.style.display = 'inline-block';
+        
+        // Force active state styles if dot has 'active' class
+        if (dot.classList.contains('active')) {
+            dot.style.background = 'linear-gradient(135deg, #ffb832 0%, #d4952a 100%)';
+            dot.style.borderColor = '#ffb832';
+            dot.style.boxShadow = '0 0 15px rgba(255, 184, 50, 0.6)';
+            dot.style.transform = 'scale(1.2)';
+            dot.style.animation = 'dotBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite';
+        }
+    });
     const container = document.querySelector('.site-container');
     const filterButtons = container.querySelectorAll('.filter-btn');
     const contentSections = {
@@ -18,6 +43,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const popupToggle = container.querySelector('#popup-toggle');
     const popupContent = container.querySelector('.popup-content');
     const letters = document.querySelectorAll(".letter");
+    const ukiMessages = {
+        intro: "Hi, I'm Uki, your companion. I wander the Kiazaki realm. Click the navigation arrows to explore, or tap me for wisdom from the twilight.",
+        nav: {
+            home: "Home is where the journey begins. The neon sign flickers with ancient secrets.",
+            blog: "The Owl's Journal holds wisdom older than memory. Tread carefully—these truths transform.",
+            nostalgia: "Memories drift like autumn leaves. Some bring warmth, others—pain. Both are teachers.",
+            kiut: "The inner child knows the way. Pure, uncorrupted, eternal."
+        },
+        wisdom: [
+            "The owl sees in darkness because it has made peace with it.",
+            "What you seek is already within you.",
+            "The path of the owl is solitary. Walk your path alone.",
+            "Results do not chase effort—effort creates results.",
+            "Time is an illusion. Only now is real.",
+            "Your thoughts become your world.",
+            "Wisdom is not knowledge—it is living understanding.",
+            "Desire is the seed of manifestation.",
+            "The universe is mental.",
+            "You have great powers within."
+        ]
+    };
+    
+    function ukiSpeak() {
+        const bubble = document.getElementById('uki-bubble');
+        const message = document.getElementById('uki-message');
+        if (!bubble || !message) return;
+        
+        const isRandom = Math.random() > 0.5;
+        if (isRandom && currentFilter) {
+            message.innerHTML = ukiMessages.nav[currentFilter] || ukiMessages.intro;
+        } else {
+            const wisdom = ukiMessages.wisdom[Math.floor(Math.random() * ukiMessages.wisdom.length)];
+            message.innerHTML = wisdom;
+        }
+        
+        bubble.classList.remove('hidden');
+        
+        setTimeout(() => {
+            bubble.classList.add('hidden');
+        }, 5000);
+    }
+    window.ukiSpeak = ukiSpeak;
+    let currentFilter = 'home';
     
 
     // Neon sign animation
@@ -57,8 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateLetters, 9000);
 }
 
-    // Navigation and content display
+// Navigation and content display
     function updateDisplay(targetFilter, postId = null) {
+        currentFilter = targetFilter;
         filterButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === targetFilter));
         Object.values(contentSections).forEach(section => section.classList.add('hidden'));
         
@@ -71,12 +140,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 contentSections.post.appendChild(clonedContent);
                 contentSections.post.classList.remove('hidden');
                 const backBtn = contentSections.post.querySelector('.back-btn');
-                if (backBtn) backBtn.onclick = () => updateDisplay(backBtn.textContent.includes('Visual Work') ? 'nostalgia' : 'home');
-                window.history.pushState({ filter: targetFilter, postId }, '', `/post/${postId}`);
+                if (backBtn) backBtn.onclick = () => updateDisplay(backBtn.textContent.includes('Imaginary Nostalgia') ? 'nostalgia' : 'home');
+                if (window.location.protocol !== 'file:') {
+                    window.history.pushState({ filter: targetFilter, postId }, '', `/post/${postId}`);
+                }
             }
         } else {
             contentSections[targetFilter].classList.remove('hidden');
-            window.history.pushState({ filter: targetFilter }, '', `/${targetFilter === 'home' ? '' : targetFilter}`);
+            if (window.location.protocol !== 'file:') {
+                window.history.pushState({ filter: targetFilter }, '', `/${targetFilter === 'home' ? '' : targetFilter}`);
+            }
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -369,35 +442,29 @@ if (themeToggle) {
     if (!companion) return;
     
 const wisdom = [
+        // Helpful site tips (Clippy-style)
+        "Hi! I'm Uki, your assistant. Click the filter buttons above to explore projects!",
+        "Need to go back? Click the Back button below the content.",
+        "Looking for music? Click the Bandcamp button in the popup menu!",
+        "Want to change themes? Click the sun/moon icon in the popup menu.",
+        "Stuck? Click me twice to toggle follow mode, and I'll follow your scroll!",
+        
         // R.H. Jarrett - It Works
         "The secret of success is constancy to purpose. — R.H. Jarrett",
         "You must be absolutely honest with yourself. — R.H. Jarrett",
         "Success comes to those who want it most and are willing to pay the price. — R.H. Jarrett",
         "Every cause produces its own effect. — R.H. Jarrett",
         "There is no difficulty but what you can overcome. — R.H. Jarrett",
-        "Your desires must be made dominant. — R.H. Jarrett",
-        "The great secret of power is to know that nothing is impossible. — R.H. Jarrett",
         
         // James Allen - As a Man Thinketh
         "As a man thinketh in his heart, so is he. — James Allen",
         "Men are not paid for what they know—they are paid for what they do. — James Allen",
-        "In all human affairs there are forces, both visible and invisible. — James Allen",
-        "A man is not paid for having a head—he is paid for using it. — James Allen",
-        "Weakness is a thing to be ashamed of—strength is a thing to be proud of. — James Allen",
-        "The dreamers are the slaves of the men who do. — James Allen",
         "You will become as much greater as you will think greater thoughts. — James Allen",
         
         // Napoleon Hill - Think and Grow Rich
         "Whatever the mind can conceive and believe, it can achieve. — Napoleon Hill",
         "The starting point of all achievement is desire. — Napoleon Hill",
         "Every failure brings with it the seed of an equal success. — Napoleon Hill",
-        "The subconscious mind is a breeding ground for cause. — Napoleon Hill",
-        "No alibi will save you from failure—only definite purpose will save you. — Napoleon Hill",
-        "The fear of failure is the greatest obstacle to success. — Napoleon Hill",
-        "Riches begin with the state of mind—being rich begins with being grateful. — Napoleon Hill",
-        "When wealth comes to a man, it comes through channels allied to his burning desire. — Napoleon Hill",
-        "Defeat is a state of mind—it is not outward events. — Napoleon Hill",
-        "Success requires initiative—initiative requires action. — Napoleon Hill",
         
         // Earl Nightingale - The Strangest Secret
         "We become what we think about most of the time. — Earl Nightingale",
@@ -694,7 +761,7 @@ const wisdom = [
     function smoothFollow() {
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
-        if (isMobile || !followMode) {
+        if (!followMode) {
             // Stay put
         } else {
             offsetPhase += 0.008;
