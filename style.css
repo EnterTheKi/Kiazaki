@@ -531,8 +531,13 @@ body::after {
     right: 15px;
     display: flex;
     gap: 10px;
-    z-index: 1000;
+    z-index: 10002;
     align-items: flex-start;
+    pointer-events: none;
+}
+
+.right-widgets > * {
+    pointer-events: auto;
 }
 
 /* Search Widget */
@@ -864,10 +869,14 @@ body::after {
     animation: buttonPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+.filter-btn:active {
+    color: #000000 !important;
+}
+
 [data-theme="light"] .filter-btn:hover,
 [data-theme="light"] .filter-btn.active {
     background: linear-gradient(180deg, #c4b8a0, #b4a890);
-    color: #1a1410 !important;
+    color: #000000 !important;
     border-color: #8b7355;
     box-shadow: 0 0 15px rgba(90, 74, 53, 0.3), inset 0 0 10px rgba(90, 74, 53, 0.1);
 }
@@ -1006,6 +1015,7 @@ body::after {
 .filter-btn:active {
     transform: scale(0.95);
     animation: none;
+    color: #000000 !important;
 }
 
 @keyframes buttonPop {
@@ -4403,7 +4413,7 @@ footer p {
     
     header h1.neon-text {
         font-family: 'LIBRARY 3 AM', serif !important;
-        font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+        font-size: clamp(2rem, 7vw, 3.5rem) !important;
         letter-spacing: 1px;
         line-height: 1.2;
         white-space: normal;
@@ -4616,7 +4626,7 @@ footer p {
     
     header h1.neon-text {
         font-family: 'LIBRARY 3 AM', serif !important;
-        font-size: clamp(1.8rem, 6.5vw, 2.5rem) !important;
+        font-size: clamp(1.6rem, 6vw, 2.5rem) !important;
         letter-spacing: 0.5px;
         white-space: normal;
         margin: 10px 0;
@@ -4694,15 +4704,15 @@ button,
 
 /* Fix z-index stacking */
 .right-widgets {
-    z-index: 10001;
+    z-index: 10004;
 }
 
 .popup-content {
-    z-index: 10002;
+    z-index: 10005;
 }
 
 .search-results {
-    z-index: 10003;
+    z-index: 10006;
 }
 
 .fullscreen-overlay {
