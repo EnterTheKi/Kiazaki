@@ -4403,8 +4403,8 @@ footer p {
     
     header h1.neon-text {
         font-family: 'LIBRARY 3 AM', serif !important;
-        font-size: clamp(2.8rem, 9vw, 4rem) !important;
-        letter-spacing: 2px;
+        font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+        letter-spacing: 1px;
         line-height: 1.2;
         white-space: normal;
         display: inline-block;
@@ -4616,8 +4616,8 @@ footer p {
     
     header h1.neon-text {
         font-family: 'LIBRARY 3 AM', serif !important;
-        font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
-        letter-spacing: 1px;
+        font-size: clamp(1.8rem, 6.5vw, 2.5rem) !important;
+        letter-spacing: 0.5px;
         white-space: normal;
         margin: 10px 0;
         line-height: 1.2;
