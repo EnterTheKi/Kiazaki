@@ -6,14 +6,28 @@
     <title>Kiazaki</title>
     <link rel="icon" type="image/png" href="assets/images/kiazaki-fav.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Colonna+MT&family=IM+Fell+English:ital@0;1&family=Sora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Colonna+MT&family=IM+Fell+English:ital@0;1&family=Sora:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/library-3-am" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/potra" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Cosmic Dots - Minimalist Surrealist Art -->
+    <div class="dot-grid"></div>
+    <div class="cosmic-dots">
+        <div class="cosmic-dot" style="top: 15%; left: 10%; width: 8px; height: 8px; animation-delay: 0s;"></div>
+        <div class="cosmic-dot" style="top: 25%; right: 15%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+        <div class="cosmic-dot" style="top: 45%; left: 20%; width: 10px; height: 10px; animation-delay: 4s;"></div>
+        <div class="cosmic-dot" style="top: 65%; right: 25%; width: 7px; height: 7px; animation-delay: 1s;"></div>
+        <div class="cosmic-dot" style="top: 80%; left: 15%; width: 5px; height: 5px; animation-delay: 3s;"></div>
+        <div class="cosmic-dot" style="top: 35%; left: 85%; width: 9px; height: 9px; animation-delay: 5s;"></div>
+        <div class="surreal-ring" style="top: 20%; left: 70%; width: 200px; height: 200px; animation-delay: 0s;"></div>
+        <div class="surreal-ring" style="top: 60%; left: 5%; width: 150px; height: 150px; animation-delay: 3s;"></div>
+        <div class="surreal-ring" style="top: 45%; right: 5%; width: 180px; height: 180px; animation-delay: 6s;"></div>
+    </div>
+
     <!-- Companion - follows you everywhere -->
     <div id="companion">
         <img src="assets/images/sidekick.png" alt="Your companion">
@@ -41,6 +55,9 @@
                     <source src="https://ice.somafm.com/dronezone-128-mp3" type="audio/mpeg">
                 </audio>
             </div>
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Switch to Light/Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <div class="popup-menu" id="popup-menu">
                 <button class="popup-toggle" id="popup-toggle" aria-label="Menu" aria-expanded="false" aria-haspopup="true" aria-controls="popup-content">
                     <i class="fa-solid fa-bars"></i>
@@ -72,7 +89,7 @@
         </div>
 
         <header>
-            <h1 class="neon-text">
+            <h1 class="neon-text mystery-hint" title="The unknown awaits...">
                 <span class="letter">K</span>
                 <span class="letter">i</span>
                 <span class="letter">a</span>
@@ -94,9 +111,9 @@
                 <button class="filter-btn active" data-filter="home" data-url="/home" aria-current="page">
                     Home <span class="sr-only">(current page)</span>
                 </button>
-                <button class="filter-btn" data-filter="blog" data-url="/blog">Blog</button>
-                <button class="filter-btn" data-filter="nostalgia" data-url="/nostalgia">Imaginary Nostalgia</button>
-                <button class="filter-btn" data-filter="kiut" data-url="/kiut">Kiut</button>
+                <button class="filter-btn mystery-hint" data-filter="blog" data-url="/blog" title="Wisdom in whispers...">Blog</button>
+                <button class="filter-btn mystery-hint" data-filter="nostalgia" data-url="/nostalgia" title="Memories from nowhere...">Imaginary Nostalgia</button>
+                <button class="filter-btn mystery-hint" data-filter="kiut" data-url="/kiut" title="Inner child speaks...">Kiut</button>
             </div>
         </nav>
 
@@ -305,36 +322,152 @@
                     </div>
 
                     <div class="blog-content">
-                        <p>
-                            Within these worn pages lies a truth older than memory—a secret whispered through the ages, 
-                            passed from tongue to tongue, hand to hand, until it found its way to the little red book 
-                            that changed everything.
-                        </p>
-                        <p>
-                            They called the author only by his marks: R.H.J.—a man who knew that the world had forgotten 
-                            the ancient art of wanting. Not the desperate grasping that leaves empty, but the steady, 
-                            Certain Desire that draws fortune like the moon draws the tide.
-                        </p>
-                        <p>
-                            Three rules, written in invisible ink that only appears when held to the flame: 
-                            <em>Know what you want. Write it down. Hold it fast without doubt.</em> 
-                            The rest, the silent power does.
-                        </p>
-                        <p>
-                            The owl has watched this truth work for a hundred years—through prosperity and poverty, 
-                            plenty and want. It works because the mighty force within answers only to Clear Intention. 
-                            Like the archer who must aim before the arrow flies, you must Know before the Fulfillment comes.
-                        </p>
-                        <p>
-                            This is the secret the owl keeps: Results do not chase effort. They follow Direction. 
-                            When you decide with certainty, the universe steps aside. Test it. Write your want upon paper. 
-                            Read it each dawn and eve. Then—wait. The Silence serves those who ask with precision.
-                        </p>
+                        <div class="book-intro" onclick="openTheBook()">
+                            <p class="book-teaser">
+                                <span class="book-highlight">Within these worn pages</span> lies a complete plan—a secret that changed millions. 
+                                The famous little red book, reborn. <em>Click to read →</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="the-book" id="theBook">
+                        <button class="book-close" onclick="closeTheBook()">×</button>
+                        <div class="book-cover" onclick="openBook()">
+                            <div class="book-cover-content">
+                                <h1 class="book-title">IT WORKS</h1>
+                                <p class="book-subtitle">The Famous Little Red Book</p>
+                                <p class="book-subtitle">That Makes Your Dreams Come True</p>
+                                <p class="book-author">— R.H.J. —</p>
+                                <p class="book-open-hint">Click to Open</p>
+                            </div>
+                        </div>
+                        <div class="book-pages">
+                            <div class="book-page" data-page="0">
+                                <h2 class="book-chapter">Chapter I: The Secret</h2>
+                                <p class="book-text">
+                                    In a world filled with noise and confusion, there exists a Power—an inner force—that is anxious and willing to serve you. 
+                                    This Power does not care if what you want is possible or impossible. It only knows how to receive your desires and manifest them.
+                                </p>
+                                <p class="book-text">
+                                    You have within you a power greater than all the forces of nature. This power is called by many names: 
+                                    Emmanuel, God Within, the Subconscious Mind, the Silent Partner. Whatever you call it, it waits for your commands.
+                                </p>
+                                <p class="book-text">
+                                    The world forgets this truth. We look outside ourselves for happiness, for wealth, for peace—searching far when the treasure 
+                                    lies within. As Russell Conwell teaches, your acres of diamonds are not in distant lands—they are in your own field.
+                                </p>
+                                <p class="book-text">
+                                    <strong>The First Rule:</strong> Write down exactly what you want. Be specific. Be bold. Do not limit yourself—write it all down, 
+                                    every desire, every dream. Then read this list three times each day: morning, noon, and night.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="1">
+                                <h2 class="book-chapter">Chapter II: The Three Rules</h2>
+                                <p class="book-text">
+                                    <strong>The Second Rule:</strong> Think of what you want as often as possible. Every thought is a seed planted in the soil of your subconscious. 
+                                    Plant good seeds, and you will harvest good results. Plant wealth thoughts, and wealth must grow.
+                                </p>
+                                <p class="book-text">
+                                    As James Allen wrote: as a man thinketh in his heart, so is he. Your thoughts are the architects of your destiny. 
+                                    Think wealth, and wealth comes. Think poverty, and poverty follows.
+                                </p>
+                                <p class="book-text">
+                                    <strong>The Third Rule:</strong> Speak to no one about your plan except this Power within. Keep your desires secret. The world will try to tell you 
+                                    it is impossible—that is the voice of doubt. Do not listen. Only speak to the Power that can make it real.
+                                </p>
+                                <p class="book-text">
+                                    Napoleon Hill revealed: the starting point of all achievement is desire. But desire must be burning, specific, unwavering. 
+                                    The vague wanting of the many produces nothing. The singular fire of one produces worlds.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="2">
+                                <h2 class="book-chapter">Chapter III: The Science</h2>
+                                <p class="book-text">
+                                    There is a science of getting rich. Wallace Wattles taught that it is the art of thinking in terms of success. 
+                                    Think abundance, not scarcity. The universe is infinite—it naturally flows toward those who can receive it.
+                                </p>
+                                <p class="book-text">
+                                    Charles Haanel revealed: the universe is mental. All is mind. You are a center of thought. Your world reflects your thinking. 
+                                    Change your thoughts, change your world. What you hold in mind, reality must deliver.
+                                </p>
+                                <p class="book-text">
+                                    The conscious mind is the objective mind—the reasoning, judging part. The subconscious mind is the subjective mind—the part that 
+                                    receives what the conscious mind sows. Joseph Murphy: your subconscious is always listening, always working, always manifesting what you planted.
+                                </p>
+                                <p class="book-text">
+                                    Fear is the great enemy. Napoleon Hill: the fear of failure is the greatest obstacle to success. 
+                                    Replace fear with faith. Faith that it is already done.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="3">
+                                <h2 class="book-chapter">Chapter IV: Feeling is the Secret</h2>
+                                <p class="book-text">
+                                    Feeling is the secret. Neville Goddard taught that the subconscious does not know the difference between 
+                                    a vividly imagined experience and a real one. It responds to what is vividly felt as true.
+                                </p>
+                                <p class="book-text">
+                                    Feel your desire fulfilled NOW. Not tomorrow—not when it arrives—but now. The feeling is the secret. 
+                                    The law responds to what you feel, not what you think or want. To believe is to receive.
+                                </p>
+                                <p class="book-text">
+                                    Florence Scovel Shinn: the game of life is played in the mind first. What you hold in your heart and feel as true, 
+                                    the universe must deliver. Feeling is the key—the art of believing.
+                                </p>
+                                <p class="book-text">
+                                    Claude Bristol: believing is the magic. What you believe with feeling becomes your reality. 
+                                    Faith moves mountains of opportunity. Faith is not hope—it is knowing it is already happening.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="4">
+                                <h2 class="book-chapter">Chapter V: The Game of Life</h2>
+                                <p class="book-text">
+                                    The game of life is not about the external conditions—it is about the internal state. Earl Nightingale called this 
+                                    the strangest secret: we become what we think about most of the day.
+                                </p>
+                                <p class="book-text">
+                                    Your thoughts are seeds. Choose them carefully, for every thought seeds your future. 
+                                    The man who thinks of success all day becomes successful. The woman who thinks of abundance attracts abundance.
+                                </p>
+                                <p class="book-text">
+                                    Norman Vincent Peale: every problem has within it the seeds of its own solution. 
+                                    Expect the best. Plan for success. Think positive, live positive. This is not naivety—it is strategy.
+                                </p>
+                                <p class="book-text">
+                                    Dale Carnegie: become genuinely interested in other people. A smile is a universal welcome. 
+                                    Make others feel important—and do it sincerely. That is the art of influence that lasts.
+                                </p>
+                            </div>
+                            <div class="book-page" data-page="5">
+                                <h2 class="book-chapter">Chapter VI: Know Yourself</h2>
+                                <p class="book-text">
+                                    Sun Tzu wrote: know yourself and know your enemy. The greatest victory is over yourself. 
+                                    He who conquers his thoughts conquers the world. The enemies are within—your doubts, your fears.
+                                </p>
+                                <p class="book-text">
+                                    P.T. Barnum: money is not the root of all evil—fear of poverty is. Learn to use money wisely. 
+                                    Every master was once a beginner who never gave up. Provide value, and money follows.
+                                </p>
+                                <p class="book-text">
+                                    The path of the owl is solitary. Walk your path alone. Do not seek approval. Do not explain. 
+                                    Let your results speak. Let your silence be your strength.
+                                </p>
+                                <p class="book-text" style="text-align: center; font-style: italic; margin-top: 30px; color: #ffb832;">
+                                    This is the secret the owl keeps: Results do not chase effort.<br>
+                                    They follow Direction.<br><br>
+                                    <strong>It Works.</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="book-navigation">
+                            <button class="book-prev" onclick="prevBookPage()">← Previous</button>
+                            <span class="book-page-indicator"><span id="currentBookPage">1</span> / <span id="totalBookPages">6</span></span>
+                            <button class="book-next" onclick="nextBookPage()">Next →</button>
+                        </div>
                     </div>
 
                     <div class="journal-entries">
                         <h2>~ Ancient Entries ~</h2>
-                        <article class="journal-entry" data-entry-id="journal-shadow">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-shadow" title="What hides in plain sight...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On the Nature of Shadow</h3>
@@ -345,7 +478,7 @@
                                 <span class="read-more">Read more →</span>
                             </div>
                         </article>
-                        <article class="journal-entry" data-entry-id="journal-silence">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-silence" title="Between the notes...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On Silence</h3>
@@ -356,7 +489,7 @@
                                 <span class="read-more">Read more →</span>
                             </div>
                         </article>
-                        <article class="journal-entry" data-entry-id="journal-desire">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-desire" title="The seed of manifestation...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On Desire</h3>
@@ -367,7 +500,7 @@
                                 <span class="read-more">Read more →</span>
                             </div>
                         </article>
-                        <article class="journal-entry" data-entry-id="journal-time">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-time" title="Now is the only moment...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On Time</h3>
@@ -378,7 +511,7 @@
                                 <span class="read-more">Read more →</span>
                             </div>
                         </article>
-                        <article class="journal-entry" data-entry-id="journal-wisdom">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-wisdom" title="Action speaks...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On Wisdom</h3>
@@ -389,7 +522,7 @@
                                 <span class="read-more">Read more →</span>
                             </div>
                         </article>
-                        <article class="journal-entry" data-entry-id="journal-death">
+                        <article class="journal-entry mystery-hint spiritual-glow" data-entry-id="journal-death" title="Death is a doorway...">
                             <div class="entry-illumination">¶</div>
                             <div class="entry-content">
                                 <h3>On Death</h3>
@@ -983,6 +1116,111 @@
             goToQuote(0);
         }
     });
+
+    // The Book - Page Navigation
+    let currentBookPage = 0;
+    const totalBookPages = 6;
+
+    function openTheBook() {
+        const book = document.getElementById('theBook');
+        if (book) {
+            book.classList.add('open');
+            currentBookPage = 0;
+            showBookPage(0);
+        }
+    }
+
+    function closeTheBook() {
+        const book = document.getElementById('theBook');
+        if (book) {
+            book.classList.remove('open');
+        }
+    }
+
+    function openBook() {
+        const cover = document.querySelector('.book-cover');
+        if (cover) {
+            cover.classList.add('hidden');
+        }
+        currentBookPage = 0;
+        showBookPage(0);
+    }
+
+    function showBookPage(pageIndex) {
+        const pages = document.querySelectorAll('.book-page');
+        pages.forEach((page, index) => {
+            page.classList.toggle('active', index === pageIndex);
+        });
+        
+        const indicator = document.getElementById('currentBookPage');
+        if (indicator) {
+            indicator.textContent = pageIndex + 1;
+        }
+        
+        currentBookPage = pageIndex;
+        
+        const cover = document.querySelector('.book-cover');
+        if (cover && !cover.classList.contains('hidden')) {
+            cover.classList.add('hidden');
+        }
+        
+        // Scroll to top of pages
+        const bookPages = document.querySelector('.book-pages');
+        if (bookPages) {
+            bookPages.scrollTop = 0;
+        }
+    }
+
+    function nextBookPage() {
+        if (currentBookPage < totalBookPages - 1) {
+            showBookPage(currentBookPage + 1);
+        }
+    }
+
+    function prevBookPage() {
+        if (currentBookPage > 0) {
+            showBookPage(currentBookPage - 1);
+        }
+    }
+
+    function goToBookPage(pageIndex) {
+        showBookPage(pageIndex);
+    }
+
+    // Keyboard navigation for book
+    document.addEventListener('keydown', (e) => {
+        const book = document.getElementById('theBook');
+        if (!book || !book.classList.contains('open')) return;
+        
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            nextBookPage();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            prevBookPage();
+        } else if (e.key === 'Escape') {
+            closeTheBook();
+        }
+    });
+
+    function showBookPage(pageIndex) {
+        const pages = document.querySelectorAll('.book-page');
+        pages.forEach((page, index) => {
+            page.classList.toggle('active', index === pageIndex);
+        });
+        document.getElementById('currentBookPage').textContent = pageIndex + 1;
+        currentBookPage = pageIndex;
+    }
+
+    function nextBookPage() {
+        if (currentBookPage < totalBookPages - 1) {
+            showBookPage(currentBookPage + 1);
+        }
+    }
+
+    function prevBookPage() {
+        if (currentBookPage > 0) {
+            showBookPage(currentBookPage - 1);
+        }
+    }
     </script>
 
     <script src="script.js" defer></script>
