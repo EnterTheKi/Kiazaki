@@ -338,6 +338,31 @@ radioToggle.addEventListener('click', () => {
   }
 });
 
+// Theme Toggle - Light/Dark Mode
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleIcon = themeToggle ? themeToggle.querySelector('i') : null;
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    if (themeToggleIcon) {
+        themeToggleIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    }
+}
+
+// Load saved theme or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+}
+
 // Companion JavaScript - follows you with delay
 (function() {
     const companion = document.getElementById('companion');
@@ -542,13 +567,31 @@ const wisdom = [
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let scrollY = 0;
-    let lastX = window.innerWidth / 2 + 70;
-    let lastY = window.innerHeight / 2 + 70;
+    let lastX = window.innerWidth - 100;
+    let lastY = window.innerHeight - 120;
+    let isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     
     document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        if (!isMobile) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }
     });
+    
+    // Touch tracking for mobile
+    if (isMobile) {
+        document.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            mouseX = touch.clientX;
+            mouseY = touch.clientY;
+        });
+    }
     
     window.addEventListener('scroll', () => {
         scrollY = window.scrollY;
@@ -589,24 +632,29 @@ const wisdom = [
     
     // Show tooltip with wisdom - bigger, more readable text
     function showWisdom(text) {
+        // Remove any existing tooltips first
+        const existingTooltips = document.querySelectorAll('.owl-wisdom-tooltip');
+        existingTooltips.forEach(t => t.remove());
+        
         const tooltip = document.createElement('div');
         tooltip.className = 'owl-wisdom-tooltip';
         tooltip.textContent = '"' + text + '"';
         
-        // Position to the left/above of the owl
-        const tooltipX = Math.max(10, lastX - 220);
-        const tooltipY = Math.max(10, lastY - 30);
+        // Position to the left/above of the owl - use current owl position
+        const owlRect = companion.getBoundingClientRect();
+        const tooltipX = owlRect.left - 240;
+        const tooltipY = owlRect.top - 20;
         
         tooltip.style.cssText = `
             position: fixed;
-            left: ${tooltipX}px;
-            top: ${tooltipY}px;
+            left: ${Math.max(10, tooltipX)}px;
+            top: ${Math.max(10, tooltipY)}px;
             max-width: 220px;
             padding: 14px 18px;
             background: rgba(20, 15, 10, 0.96);
             border: 1px solid rgba(255, 200, 100, 0.5);
             border-radius: 8px;
-            font-family: 'EB Garamond', Georgia, serif;
+            font-family: var(--body-font);
             font-style: italic;
             font-size: 1.1rem;
             line-height: 1.5;
@@ -680,10 +728,35 @@ const wisdom = [
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            // Teleport animation
             companion.classList.add('teleporting');
+            
+            // Move owl to new section position after a brief delay
             setTimeout(() => {
-                companion.classList.remove('teleporting');
-            }, 600);
+                const targetFilter = btn.dataset.filter;
+                let targetSection = null;
+                
+                // Find the target content section
+                if (targetFilter === 'blog') {
+                    targetSection = document.getElementById('featuredCarousel') || document.querySelector('.blog-header');
+                } else if (targetFilter === 'home') {
+                    targetSection = document.querySelector('.site-container');
+                } else if (targetFilter === 'post') {
+                    targetSection = document.querySelector('#post-content');
+                }
+                
+                if (targetSection) {
+                    const rect = targetSection.getBoundingClientRect();
+                    lastX = Math.min(window.innerWidth - 100, Math.max(20, rect.left + 50));
+                    lastY = Math.min(window.innerHeight - 120, Math.max(20, rect.top + 100));
+                    companion.style.left = lastX + 'px';
+                    companion.style.top = lastY + 'px';
+                }
+                
+                setTimeout(() => {
+                    companion.classList.remove('teleporting');
+                }, 400);
+            }, 200);
         });
     });
 })();
