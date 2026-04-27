@@ -702,7 +702,7 @@ const wisdom = [
         
         const tooltip = document.createElement('div');
         tooltip.className = 'owl-wisdom-tooltip';
-        tooltip.textContent = '"' + text + '"';
+        tooltip.innerHTML = '<p style="margin:0;">"' + text + '"</p>';
         
         // Position to the left/above of the owl - use current owl position
         const owlRect = companion.getBoundingClientRect();
@@ -711,10 +711,10 @@ const wisdom = [
         // Adjust positioning for mobile
         let tooltipX, tooltipY, maxWidth;
         if (isMobile) {
-            // On mobile, position above the owl
-            tooltipX = Math.max(10, owlRect.left - 50);
-            tooltipY = Math.max(10, owlRect.top - 120);
-            maxWidth = Math.min(240, window.innerWidth - 30);
+            // On mobile, position above the owl, centered
+            tooltipX = Math.max(10, owlRect.left - 80);
+            tooltipY = Math.max(10, owlRect.top - 140);
+            maxWidth = Math.min(220, window.innerWidth - 40);
         } else {
             tooltipX = owlRect.left - 240;
             tooltipY = owlRect.top - 20;
@@ -727,20 +727,21 @@ const wisdom = [
             top: ${tooltipY}px;
             max-width: ${maxWidth}px;
             padding: 14px 18px;
-            background: rgba(20, 15, 10, 0.96);
-            border: 1px solid rgba(255, 200, 100, 0.5);
-            border-radius: 8px;
+            background: rgba(20, 15, 10, 0.98);
+            border: 2px solid rgba(255, 200, 100, 0.6);
+            border-radius: 10px;
             font-family: var(--body-font);
             font-style: italic;
-            font-size: ${isMobile ? '1rem' : '1.1rem'};
+            font-size: ${isMobile ? '0.95rem' : '1.1rem'};
             line-height: 1.5;
-            color: rgba(230, 215, 190, 0.95);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
-            z-index: 10001;
+            color: rgba(230, 215, 190, 0.98);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 200, 100, 0.2);
+            z-index: 10002;
             opacity: 0;
             transition: opacity 0.35s ease;
             word-wrap: break-word;
             text-align: center;
+            pointer-events: none;
         `;
         
         document.body.appendChild(tooltip);
@@ -750,7 +751,7 @@ const wisdom = [
         setTimeout(() => {
             tooltip.style.opacity = '0';
             setTimeout(() => tooltip.remove(), 300);
-        }, 4000);
+        }, 4500);
     }
     
 // Smooth follow - simpler, follows everywhere
