@@ -1878,6 +1878,13 @@ input, textarea, select, [contenteditable] {
     overflow: hidden;
 }
 
+.design-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .design-placeholder {
     display: flex;
     flex-direction: column;
@@ -4101,6 +4108,17 @@ footer p {
         overflow: hidden;
     }
     
+    .design-image {
+        height: 180px;
+    }
+    
+    .design-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+        display: block;
+    }
+    
     .design-details {
         padding: 15px;
         text-align: center;
@@ -4735,6 +4753,17 @@ footer p {
         padding: 15px;
     }
     
+    .design-image {
+        height: 160px;
+    }
+    
+    .design-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+        display: block;
+    }
+    
     .intro-section {
         padding: 15px;
     }
@@ -4923,6 +4952,17 @@ footer p {
     .uki-bubble p {
         font-size: 0.95rem;
         line-height: 1.4;
+    }
+    
+    .design-image {
+        height: 140px;
+    }
+    
+    .design-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+        display: block;
     }
 }
 
