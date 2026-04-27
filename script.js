@@ -706,27 +706,41 @@ const wisdom = [
         
         // Position to the left/above of the owl - use current owl position
         const owlRect = companion.getBoundingClientRect();
-        const tooltipX = owlRect.left - 240;
-        const tooltipY = owlRect.top - 20;
+        const isMobile = window.innerWidth <= 768;
+        
+        // Adjust positioning for mobile
+        let tooltipX, tooltipY, maxWidth;
+        if (isMobile) {
+            // On mobile, position above the owl
+            tooltipX = Math.max(10, owlRect.left - 50);
+            tooltipY = Math.max(10, owlRect.top - 120);
+            maxWidth = Math.min(240, window.innerWidth - 30);
+        } else {
+            tooltipX = owlRect.left - 240;
+            tooltipY = owlRect.top - 20;
+            maxWidth = 220;
+        }
         
         tooltip.style.cssText = `
             position: fixed;
-            left: ${Math.max(10, tooltipX)}px;
-            top: ${Math.max(10, tooltipY)}px;
-            max-width: 220px;
+            left: ${tooltipX}px;
+            top: ${tooltipY}px;
+            max-width: ${maxWidth}px;
             padding: 14px 18px;
             background: rgba(20, 15, 10, 0.96);
             border: 1px solid rgba(255, 200, 100, 0.5);
             border-radius: 8px;
             font-family: var(--body-font);
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: ${isMobile ? '1rem' : '1.1rem'};
             line-height: 1.5;
             color: rgba(230, 215, 190, 0.95);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
             z-index: 10001;
             opacity: 0;
             transition: opacity 0.35s ease;
+            word-wrap: break-word;
+            text-align: center;
         `;
         
         document.body.appendChild(tooltip);
