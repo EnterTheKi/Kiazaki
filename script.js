@@ -1,28 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Force all quote dots to be perfect circles
+    // Force all quote dots to be perfect circles with touch-friendly size
     document.querySelectorAll('.quote-dot').forEach(dot => {
         dot.style.borderRadius = '9999px';
-        dot.style.width = '1.2em';
-        dot.style.height = '1.2em';
         dot.style.boxSizing = 'border-box';
         dot.style.appearance = 'none';
         dot.style.webkitAppearance = 'none';
         dot.style.padding = '0';
         dot.style.margin = '0';
-        dot.style.border = '2px solid rgba(255, 184, 50, 0.6)';
-        dot.style.background = 'transparent';
         dot.style.cursor = 'pointer';
         dot.style.outline = 'none';
         dot.style.display = 'inline-block';
-        
-        // Force active state styles if dot has 'active' class
-        if (dot.classList.contains('active')) {
-            dot.style.background = 'linear-gradient(135deg, #ffb832 0%, #d4952a 100%)';
-            dot.style.borderColor = '#ffb832';
-            dot.style.boxShadow = '0 0 15px rgba(255, 184, 50, 0.6)';
-            dot.style.transform = 'scale(1.2)';
-            dot.style.animation = 'dotBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite';
-        }
     });
     const container = document.querySelector('.site-container');
     const filterButtons = container.querySelectorAll('.filter-btn');
@@ -395,18 +382,34 @@ const radioToggle = document.getElementById('radioToggle');
 const radioStream = document.getElementById('radioStream');
 let isPlaying = false;
 
-radioToggle.addEventListener('click', () => {
-  isPlaying = !isPlaying;
+function setRadioState(playing) {
+  isPlaying = playing;
   radioToggle.setAttribute('aria-pressed', isPlaying);
   radioToggle.innerHTML = isPlaying 
     ? '<i class="fa-solid fa-stop"></i><span class="sr-only">Stop Radio</span>'
     : '<i class="fa-solid fa-play"></i><span class="sr-only">Play Radio</span>';
+}
 
-  if (isPlaying) {
-    radioStream.play().catch(e => console.error('Radio error:', e));
-    radioToggle.classList.add('radio-active');
+radioToggle.addEventListener('click', () => {
+  if (!isPlaying) {
+    radioStream.volume = 0.7;
+    const playPromise = radioStream.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        setRadioState(true);
+        radioToggle.classList.add('radio-active');
+      }).catch(e => {
+        console.error('Radio error:', e);
+        setRadioState(false);
+        radioToggle.classList.remove('radio-active');
+      });
+    } else {
+      setRadioState(true);
+      radioToggle.classList.add('radio-active');
+    }
   } else {
     radioStream.pause();
+    setRadioState(false);
     radioToggle.classList.remove('radio-active');
   }
 });
