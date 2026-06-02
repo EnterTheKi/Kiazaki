@@ -2,6 +2,19 @@
    KIAZAKI - CONSOLIDATED STYLESHEET
    ============================================ */
 
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
 /* Base Styles */
 
 button.quote-dot,
@@ -577,6 +590,14 @@ body::after {
         0 2px 8px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .search-toggle-btn:hover {
@@ -632,15 +653,38 @@ body::after {
 
 .search-results.visible { display: block; }
 
+.search-result-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item:active {
+    background: var(--accent-color);
+}
+
 .search-highlight {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 200, 100, 0.4);
     color: #fff;
     border-radius: 3px;
     padding: 2px 4px;
 }
 
 /* Popup Menu */
-.popup-menu { display: flex; align-items: center; }
+.popup-menu { 
+    display: flex; 
+    align-items: center; 
+    position: relative;
+}
 
 .popup-toggle {
     background: linear-gradient(180deg, rgba(50, 40, 30, 0.9) 0%, rgba(30, 24, 18, 0.95) 100%);
@@ -653,6 +697,15 @@ body::after {
     box-shadow: 
         0 2px 8px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .popup-toggle:hover {
@@ -2059,6 +2112,16 @@ input, textarea, select, [contenteditable] {
     z-index: 1000;
 }
 
+#radioStream {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    left: -9999px;
+    top: -9999px;
+}
+
 .radio-toggle-btn {
     background: linear-gradient(180deg, rgba(50, 40, 30, 0.9) 0%, rgba(30, 24, 18, 0.95) 100%);
     border: 1px solid rgba(180, 150, 100, 0.3);
@@ -2072,11 +2135,33 @@ input, textarea, select, [contenteditable] {
     border-radius: 50% !important;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1rem;
-    cursor: url('assets/cursors/glove-pointer.cur'), pointer;
+    cursor: pointer;
     box-shadow: 
         0 2px 8px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.radio-toggle-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 200, 100, 0);
+    pointer-events: none;
+    animation: radio-pulse 2.5s ease-out infinite;
 }
 
 .radio-toggle-btn:hover {
@@ -2117,11 +2202,16 @@ input, textarea, select, [contenteditable] {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
         0 2px 8px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .theme-toggle-btn:hover {
@@ -2151,6 +2241,19 @@ input, textarea, select, [contenteditable] {
     20% { box-shadow: 0 0 2px #fff, inset 0 0 2px rgba(255, 255, 255, 0.3); }
     40% { box-shadow: 0 0 8px #fff, inset 0 0 8px rgba(255, 255, 255, 0.7); }
     100% { box-shadow: 0 0 5px #fff, inset 0 0 5px rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes radio-pulse {
+    0% { 
+        transform: translate(-50%, -50%) scale(1);
+        border-color: rgba(255, 200, 100, 0.5);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1.6);
+        border-color: rgba(255, 200, 100, 0);
+        opacity: 0;
+    }
 }
 
 /* Enhanced Typography for serif Font */
@@ -3951,23 +4054,32 @@ footer p {
         border-radius: 50%;
     }
     
-    /* Better filter buttons on mobile - VERTICAL layout */
+    /* Filter buttons side-by-side on mobile */
     .filter-buttons {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 8px;
-        padding: 0 12px;
-        flex-wrap: nowrap;
+        gap: 6px;
+        padding: 0 10px;
+        flex-wrap: wrap;
         justify-content: center;
     }
 
     .filter-btn {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-        min-height: 42px;
-        min-width: 140px;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        min-height: 38px;
+        min-width: 0;
         width: auto;
+        flex: 0 1 auto;
         justify-content: center;
+        letter-spacing: 1px;
+    }
+
+    .filter-btn .filter-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.85rem;
+        margin-right: 5px;
     }
 
 
@@ -4291,8 +4403,8 @@ footer p {
     }
     
     .quote-dot {
-        width: 18px !important;
-        height: 18px !important;
+        width: 22px !important;
+        height: 22px !important;
         border-radius: 50% !important;
         border: 2px solid rgba(255, 184, 50, 0.6) !important;
         background: transparent !important;
@@ -4302,10 +4414,28 @@ footer p {
         box-sizing: border-box !important;
         box-shadow: 0 0 5px rgba(255, 184, 50, 0.2);
         display: block !important;
+        position: relative;
+    }
+    
+    .quote-dot::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: transparent;
+        transition: background 0.3s ease;
+    }
+    
+    .quote-dot.active::before {
+        background: linear-gradient(135deg, #ffb832 0%, #d4952a 100%);
     }
     
     .quote-dot.active {
-        background: linear-gradient(135deg, #ffb832 0%, #d4952a 100%) !important;
+        background: transparent !important;
         border-color: #ffb832 !important;
         border-radius: 50% !important;
         box-shadow: 0 0 15px rgba(255, 184, 50, 0.6);
@@ -4422,12 +4552,12 @@ footer p {
     .radio-toggle-btn,
     .popup-toggle,
     .theme-toggle-btn {
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        max-width: 44px !important;
-        max-height: 44px !important;
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        max-width: 48px !important;
+        max-height: 48px !important;
         border-radius: 50% !important;
         border: 2px solid var(--border-color);
         background: var(--accent-color);
@@ -4435,12 +4565,15 @@ footer p {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 1rem;
+        font-size: 1.1rem;
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         padding: 0 !important;
         box-sizing: border-box !important;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
     }
     
     .search-toggle-btn:active,
@@ -4470,27 +4603,28 @@ footer p {
         margin: 15px auto 10px auto;
     }
     
-    /* Fix filter buttons - VERTICAL on mobile */
+    /* Filter buttons side-by-side on smaller mobile */
     .filter-nav {
         padding: 10px 5px;
     }
     
     .filter-buttons {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 6px;
+        gap: 5px;
         padding: 0 5px;
     }
     
     .filter-btn {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-        min-height: 40px;
-        min-width: 130px;
+        padding: 6px 8px;
+        font-size: 0.7rem;
+        min-height: 34px;
+        min-width: 0;
         width: auto;
+        flex: 0 1 auto;
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -4500,6 +4634,14 @@ footer p {
         color: var(--text-color);
         cursor: pointer;
         transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+    
+    .filter-btn .filter-icon {
+        width: 14px;
+        height: 14px;
+        font-size: 0.8rem;
+        margin-right: 4px;
     }
     
     .filter-btn:active,
@@ -4511,9 +4653,9 @@ footer p {
     
     /* Fix popup content positioning */
     .popup-content {
-        position: fixed;
-        top: 70px;
-        right: 10px;
+        position: absolute;
+        top: 58px;
+        right: 0;
         width: 200px;
         background: var(--accent-color);
         border: 2px solid var(--border-color);
@@ -4718,14 +4860,23 @@ footer p {
     }
     
     .filter-buttons {
-        gap: 6px;
+        gap: 5px;
         flex-wrap: wrap;
-        padding: 0 10px;
+        padding: 0 8px;
     }
     
     .filter-btn {
-        padding: 10px 12px;
-        font-size: 0.85rem;
+        padding: 6px 8px;
+        font-size: 0.72rem;
+        min-height: 34px;
+        letter-spacing: 0.5px;
+    }
+    
+    .filter-btn .filter-icon {
+        width: 13px;
+        height: 13px;
+        font-size: 0.75rem;
+        margin-right: 4px;
     }
     
     .main-image {
@@ -4791,15 +4942,15 @@ footer p {
     .right-widgets {
         top: 10px;
         right: 10px;
-        gap: 6px;
+        gap: 8px;
     }
     
     .search-toggle-btn,
     .radio-toggle-btn,
     .popup-toggle {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 46px;
+        height: 46px;
+        font-size: 1.05rem;
     }
     
     /* Small mobile popup optimizations */
